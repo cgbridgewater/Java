@@ -4,19 +4,18 @@ public class MyOwnJava {
         );
 
 
+        System.out.println("---IF statement test---");
+        boolean isRaining = true;
+            
+        if(isRaining) {
+            System.out.println("Bring an umbrella.");
+        }
+        else {
+            System.out.println("Have fun!");
+        }
 
 
-
-
-
-
-
-
-
-
-
-
-                System.out.println("Switch Operator says....");
+                System.out.println("---Switch Operator says....---");
                 int day = 2;
         switch(day){
             case 1:
@@ -45,6 +44,7 @@ public class MyOwnJava {
         }
 
 
+        System.out.println("---Another Switch Test---");
         int goals = 3;
         boolean watchReplay = false;
 
@@ -71,6 +71,8 @@ public class MyOwnJava {
             watchReplay = true;
         }
 
+
+        System.out.println("---Ternary test---");
         System.out.println(watchReplay ? "I'll see you in a bit." : "I'll pass.");
     }
 }
