@@ -10,8 +10,8 @@ public class AlfredTest {
         
         // Make some test greetings, providing any necessary data
         String testGreeting = alfredBot.basicGreeting();  //done
-        String testGuestGreeting = alfredBot.guestGreeting("Beth Kane");  // done
-        // String testGuestGreetingOverload = alfredBot.guestGreeting("Beth Kane", simpleDateFormat());  // done
+        String testGuestGreeting = alfredBot.guestGreeting("Batgirl");  // done
+        String testGuestGreetingOverload = alfredBot.guestGreeting2("Commissioner Gordon", "evening");  // done
         String testDateAnnouncement = alfredBot.dateAnnouncement();  //done
         
         String alexisTest = alfredBot.respondBeforeAlexis( // done
@@ -45,7 +45,7 @@ public class AlfredTest {
 
         // Ninja bonus OVERLOAD
         System.out.println("---Test Overload---");
-        // System.out.println(testGuestGreetingOverload);
+        System.out.println(testGuestGreetingOverload);
 
         // Ninja bonus 
         System.out.println("---Test Don't Touch The Batmobile");
