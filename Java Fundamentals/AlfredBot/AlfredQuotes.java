@@ -6,10 +6,24 @@ public class AlfredQuotes {
         return "Welcome to the BatCave!  Please don't touch the Batmobile.";
     }
     
+    // public String guestGreeting(String name) {
+    //         return "Welcome to the Wayne Mannor " + name;
+    // }
+                                            //,int dayPeriod
     public String guestGreeting(String name) {
-        // YOUR CODE HERE
-        return "Welcome to the Wayne Mannor " + name;
-    }
+        // if(name){
+            return "Welcome to the Wayne Mannor " + name;
+        }
+        // else if(dayPeriod) { 
+            // Int time = new simpleDateFormat();
+        //         if(dayPeriod >=5 && dayPeriod < 11)
+        //         return String.format("Good morning, $. Welcome to the Batcave", name);
+        //         if(dayPeriod >=11 && dayPeriod <16 )
+        //         return String.format("Good afternoon, $. Welcome to the Batcave", name);
+        //         if(dayPeriod >=16 && dayPeriod <5 )
+        //         return String.format("Good evening, $. Welcome to the Batcave", name);
+        // }
+    // }
     
     public String dateAnnouncement() {
         Date date = new Date();
