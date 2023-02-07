@@ -58,13 +58,12 @@ class ArraysAndLists {
         myList.set(0,9);
         System.out.println(myList);
 
+        //Array list   note the OBJECT, which allows anything to be added
         ArrayList<Object> things= new ArrayList<Object>();
         things.add(10);
         things.add("hello");
         things.add(new ArrayList<Integer>());
         things.add(12.5);
         System.out.println(things);
-
-
     }
 }
