@@ -3,7 +3,8 @@ import java.util.ArrayList;
 class ArraysAndLists {
 
     public static void main(String[] args) {
-        
+
+
         //Fixed array
         //No push, no Pop, It is what it is!
         int[] myArray; //declare type
@@ -15,6 +16,7 @@ class ArraysAndLists {
         myArray[3] =5;
         myArray[4] =9;
 
+
         //For Loop to print my fixed array
         for(int i = 0; i< myArray.length; i++) {
         System.out.println(myArray[i]);
@@ -23,6 +25,7 @@ class ArraysAndLists {
 
         // picking out array points to do math
         int[] numbers = {2, 4, 12, 7, 23, 44, 5, 9, 7, 11, 10, 3};
+
 
         // Use the numbers array to print the following sums: 9, 56, 24, 100
         // The first one (9) has been done for you
@@ -44,19 +47,21 @@ class ArraysAndLists {
         //Array List
         ArrayList<Integer> myList = new ArrayList<Integer>();
         System.out.println(myList);
-
         myList.add(10);
         myList.add(11);
         System.out.println(myList);
+
 
         //getters and setters
         // getter get(index)
         Integer num = myList.get(0);
         System.out.println(num);
 
+
         //setter -->   set(index, value)
         myList.set(0,9);
         System.out.println(myList);
+
 
         //Array list   note the OBJECT, which allows anything to be added
         ArrayList<Object> things= new ArrayList<Object>();
