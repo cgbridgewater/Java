@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class CafeUtil {
 
     public int getStreakGoal(int numWeeks){
@@ -7,26 +10,38 @@ public class CafeUtil {
         while(count<=numWeeks) {
             sum += count;
             count++;
-            // System.out.println(count);
         }
-        return sum;
-        // return"spaceholder"
+            return sum;
     }
 
 
-    // public double getOrderTotal(double[]prices)(){
-    //     return"spaceholder"
-    // }
+    public double getOrderTotal(double[] lineItems){
+        double totalPrice = 0;
+        for(int i = 0; i<= lineItems.length-1; i++) {
+            totalPrice += lineItems[i];
+        }
+            return totalPrice;
+    }
 
 
-    // public void displayMenu(ArrayList<String> menuItems){
-    //     return"spaceholder"
-    // }
+    public void displayMenu(ArrayList<String> menuItems){
+        String names = "";
+        for(int i = 0; i< menuItems.size(); i++){
+        names += (i +" " + menuItems.get(i)+" \n\n" );
+        }
+        System.out.println(names);
+        // return names;
+    }
 
 
-    // public void AddCustomer(ArrayList<String>customers)(){
-    //     return"spaceholder"
-    // }
+    public void AddCustomer(ArrayList<String>customers){
+        String customerList = "";
+        for (int i = 0; i < customers.size(); i++) {
+            customerList += customers.get(i) + "\n";
+        }
+            System.out.println(customerList);
+        // return"spaceholder";
+    }
 
 }
 
