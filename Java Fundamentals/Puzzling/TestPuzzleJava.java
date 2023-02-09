@@ -11,46 +11,36 @@ public class TestPuzzleJava {
         PuzzleJava generator = new PuzzleJava();
 
 
-        System.out.println("----- Random Roll-----");
-
+        System.out.println("\n----- Generate an array of Random Rolla-----");
         ArrayList<Integer> randomRolls = new ArrayList<Integer>();
             generator.getTenRolls(randomRolls);
-
-
-
+        
+        
+        
+        System.out.println("\n----- Generate a single random letter-----");
+        ArrayList<String> randomLetter = new ArrayList<String>();
+            generator.getRandomLetter(randomLetter);
 
         
-        //..
-        // Write your other test cases here.
-        //..
+        System.out.println("\n----- Generate a random 8 letter password-----");
+        String randomPW ="";
+            generator.generatePassword(randomPW);
+
+
+
+
+        // System.out.println("----- Generate a random passwords basedo on int input-----");
+        // ArrayList<String> randomLetter = new ArrayList<String>();
+            // int pwQty;
+        //     generator.getNewPasswordSet(randomLetter, pwQty);
+
+
+
+
+        // System.out.println("----- Truffle Array Shuffle-----");
+        // ArrayList<String> shuffle = new ArrayList<String>();
+        //     generator.shuffleArray(shuffle);
+
+
     }
 }
-
-
-
-
-//getTenRolls
-// make a method that will generate and return an array with 10 randome numbers 1-20 inclusive
-
-
-
-// getRandomLetter
-// create a method that will contain an array of the alphabet (26 values)
-// generate a random index 0-25 to pull a random letter from the array and return that letter
-
-
-
-// generatePassword
-// white a method that uses the previous methode to create a random string of 8 characters and return the string
-
-
-
-// getNewPasswordSet 
-// write a method that takes an "int" length as an argument and creates an array of 8 charactor words. 
-// The array should be the length of the "int" provided
-// return the arraw of the passwords
-
-
-
-// shuffleArray
-// write a method that takes an array and mizes up the values in a random way (use random indexes within the array and swap values repeatedly)
