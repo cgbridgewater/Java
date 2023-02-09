@@ -38,14 +38,26 @@ public class TestCafe2 {
 
         // --- Test 4 times --- //
         
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
             appTest.addCustomer(customers);
             System.out.println("\n");
         }
 
+
+
+
+        // Test Ninja Price Charting //  DONE need qty discount still!
+        System.out.println("----- Ninja Price Chart Test-----");
+        appTest.printPriceChart("Starbucks Holiday Blend",6.0, 3);
+        appTest.printPriceChart("Dunkin' French Vanilla Blend ", 2.0, 5);
+        appTest.printPriceChart("Columbian Coffee Grounds", 15, 4);
+        appTest.printPriceChart("Tim Hortons Specialty Blend", 10.0, 2);
+        appTest.printPriceChart("Red Bull 8oz can", 2.5, 4);
+
+
         
-        //Test #3 Overloaded //
-        System.out.println("----- Display Menu Test-----");
+        //Test Ninja Overloaded //
+        System.out.println("----- Ninja Overloaded Menu Test-----");
         ArrayList<String> drinks = new ArrayList<String>();
             drinks.add("drip coffee");
             drinks.add("cappuccino");
@@ -58,6 +70,11 @@ public class TestCafe2 {
             price.add(5.00);
         appTest.displayMenu(drinks, price);
 
+
+
+        System.out.println("----- Ninja Barista Input Test-----");
+        ArrayList<String> customerList = new ArrayList<String>();
+        appTest.addCustomers(customerList);
 
     }
 }
