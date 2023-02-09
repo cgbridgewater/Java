@@ -22,22 +22,12 @@ public class TestCafe {
 
         //Test #3 //
         System.out.println("----- Display Menu Test-----");
-        ArrayList<String> menu = new ArrayList<String>();
-        menu.add("drip coffee");
-        menu.add("cappuccino");
-        menu.add("latte");
-        menu.add("mocha");
-        cafeUtil.displayMenu(menu);
+        cafeUtil.displayMenu();
 
 
+        //Test #4 //
         System.out.println("\n----- Add Customer Test-----");
-        ArrayList<String> customers = new ArrayList<String>();
-        // --- Test 4 times ---
-        customers.add("Rickie");
-        customers.add("Bobby");
-        customers.add("Ronnie");
-        customers.add("Mike");
-        cafeUtil.AddCustomer(customers);
+        cafeUtil.AddCustomer();
 
 
     }
