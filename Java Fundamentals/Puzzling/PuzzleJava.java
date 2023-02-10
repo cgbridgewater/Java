@@ -1,7 +1,9 @@
 import java.util.Random;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class PuzzleJava {
+
 
 
 public void getTenRolls(ArrayList<Integer> randomRolls){
@@ -14,6 +16,7 @@ public void getTenRolls(ArrayList<Integer> randomRolls){
 }
 
 
+
 public void getRandomLetter(ArrayList<String> randomLetter){
     String[] alphabetSoup = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
     Random randomInt = new Random(); // declares random function
@@ -21,6 +24,7 @@ public void getRandomLetter(ArrayList<String> randomLetter){
     System.out.printf("Let me pull a random letter out of thin air for you. Drumroll please.....  Here's your letter: %s", alphabetSoup[random]);
     System.out.printf("\n"); 
 }
+
 
 
 public void generatePassword(String randomPW){
@@ -33,6 +37,7 @@ public void generatePassword(String randomPW){
     System.out.printf("Your random password is : %s ", randomPW); 
     System.out.printf("\n"); 
 }
+
 
 
 public void getNewPasswordSet(String randomPassword, int pwQty){
@@ -52,35 +57,25 @@ public void getNewPasswordSet(String randomPassword, int pwQty){
             randomPassword = "";
             count++;
         }
-
     System.out.printf("\nYour list of %s passwords is : %s ",pwQty, passwordArray); 
     System.out.printf("\n"); 
 }
 
 
 
-// getNewPasswordSet 
-// write a method that takes an "int" length as an argument and creates an array of 8 charactor passwords. 
-// The array should be the length of the "int" provided
-// return the arraw of the passwords
-
-
-
-// shuffleArray
-// write a method that takes an array and mizes up the values in a random way (use random indexes within the array and swap values repeatedly)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+public void shuffleArray(){
+    Integer[] myNumbers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    Integer[] sortedNumbers = {};
+		Random sorter = new Random();
+		
+		for (int i = 0; i < myNumbers.length; i++) {
+			Integer randomIndexToSwap = sorter.nextInt(myNumbers.length);
+			Integer temp = myNumbers[randomIndexToSwap];
+			myNumbers[randomIndexToSwap] = myNumbers[i];
+			myNumbers[i] = temp;
+            // sortedNumbers.add(myNumbers[i]);
+		}
+		System.out.println(Arrays.toString(myNumbers));
+	}
 
 }
