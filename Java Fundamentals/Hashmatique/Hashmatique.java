@@ -1,12 +1,10 @@
 import java.util.Set;
 import java.util.HashMap;
 
-
 public class Hashmatique {
     public static void main(String[] args) {
 
-
-
+        // Declare hashmap and populate it
         HashMap<String, String> devon = new HashMap<String, String>();
         devon.put("Trust Issues", "Trust Issues Lyrics");
         devon.put("Warning Signs", "Warning Signs Lyrics");
@@ -18,14 +16,13 @@ public class Hashmatique {
         System.out.println("\n");
         System.out.println("\n--- The lyrics packet you requested:\n " + lyrics);
 
-        // get the keys by using the keySet method
+        // Get the keys by using the keySet method
         System.out.println("\n--- The Devon album tracks and lyrics are: ");
         Set<String> keys = devon.keySet();
         for(String key : keys) {
             System.out.println(key);
             System.out.println(devon.get(key));   
         }
-
 
     }
 }
