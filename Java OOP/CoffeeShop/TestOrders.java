@@ -26,14 +26,11 @@ class TestOrders{
         Order order1 = new Order();
         order1.name = "Gryffin";
 
-
         Order order2 = new Order();
         order2.name = "Woolie";
 
-
         Order order3 = new Order();
         order3.name = "Timmy Trumpet";
-
 
         Order order4 = new Order();
         order4.name = "William Black";
@@ -45,14 +42,11 @@ class TestOrders{
         order1.drinks.add(dripCoffee);
         order1.total += dripCoffee.price;
 
-
         order2.drinks.add(mocha);
         order2.total += mocha.price;
 
-
         order3.drinks.add(capuccino);
         order3.total += capuccino.price;
-
 
         order4.drinks.add(latte);
         order4.total += latte.price;
@@ -63,22 +57,15 @@ class TestOrders{
         order4.drinks.add(latte);
         order4.total += latte.price*2;
 
-        // order status's
+
+        // make order status's
         order1.ready = false;
         order2.ready = false;
         order3.ready= true;
         order4.ready= true;
+        
 
-
-
-
-
-        // Order variables -- order1, order2 etc.
-    
-        // Application Simulations
-        // Use this example code to test various orders' updates
-        // System.out.println(order1.name);
-        // System.out.printf("Name: %s\n", order1.name);
+        // Application Simulations (if statements included in this section)
         System.out.println("if i print an order, do I get an object back? My guess is yes");
         System.out.println(order1);
         System.out.println("Yup looks like it");
@@ -88,6 +75,7 @@ class TestOrders{
         System.out.printf("Hi %s, your total is: $%.2f\n",order4.name, order4.total);
 
 
+        // adding IF statements to return different logs based on status 
         if(order1.ready) {
         System.out.printf("%s your order is ready\n", order1.name );
         }
