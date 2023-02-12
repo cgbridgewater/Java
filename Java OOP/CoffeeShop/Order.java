@@ -1,11 +1,10 @@
-import java.util.ArrayList
+import java.util.ArrayList;
 
 class Order {
 
     public String name;
-    public Double total;
+    public double total;
     public boolean ready;
-    public Array<Item>items;
-
+    public ArrayList<Drink> drinks = new ArrayList<Drink>();
 
 }

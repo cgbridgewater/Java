@@ -14,7 +14,7 @@ public class Member {
         this.firstName = firstName;
         this.lastName = lastName;
         this.memberNumber = memberNumber;
-        this.booksCheckedOut = new ArrayList<Book>();
+        // this.booksCheckedOut = new ArrayList<Book>();
     }
 
     public Member(){
