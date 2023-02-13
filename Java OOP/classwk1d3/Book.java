@@ -6,6 +6,7 @@ public class Book{
     private String genre;
     private Integer numberOfPages;
     
+    public Book(){};
     public Book(String title, String author, String genre, Integer numberOfPages){
         this.title=title;
         this.author=author;
@@ -28,11 +29,4 @@ public class Book{
     public Integer getNumberOfPages(){
         return this.numberOfPages;
     }
-
-
-
-
-
-
-
 }

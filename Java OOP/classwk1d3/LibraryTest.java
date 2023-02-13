@@ -12,7 +12,7 @@ public class LibraryTest {
     // Member jason = new Member();
     // jason.setFirstName(firstName:"Jason")
 
-    Member chris = new Member( firstName: "Chris", lastName: "Bridgewater", memberNumber: 1);
+    Member chris = new Member("Chris", "Bridgewater", 1);
 
 
     chris.checkOutBook(theSilmarillion);

@@ -14,7 +14,7 @@ public class Member {
         this.firstName = firstName;
         this.lastName = lastName;
         this.memberNumber = memberNumber;
-        // this.booksCheckedOut = new ArrayList<Book>();
+        this.booksCheckedOut = new ArrayList<Book>();
     }
 
     public Member(){
@@ -34,21 +34,21 @@ public class Member {
         return firstName;
     }
     public String setFirstName() {
-        return firstName;
+        return this.firstName;
     }
 
     public String getLastName() {
         return lastName;
     }
     public String setLastName() {
-        return lastName;
+        return this.lastName;
     }
     
     public Integer getMemberNumber() {
         return memberNumber;
     }
     public Integer setMemberNumber() {
-        return memberNumber;
+        return this.memberNumber;
     }
 
     public ArrayList<Book> getBooksCheckedOut() {
@@ -56,12 +56,6 @@ public class Member {
     }
 
     public ArrayList<Book> setBooksCheckedOut() {
-        return booksCheckedOut;
+        return this.booksCheckedOut;
     }
-
-
-
-
-
-
 }
