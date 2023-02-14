@@ -12,16 +12,16 @@ class Item {
         this.price=price;
     }
 
-    public void setName(String name) {  // name SETTER //
-        this.name = name;
+    public String setName() {  // name SETTER //
+        return this.name;
     }
 
     public String getName() {  // name GETTER //
         return name;
     }
 
-    public void setPrice(double number) {  // price SETTER //
-        this.price = price;
+    public double setPrice() {  // price SETTER //
+        return this.price;
     }
 
     public double getPrice() {  // price GETTER //
