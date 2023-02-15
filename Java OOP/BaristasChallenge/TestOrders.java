@@ -76,15 +76,19 @@ class TestOrders{
         order6.displayOrder();
         
 
+        order1.setIsReady(true);
+        order2.setIsReady(true);
+        order4.setIsReady(true);
+
         // Display order status
         System.out.printf("\n");
         System.out.println("----------------Show Orders Status");
-        order1.getStatusMessage(true);
-        order2.getStatusMessage(false);
-        order3.getStatusMessage(true);
-        order4.getStatusMessage(false);
-        order5.getStatusMessage(true);
-        order6.getStatusMessage(false);
+        order1.getStatusMessage();
+        order2.getStatusMessage();
+        order3.getStatusMessage();
+        order4.getStatusMessage();
+        order5.getStatusMessage();
+        order6.getStatusMessage();
 
 
 

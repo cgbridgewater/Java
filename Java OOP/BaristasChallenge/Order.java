@@ -47,9 +47,15 @@ public class Order {
     }
 
 
-    public void getStatusMessage(boolean isReady) {  // status message GETTER //
+
+    public void setIsReady(boolean isReady){
+        this.isReady = isReady;
+    }
+
+
+    public void getStatusMessage() {  // status message GETTER //
         String customerName = this.name;
-        if (isReady == true){
+        if (this.isReady){
             System.out.println(customerName + ", Your order is ready for pick-up");     // does this even work???
         }
         else{
