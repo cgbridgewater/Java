@@ -51,7 +51,6 @@ public class BankAccount {
             totalMoniesInBank -= withdraw;
             System.out.println("Savings withdrawn: $" + withdraw);
             System.out.println("Your new savings balance is: $" + this.savingsBalance);
-
             } else
             System.out.println("INSUFFICIENT FUNDS! please reduce amount to be withdrawn");
     }
@@ -63,7 +62,6 @@ public class BankAccount {
             totalMoniesInBank -= withdraw;
             System.out.println("Checking withdrawn: $" + withdraw);
             System.out.println("Your new checking balance is: $" + this.checkingBalance);
-
             } else
             System.out.println("INSUFFICIENT FUNDS! please reduce amount to be withdrawn");
     }
@@ -79,9 +77,11 @@ public class BankAccount {
         System.out.println("Your checking balance is: " + checkingBalance);
     }
 
+
     public void getSavingsBalance() {  // Savings GETTER //  
         System.out.println("Your savings balance is: " + savingsBalance);
     }
+
 
     public void getCheckingBalance() {  // Checking Getter // 
         System.out.println("Your checking balance is: " + checkingBalance);

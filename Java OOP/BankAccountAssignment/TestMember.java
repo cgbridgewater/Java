@@ -7,16 +7,15 @@ public class TestMember {
         System.out.println("-----------------Initial Deposits");
         BankAccount member1 = new BankAccount(10400.00, 5533.00);
 
+
         System.out.println("---------------- Test Get account #");
         member1.getAccountNumber();
-
-
 
 
         System.out.println("-----------------Initial Total Bank Funds");
         System.out.printf("The banks total funds are : ");
         System.out.println(BankAccount.showMeTheMoney());        
-        
+
 
         System.out.printf("Number Of Accounts In System: ");
         System.out.println(BankAccount.totalAccountsInBank());
@@ -56,7 +55,6 @@ public class TestMember {
         member1.setSavingsWithdraw(200.00);
         System.out.println("---------------- Test Over Withdraw");
         member1.setSavingsWithdraw(50000.00);
-        
 
 
         System.out.printf("The new banks total funds are : ");
