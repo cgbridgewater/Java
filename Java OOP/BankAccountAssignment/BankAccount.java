@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class BankAccount {
 
     // Account set up
@@ -7,12 +9,14 @@ public class BankAccount {
     //Static 
     private static int numberOfAccounts = 0;
     private static Double totalMoniesInBank = 0.00;
+    private String account = this.getRandomAccountNumber();
+
+
 
 
     // method for creating default account
     public BankAccount(){
         numberOfAccounts++;
-        this.accountNumber += numberOfAccounts;
     };
 
 
@@ -24,7 +28,6 @@ public class BankAccount {
         numberOfAccounts++;
         totalMoniesInBank += checkingBalance;
         totalMoniesInBank += savingsBalance;
-        this.accountNumber += numberOfAccounts;
     }
 
     // Savings Deposit Method // Tested 
@@ -67,7 +70,7 @@ public class BankAccount {
 
 
     public void getAccountNumber() {
-        System.out.println("Your Account Number is: " + this.accountNumber);
+        System.out.println("Your Account Number is: " + this.account);
     }
 
 
@@ -85,7 +88,17 @@ public class BankAccount {
     }
 
 
-
+    private String getRandomAccountNumber() {
+        String randomAccountNumber = "";
+        Random numberPicker = new Random(); // declares random function
+            for (int i = 0; i < 10; i++) { // Creates 10 slots in the string
+            int newNum = numberPicker.nextInt(9); // makes a random number 
+            randomAccountNumber += "" + newNum;//concatinates the new letter with the old ones
+        }
+    // System.out.printf("Your random password is : %s ", randomAccountNumber); 
+    // System.out.printf("\n"); 
+    return randomAccountNumber;
+    }
 
 
 
