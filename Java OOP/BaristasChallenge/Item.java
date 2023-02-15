@@ -1,4 +1,4 @@
-class Item {
+public class Item {
 
 
 //Item class with name and price, private so they can be controlled by only ME!

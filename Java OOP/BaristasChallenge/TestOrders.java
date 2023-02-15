@@ -5,117 +5,111 @@ class TestOrders{
     public static void main (String[] args) {
 
 
-        Order order1 = new Order( "Chris" );
+        Item drink1 = new Item("Mocha", 4.50);
+        Item drink2 = new Item("Hot Chocolate", 3.50);
+        Item drink3 = new Item("Drip Coffee", 2.50);
+        Item drink4 = new Item("Cappuccino", 5.50);
+        ArrayList<Item> itemList1 = new ArrayList<Item>(){
+            {
+                add(drink1);
+                add(drink2);
+                add(drink3);
+            }
+        };
+
+
+        Order order1 = new Order();
+        Order order2 = new Order();
+        Order order3 = new Order("Timmy Trumpet");
+        Order order4 = new Order("Gryffin");
+        Order order5 = new Order("William Black");
+        Order order6 = new Order("Woolie", itemList1);
+
+        //starting point for above orders
+        System.out.println("----------------Display initial orders");
         order1.displayOrder();
-        System.out.println(order1);
-    }
+        order2.displayOrder();
+        order3.displayOrder();
+        order4.displayOrder();
+        order5.displayOrder();
+        order6.displayOrder();
+
+        // add 2 drinks for everyone 
+        order1.setItems(drink1);
+        order1.setItems(drink2);
+        order2.setItems(drink3);
+        order2.setItems(drink4);
+        order3.setItems(drink1);
+        order3.setItems(drink2);
+        order4.setItems(drink3);
+        order4.setItems(drink4);
+        order5.setItems(drink1);
+        order5.setItems(drink2);
+        order6.setItems(drink3);
+        order6.setItems(drink4);
 
 
+        // assign names to 'guest' orders
+        order1.setName("Tiesto");
+        order2.setName("Cash Cash");
 
-        // // Create menu items - mocha, latte, drip coffee and capuccino
-        // Item mocha = new Item();
-        // mocha.name = "Mocha";
-        // mocha.price = 3.50;
+        System.out.printf("\n");
 
-        // Item latte = new Item();
-        // latte.name = "Latte";
-        // latte.price = 3.25;
+        // Show order total
+        System.out.println("----------------Show Order Totals");
+        order1.showTotal();
+        order2.showTotal();
+        order3.showTotal();
+        order4.showTotal();
+        order5.showTotal();
+        order6.showTotal();
 
-        // Item dripCoffee = new Item();
-        // dripCoffee.name = "Drip Coffee";
-        // dripCoffee.price = 2.50;
+        System.out.printf("\n");
 
-        // Item capuccino = new Item();
-        // capuccino.name = "Capuccino";
-        // capuccino.price = 4.00;
-
-
-        // // Create four orders
-        // Order order1 = new Order();
-        // order1.name = "Gryffin";
-
-        // Order order2 = new Order();
-        // order2.name = "Woolie";
-
-        // Order order3 = new Order();
-        // order3.name = "Timmy Trumpet";
-
-        // Order order4 = new Order();
-        // order4.name = "William Black";
-
-
-        // // add drinks to each order
-        // order1.drinks.add(mocha);
-        // order1.total += mocha.price;
-        // order1.drinks.add(dripCoffee);
-        // order1.total += dripCoffee.price;
-
-        // order2.drinks.add(mocha);
-        // order2.total += mocha.price;
-
-        // order3.drinks.add(capuccino);
-        // order3.total += capuccino.price;
-
-        // order4.drinks.add(latte);
-        // order4.total += latte.price;
-
-
-        // // add 2 more drinks to order 4
-        // order4.drinks.add(latte);
-        // order4.drinks.add(latte);
-        // order4.total += latte.price*2;
-
-
-        // // make order status's
-        // order1.ready = false;
-        // order2.ready = false;
-        // order3.ready= true;
-        // order4.ready= true;
+        // display again with updated drink list
+        System.out.println("----------------Show Updated Orders");
+        order1.displayOrder();
+        order2.displayOrder();
+        order3.displayOrder();
+        order4.displayOrder();
+        order5.displayOrder();
+        order6.displayOrder();
         
 
-        // // Application Simulations (if statements included in this section)
-        // System.out.println("if i print an order, do I get an object back? My guess is yes");
-        // System.out.println(order1);
-        // System.out.println("Yup looks like it");
-        // System.out.printf("Hi %s, your total is: $%.2f\n",order1.name, order1.total);
-        // System.out.printf("Hi %s, your total is: $%.2f\n",order2.name, order2.total);
-        // System.out.printf("Hi %s, your total is: $%.2f\n",order3.name, order3.total);
-        // System.out.printf("Hi %s, your total is: $%.2f\n",order4.name, order4.total);
+        // Display order status
+        System.out.printf("\n");
+        System.out.println("----------------Show Orders Status");
+        order1.getStatusMessage(true);
+        order2.getStatusMessage(false);
+        order3.getStatusMessage(true);
+        order4.getStatusMessage(false);
+        order5.getStatusMessage(true);
+        order6.getStatusMessage(false);
 
 
-        // // adding IF statements to return different logs based on status 
-        // if(order1.ready) {
-        // System.out.printf("%s your order is ready\n", order1.name );
-        // }
-        // else {
-        //     System.out.printf("%s wait for the drop....\n", order1.name);
-        // }
+
+        // System.out.println(order2);
+        // System.out.println(order2.getItems());
 
 
-        // if(order2.ready) {
-        // System.out.printf("%s your order is ready\n", order2.name );
-        // }
-        // else {
-        //     System.out.printf("%s wait for the drop....\n", order2.name);
-        // }
+        // order2.setItems(drink3);
+        // System.out.println(order2.getItems());
+        // System.out.println(order2.getName());
 
 
-        // if(order3.ready) {
-        // System.out.printf("%s your order is ready\n", order3.name );
-        // }
-        // else {
-        //     System.out.printf("%s wait for the drop....\n", order3.name);
-        // }
+        // order1.setName("Mike");
+        // System.out.println(order1.getName());
+        // System.out.println(order1.getIsReady());
+        // order1.setIsReady(true);
+        // System.out.println(order1.getIsReady());
+        
+        
+        
+        // order3.displayOrder();
+
+        
 
 
-        // if(order4.ready) {
-        // System.out.printf("%s your order is ready\n", order4.name );
-        // }
-        // else {
-        //     System.out.printf("%s wait for the drop....\n", order4.name);
+    }
 
-        // }
-    
-        // // System.out.printf("Ready: %s\n", order1.ready);
-    // }
 }
