@@ -2,12 +2,12 @@ package zookeeper;
 
 public class Gorilla extends Mammal {
 
-	public Gorilla() {
+	public Gorilla(Integer energyLevel) {
+		super(energyLevel);
 		System.out.println("Gorilla Added");
 		System.out.println(this.displayEnergy());
 	};
-	
-	
+		
 	public String throwSomething() {
 		System.out.println("Selected: Throw");
 		this.setEnergy(5);
@@ -20,12 +20,9 @@ public class Gorilla extends Mammal {
 		return "****The Gorilla climbs a rock!\n";	
 	};	
 	
-	
 	public String eatBananas() {
 		System.out.println("Selected: Eat");
 		this.setEnergy(-10);
 		return "****The Gorilla enjoys a banana\n";
 	}
-	
-	
 }

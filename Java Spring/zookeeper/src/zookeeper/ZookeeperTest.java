@@ -5,7 +5,7 @@ public class ZookeeperTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Gorilla g1 = new Gorilla();
+		Gorilla g1 = new Gorilla(100);
 		System.out.println(g1.throwSomething());
 		System.out.println(g1.climb());
 		System.out.println(g1.eatBananas());
@@ -14,7 +14,7 @@ public class ZookeeperTest {
 		System.out.println(g1.throwSomething());
 		System.out.println(g1.displayEnergy());
 
-		GiantFugginBat bat1 = new GiantFugginBat();
+		GiantFugginBat bat1 = new GiantFugginBat(300);
 		System.out.println(bat1.attackTown());
 		System.out.println(bat1.eatHumans());
 		System.out.println(bat1.eatHumans());

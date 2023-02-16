@@ -4,9 +4,9 @@ public class Mammal {
 
 	private Integer energyLevel = 100;
 	
-	
-	public Mammal() {};
-	
+	public Mammal(Integer energyLevel) {
+		this.energyLevel = energyLevel;
+	};
 	
 	public String displayEnergy() {
 		return "Energy Level: "+ this.energyLevel + "\n";
@@ -16,5 +16,4 @@ public class Mammal {
 		this.energyLevel -= amount;
 		System.out.println("Energy Level: " + this.energyLevel);
 	}
-	
 }
