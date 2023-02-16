@@ -15,13 +15,9 @@ public class Car {
 	
 	
 	public void setGas(Integer amount) {
-		this.gas -= amount;
-		if (this.gas <= 0) {
-			System.out.println("you are out of gas. Game Over");
+		
+		if ((this.gas -= amount) < 0) {
+			System.out.println("you are out of gas. GAME OVER");
 		}
-	}
-	
-	
-	
-	
+	}	
 }
