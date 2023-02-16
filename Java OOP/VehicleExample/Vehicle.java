@@ -8,6 +8,13 @@ class Vehicle {
         this("black",4); // set a default.  THIS MUST BE FIRST!!!!
     }
 
+
+    public void brew(="operator from-rainbow">="entity class from-rainbow">String beans) {
+	super.brew(beans);
+        System.out.println("Frothy!!!");
+    }
+
+
 // OVERLOAD To allow multiple ways to instantiate our objects
 
     public Vehicle(String color){
