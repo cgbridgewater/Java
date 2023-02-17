@@ -7,6 +7,11 @@ public class Coffee extends Drink implements Purcahaseable{
 	
 	public Coffee() {}
 
+//	@Override
+//	public void purchase() {
+//		System.out.println("That will be " + this.getPrice());
+//	}
+	
 	public String getRoast() {
 		return roast;
 	}

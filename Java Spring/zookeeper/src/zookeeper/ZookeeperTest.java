@@ -14,22 +14,7 @@ public class ZookeeperTest {
 		System.out.println(g1.throwSomething());
 		System.out.println(g1.displayEnergy());
 
-		GiantFugginBat bat1 = new GiantFugginBat(300);
-		System.out.println(bat1.attackTown());
-		System.out.println(bat1.eatHumans());
-		System.out.println(bat1.eatHumans());
-		System.out.println(bat1.attackTown());
-		System.out.println(bat1.eatHumans());
-		System.out.println(bat1.eatHumans());
-		System.out.println(bat1.attackTown());
-		System.out.println(bat1.eatHumans());
-		System.out.println(bat1.eatHumans());
-		System.out.println(bat1.fly());
-		System.out.println(bat1.fly());
 
-		System.out.println(bat1.displayEnergy());		
-
-	
 	
 	}
 }

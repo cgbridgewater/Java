@@ -20,8 +20,11 @@ public class CafeJavaMain {
 		snickerdoodle.setName("Snickerdoodle");
 		snickerdoodle.setPrice(2.00);
 		snickerdoodle.setIsFrosted(false);
+
 		
-		
+		System.out.println("********************************");
+		System.out.println("********************************");
+		System.out.println("********************************");
 		ArrayList<Purcahaseable> cart = new ArrayList<Purcahaseable>();
 		
 		
@@ -29,11 +32,12 @@ public class CafeJavaMain {
 		cart.add(snickerdoodle);
 		for( Purcahaseable p : cart) {
 			System.out.println(p.getName());
+			p.purchase();
 		}
-		System.out.println("Are in your cart");
+//		System.out.println("Are in your cart");
 		
 		
-		System.out.println(String.format(myCoffee.getName() + " is a " + myCoffee.getNumberOfOunces() + "oz " + myCoffee.getRoast() + "roast coffee " + (myCoffee.getHasCream() ? "with" : "without") + " cream and " + (myCoffee.getHasSugar() ? "with" : "without") + " sugar. It costs $" + myCoffee.getPrice()));
+//		System.out.println(String.format(myCoffee.getName() + " is a " + myCoffee.getNumberOfOunces() + "oz " + myCoffee.getRoast() + "roast coffee " + (myCoffee.getHasCream() ? "with" : "without") + " cream and " + (myCoffee.getHasSugar() ? "with" : "without") + " sugar. It costs $" + myCoffee.getPrice()));
 	
 	
 	
