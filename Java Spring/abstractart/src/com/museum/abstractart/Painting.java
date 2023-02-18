@@ -1,19 +1,29 @@
 package com.museum.abstractart;
 
-import java.util.ArrayList;
-
 public class Painting extends Art {
 
 	String paintType;
 	
-	Painting(String paintType){
+	Painting(String artPiece,String artist,String description, String paintType){
+		super( artPiece, artist, description);
+		this.paintType = paintType;
+	}
+
+	public String getPaintType() {
+		return paintType;
+	}
+
+	public void setPaintType(String paintType) {
 		this.paintType = paintType;
 	}
 	
-//	@Override
-	public void viewArt() {
-		System.out.println("New " + this.paintType + " painting added");
-//		return museum;
+	public void viewArt(){
+		String painting = "";
+		painting += "Piece of Art: " + getArtPiece() + "\n";
+		painting += "Artist: " + getArtist() + "\n";
+		painting += "Description: " + getDescription() + "\n";
+		painting += "Painting Type: " + getPaintType() + "\n";
+		System.out.println(painting);
 	}
 
 }

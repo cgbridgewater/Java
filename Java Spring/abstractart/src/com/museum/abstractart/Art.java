@@ -1,33 +1,41 @@
 package com.museum.abstractart;
 
-import java.util.ArrayList;
-
 public abstract class Art {
 
-	String title;
-	String author;
+	String artPiece;
+	String artist;
 	String description;
-	static ArrayList<Art> museum = new ArrayList<Art> ();
 	
-	public Art() {
-		// TODO Auto-generated constructor stub
+	public Art(	String artPiece,String artist,	String description) {
+		this.artPiece=artPiece;
+		this.artist=artist;
+		this.description=description;
 	}
 
-	public void viewArt(){
-		System.out.println(museum);
-	}
-//
-//	public ArrayList<Art> getMuseum() {
-//		System.out.println(museum);
-//
-//	}
-//
-//	public void setMuseum(Art museum) {
-////		this.museum = museum;
-//		this.museum.add(museum);
-//	}
-	
+	public void viewArt(){}
 
-	
+	public String getArtPiece() {
+		return artPiece;
+	}
+
+	public void setArtPiece(String artPiece) {
+		this.artPiece = artPiece;
+	}
+
+	public String getArtist() {
+		return artist;
+	}
+
+	public void setArtist(String artist) {
+		this.artist = artist;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	};
 
 }
