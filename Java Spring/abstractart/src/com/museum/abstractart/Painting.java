@@ -2,7 +2,9 @@ package com.museum.abstractart;
 
 public class Painting extends Art {
 
-	String paintType;
+	private String paintType;
+	
+	Painting(){};
 	
 	Painting(String artPiece,String artist,String description, String paintType){
 		super( artPiece, artist, description);
@@ -25,5 +27,4 @@ public class Painting extends Art {
 		painting += "Painting Type: " + getPaintType() + "\n";
 		System.out.println(painting);
 	}
-
 }

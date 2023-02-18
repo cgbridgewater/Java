@@ -2,7 +2,9 @@ package com.museum.abstractart;
 
 public class Sculpture extends Art {
 
-	String material;
+	private String material;
+	
+	Sculpture(){};
 	
 	Sculpture(String artPiece,String artist,String description, String material){
 		super( artPiece, artist, description);

@@ -2,9 +2,11 @@ package com.museum.abstractart;
 
 public abstract class Art {
 
-	String artPiece;
-	String artist;
-	String description;
+	private String artPiece;
+	private String artist;
+	private String description;
+	
+	public Art() {};
 	
 	public Art(	String artPiece,String artist,	String description) {
 		this.artPiece=artPiece;
@@ -37,5 +39,4 @@ public abstract class Art {
 	public void setDescription(String description) {
 		this.description = description;
 	};
-
 }
