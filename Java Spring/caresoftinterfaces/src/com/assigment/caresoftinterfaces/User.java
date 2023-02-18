@@ -1,14 +1,14 @@
 package com.assigment.caresoftinterfaces;
 
 public class User {
-	    protected Integer id;
-	    protected int pin;
-	    
+    protected Integer id;
+    protected int pin;
+    
 
-	    // Constructor that takes an ID
-	    public User(Integer id) {
-	    	this.id = id;
-	    }
+    // Constructor that takes an ID
+    public User(Integer id) {
+    	this.id = id;
+    }
 
 	    // Getters and setters
 		public Integer getId() {

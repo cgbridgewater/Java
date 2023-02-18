@@ -3,18 +3,14 @@ package com.assigment.caresoftinterfaces;
 import java.util.ArrayList;
 import java.util.Date;
 
-	//  Implement HIPAACompliantUser!
-	//  Implement HIPAACompliantAdmin!
-	//	Imports class definition...	
-public class AdminUser extends User implements HIPAACompliantAdmin, HIPPAComplaintUser {
-	
-	
+public class AdminUser extends User implements HIPAACompliantAdmin, HIPAACompliantUser {
+		
 	private String role;
 	private ArrayList<String> securityIncidents = new ArrayList<String>();
 
-	// Implement a constructor that takes an ID and a role
 	public AdminUser(Integer id) {
 		super(id);
+		this.role = role;  // NOT IN USE !!
 	}
 
 	@Override
@@ -22,20 +18,15 @@ public class AdminUser extends User implements HIPAACompliantAdmin, HIPPAComplai
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-    public void newIncident(String notes) {
-        String report = String.format(
-            "Datetime Submitted: %s \n,  Reported By ID: %s\n Notes: %s \n", new Date(), this.id, notes
-        );
-        securityIncidents.add(report);
-    }
-    public void authIncident() {
+    
+	public void authIncident() {
         String report = String.format(
             "Datetime Submitted: %s \n,  ID: %s\n Notes: %s \n", new Date(), this.id, "AUTHORIZATION ATTEMPT FAILED FOR THIS USER"
         );
         securityIncidents.add(report);
     }
 
+	@Override // override the implement from HIPAACompliantUser
 	public boolean assignPin(int i) {
 		String numLength = Integer.toString(i);
 		
@@ -45,8 +36,8 @@ public class AdminUser extends User implements HIPAACompliantAdmin, HIPPAComplai
 		return false;
 	}
 
-
-	public boolean accessAuthorized(int i) {
+	@Override // override the implement from HIPAACompliantUser
+	public boolean accessAuthorized(Integer i) {
 		if(this.id == i) {
 			return true;
 		}
@@ -54,22 +45,29 @@ public class AdminUser extends User implements HIPAACompliantAdmin, HIPPAComplai
 		return false;
 	}
     
-    
-    // TO DO: Setters & Getters
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
+	//  Setters & Getters
 	public ArrayList<String> getSecurityIncidents() {
 		return securityIncidents;
 	}
 
-	public void setSecurityIncidents(ArrayList<String> securityIncidents) {
-		this.securityIncidents = securityIncidents;
-	}
+	//  public void newIncident(String notes) {  // NOT IN USE !!
+	//  String report = String.format(
+	//      "Datetime Submitted: %s \n,  Reported By ID: %s\n Notes: %s \n", new Date(), this.id, notes
+	//  );
+	//  securityIncidents.add(report);
+	//}
+	
+	//	public String getRole() {
+//		return role;
+//	}
+//
+//	public void setRole(String role) {
+//		this.role = role;
+//	}
+//
+//
+//	public void setSecurityIncidents(ArrayList<String> securityIncidents) {
+//		this.securityIncidents = securityIncidents;
+//	}
 
 }
