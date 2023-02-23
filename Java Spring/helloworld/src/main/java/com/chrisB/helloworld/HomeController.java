@@ -1,5 +1,6 @@
 package com.chrisB.helloworld;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,8 +22,13 @@ public class HomeController {
 	public String world() {
 		return "Hiiiiiiiii MFer, can you hear me......!!"; 
 	}
-		
+	
+	
+	@RequestMapping("/m/{track}/{module}/{lesson}")    // Local host:8080   default is a GET request
+	public String showLesson(@PathVariable("track") String track, @PathVariable("module") String module,@PathVariable("lesson") String lesson ) {    //method name
 
+		return track + " " + module + " " + lesson +"!";
+	}
 	
 }	
 
