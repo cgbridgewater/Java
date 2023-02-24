@@ -6,9 +6,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@RestController
+@RestController   //use this to return text back directly to the web page
+
+
 @RequestMapping("/hello") // THIS ADDS ANOTHER ROUTE LAYER /hello    //prepending onto localhost:8080 making localhost:8080/hello
 public class HomeController {
+	
 	@RequestMapping("")    // Local host:8080   default is a GET request
 	public String home(@RequestParam(value="q", required = false) String searchQuery) {    //method name
 		if (searchQuery == null) {
