@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.Date" import = "javax.servlet.*,java.text.*" %>
+    <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +22,11 @@
 	<div class="homeLink">
 		<a href="/">Home</a>
 	</div>
-	
+		
+	<div class="wrapper">
+		<h3>dojo method</h3>
+		<h1><c:out value="${time}"/></h1>
+	</div>
 	
 	
 </body>

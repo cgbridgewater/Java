@@ -3,6 +3,7 @@
 
 body {
 	background-color:darkgreen;
+	padding:30px;
 }
 
 a, h1 {
@@ -14,7 +15,7 @@ a, h1 {
 .wrapper, .wrapperMain {
 	width:30vw;
 	margin:0 auto;
-	margin-top:20%;
+	margin-top:2%;
 	padding: 40px;
 	border: 4px double brown;
 	border-radius: 20px;
