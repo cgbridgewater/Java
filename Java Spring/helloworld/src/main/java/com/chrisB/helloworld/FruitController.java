@@ -9,8 +9,8 @@ public class FruitController {
 	@RequestMapping("/")
 	public String index(Model model) {
 		
-		String firstName = "Ada";
-		String lastName = "Lovelace";
+		String firstName = "Chris";
+		String lastName = "B-Dub";
 		String email = "MyEmail@dojo.com";
 		Integer age = 43;
 		

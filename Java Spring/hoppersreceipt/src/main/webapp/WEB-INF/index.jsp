@@ -7,14 +7,18 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<script type="text/javascript" src="/js/app.js"></script>
 </head>
 <body>
 
-		<h1>Buyers Name: <c:out value="${name}"/> </h1>
-		<h1>Item: <c:out value="${item}"/> </h1>
-		<h1>Price: $<c:out value="${price}"/>0 </h1>
-		<h1>Description: <c:out value="${description}"/> </h1>
-		<h1>Production Facility: <c:out value="${vendor}"/> </h1>
+		<div class="container">
+			<h1>Buyers Name: <c:out value="${name}"/> </h1>
+			<h3>Item: <c:out value="${item}"/> </h3>
+			<h3>Price: $<c:out value="${price}"/>0 </h3>
+			<h3>Description: <c:out value="${description}"/> </h3>
+		<h3>Production Facility: <c:out value="${vendor}"/> </h3>
+		</div>
 
 
 </body>

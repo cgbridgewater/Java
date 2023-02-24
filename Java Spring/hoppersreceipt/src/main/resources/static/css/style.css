@@ -1,0 +1,30 @@
+@charset "ISO-8859-1";
+
+
+body {
+	background-color:darkgrey;
+	background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmvQ0Y0EUxoKUkeUSDE2dW0VhhrfZlcgAsFQ&usqp=CAU");
+	background-position: center;
+	background-repeat: none;
+	background-size: cover;
+
+}
+
+.container {
+	width:30vw;
+	margin: 15% auto;
+	border: 3px solid gold;
+	border-radius: 10px;
+	background-color: darkblue;
+	padding:20px;
+}
+
+h1 {
+	color:yellow;
+	text-align: end;	
+}
+
+h3 {
+	color:white;
+	text-align: end;	
+}
