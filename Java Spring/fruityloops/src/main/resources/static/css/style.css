@@ -1,0 +1,30 @@
+@charset "ISO-8859-1";
+
+body{
+	background:black;
+}
+
+.fruitSalad {
+	width:30%;
+	margin: 20% auto;
+	border:3px solid coral;
+}
+
+.table {
+	width:100%;
+	border-collapse: collapse;
+}
+
+td, th {
+	text-align:center;
+	border:1px solid black;
+}
+
+th {
+	background:coral;
+	color:white;
+}
+
+td {
+	background:lightgrey;
+}
