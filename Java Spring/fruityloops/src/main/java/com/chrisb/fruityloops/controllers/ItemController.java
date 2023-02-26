@@ -1,10 +1,12 @@
-package com.chrisb.fruityloops;
+package com.chrisb.fruityloops.controllers;
 
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.chrisb.fruityloops.models.Item;
 
 @Controller
 public class ItemController {
@@ -19,7 +21,8 @@ public class ItemController {
         fruits.add(new Item("Guava", .75));
         fruits.add(new Item("Apple", 2.00));
         fruits.add(new Item("Cherries", 2.5));
-        fruits.add(new Item("Blue Berries", 1.75));
+        fruits.add(new Item("Blue Berries", 1.75));        
+        fruits.add(new Item("Raspberries", 2.75));
         
         // Add fruits your view model here
         model.addAttribute("fruitSalad", fruits);

@@ -1,4 +1,4 @@
-package com.chrisb.fruityloops;
+package com.chrisb.fruityloops.models;
 
 public class Item {
 

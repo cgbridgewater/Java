@@ -1,0 +1,28 @@
+@charset "ISO-8859-1";
+
+.wrapper {
+	width:20%;
+	margin: 10% auto;
+	text-align:center;
+
+}
+
+.welcome {
+	border:3px solid red;
+	border-radius: 10px;	
+	padding:10px;
+	font-size:30px;
+}
+
+.counterValue {
+	color:red;
+}
+
+a.button {
+	    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
