@@ -5,19 +5,24 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/omikuji")
 public class OmikujiController {
 
 	@GetMapping("")
 	public String index() {
+		return "redirect:/omikuji/";
+	}
+	
+	
+	@GetMapping("/omikuji")
+	public String omikuji() {
 		return "index.jsp";
 	}
 	
-	@PostMapping("/formdata")
+
+	@PostMapping("/omikuji/formdata")
 		public String formsubmit(
 			@RequestParam(value="number") Integer number,
 			@RequestParam(value= "city") String city,
@@ -36,14 +41,11 @@ public class OmikujiController {
 		return "redirect:/omikuji/show";
 	}	
 	
-	@GetMapping("/show")
+	
+	@GetMapping("/omikuji/show")
 	public String show() {
 		return "omikuji.jsp";
 	}
-	
-	
-	
-	
 	
 	
 }
