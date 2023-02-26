@@ -26,8 +26,6 @@ public class CounterController {
 	
 	
 	
-	
-	
 	@RequestMapping("/counter")
 	public String counterPage(HttpSession session, Model model) {
 		if (session.getAttribute("siteHits") == null ) {

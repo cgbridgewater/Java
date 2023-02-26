@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Breaking Hoppers Receipt</title>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<script type="text/javascript" src="/js/app.js"></script>
 </head>
@@ -17,7 +17,7 @@
 			<h3>Item: <c:out value="${item}"/> </h3>
 			<h3>Price: $<c:out value="${price}"/>0 </h3>
 			<h3>Description: <c:out value="${description}"/> </h3>
-		<h3>Production Facility: <c:out value="${vendor}"/> </h3>
+			<h3>Production Facility: <c:out value="${vendor}"/> </h3>
 		</div>
 
 

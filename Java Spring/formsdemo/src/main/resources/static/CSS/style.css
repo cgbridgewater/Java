@@ -1,0 +1,50 @@
+@charset "ISO-8859-1";
+
+body{
+	background-color:grey;
+}
+h1, h3{
+	color:#808040;
+	text-align:center;
+}
+
+p {
+	color:silver;
+}
+
+
+.wrapper{ 
+	width:25%;
+	min-width:350px;
+	margin:10% auto;
+	border: 10px double #808040;
+	border-radius:15px;
+	padding:10px;
+	background-color:darkred;
+}
+
+.input{
+	background-color:silver;
+	border-radius:5px;
+	color:#808040;
+}
+
+.firstName,.lastName,.email, .password{
+	display:flex;
+	justify-content:space-between;
+	color: silver;
+}
+
+.button {
+	width:100px;
+	background-color: #808040;
+	color: silver;
+	border-radius:5px;
+	border:2px solid silver;
+}
+
+.buttonContainer {
+	width:100px;
+	margin: 0 auto;
+}
+

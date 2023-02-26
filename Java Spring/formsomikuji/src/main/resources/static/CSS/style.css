@@ -1,0 +1,78 @@
+@charset "ISO-8859-1";
+@charset "ISO-8859-1";
+
+body{
+	background-color:grey;
+}
+
+h1{
+	margin-top: 8%;
+	color:darkred;
+	text-align:center;
+}
+
+h3{
+	color:darkred;
+	text-align:center;
+}
+
+p {
+	color:darkred;
+}
+
+
+.wrapper{ 
+	width:45%;
+	min-width:350px;
+	margin:0 auto;
+	margin-top: 2%;
+	border: 10px double darkred;
+	border-radius:15px;
+	padding:10px;
+	background-color:#9FC5F8;
+}
+
+.input{
+	background-color:silver;
+	border-radius:5px;
+	width:200px;
+	color:darkred;
+}
+
+.number, .city, .name, .hobby, .thing, .phrase{
+	display:flex;
+	justify-content:space-between;
+	color: darkred;
+}
+
+.button {
+	margin-left: 40px;
+	width:100px;
+	background-color: darkred;
+	color: silver;
+	border-radius:5px;
+	border:2px solid silver;
+	text-decoration:none;
+}
+
+.buttonContainer {
+	display:flex;
+	justify-content:evenly;
+	color: darkred;
+}
+
+.buttonbox {
+	width:200px;
+	margin: 2% auto;
+}
+
+.goHome {
+	padding:10px;
+	text-decoration:none;
+	margin-left: 40px;
+	width:100px;
+	background-color: darkred;
+	color: silver;
+	border-radius:5px;
+	border:2px solid #9FC5F8;
+}
