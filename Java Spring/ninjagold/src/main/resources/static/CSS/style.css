@@ -1,0 +1,95 @@
+@charset "ISO-8859-1";
+
+body {
+	background: lightgrey;
+	padding: 4%;
+}
+
+img {
+	height:200px;
+	width:400px;
+	
+}
+
+.mainFrame {
+	height:70vh;
+}
+
+
+.counterWrap {
+	color:darkgreen;
+	margin: 20px 0 0 20px;
+	display:flex;
+	justify-content:space-evenly
+}
+
+.counter {
+	display:flex;
+	align-items:center;
+}
+
+.counterBox {
+	border: 2px solid black;
+	height: 45px;
+	width:100px;
+	text-align:end;
+	color:darkgreen;
+	font-weight:800;	
+	background-color:#c1fec1;
+	padding:2px;
+
+}
+
+.cardHolder {
+	margin-top:3%;
+	display:flex;
+	justify-content:space-evenly;
+	flex-wrap:wrap;
+}
+
+.earnCard {
+	width:20%;
+	min-width:150px;
+	border: 2px solid black;
+	padding:3% 0;
+	display: flex;
+	flex-direction:column;
+	margin:10px;
+	background-color: #E3E5E6;
+}
+
+.task {
+	text-align:center;
+	color:darkgreen;
+}
+
+.buttonbox {
+	width:100%;
+	display:flex;
+	justify-content:center;	
+}
+
+.button {
+	padding:10px;
+	text-decoration:none;
+	min-width:120px;
+	background-color: darkgreen;
+	color: lightgrey;
+	border-radius:5px;
+	border:2px solid #c1fec1;
+}
+
+.activities {
+	font-size:30px;
+	margin: 20px 0;
+	color:darkgreen;	
+}
+
+.activityBox{
+		margin: 0 auto;
+		border:2px solid darkgreen;
+		width:80%;
+		min-height:20%;
+		overflow-y: scroll;
+		background-color:#E3E5E6;
+}
