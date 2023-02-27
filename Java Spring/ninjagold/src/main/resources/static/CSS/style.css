@@ -1,14 +1,12 @@
 @charset "ISO-8859-1";
 
 body {
-	background: lightgrey;
-	padding: 4%;
+	background: darkgrey;
 }
 
 img {
 	height:200px;
 	width:400px;
-	
 }
 
 .mainFrame {
@@ -20,7 +18,7 @@ img {
 	color:darkgreen;
 	margin: 20px 0 0 20px;
 	display:flex;
-	justify-content:space-evenly
+	justify-content:space-evenly;
 }
 
 .counter {
@@ -30,14 +28,14 @@ img {
 
 .counterBox {
 	border: 2px solid black;
+	border-radius:10px;	
 	height: 45px;
 	width:100px;
 	text-align:end;
 	color:darkgreen;
 	font-weight:800;	
 	background-color:#c1fec1;
-	padding:2px;
-
+	padding:2px 5px 2px 0;
 }
 
 .cardHolder {
@@ -48,9 +46,10 @@ img {
 }
 
 .earnCard {
-	width:20%;
+	width:18%;
 	min-width:150px;
 	border: 2px solid black;
+	border-radius:10px;
 	padding:3% 0;
 	display: flex;
 	flex-direction:column;
@@ -81,7 +80,7 @@ img {
 
 .activities {
 	font-size:30px;
-	margin: 20px 0;
+	margin: 20px 0 0 100px;
 	color:darkgreen;	
 }
 
@@ -89,7 +88,19 @@ img {
 		margin: 0 auto;
 		border:2px solid darkgreen;
 		width:80%;
-		min-height:20%;
-		overflow-y: scroll;
+		height:20%;
+		overflow-y: auto;
 		background-color:#E3E5E6;
+}
+
+.jail{
+	width: 1000px;
+	margin: 0 auto;
+	margin-top:50px;
+	text-align:center;
+}
+
+.bankrupt {
+	height:500px;
+	width:900px
 }

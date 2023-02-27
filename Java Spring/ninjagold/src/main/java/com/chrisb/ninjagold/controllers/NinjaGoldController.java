@@ -1,5 +1,10 @@
 package com.chrisb.ninjagold.controllers;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Random;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -22,38 +27,85 @@ public class NinjaGoldController {
 		return "index.jsp";
 	}
 	
+	
+	
 	@PostMapping("/earn")
 	public String formAction(
+		Model model,
 		HttpSession session,
 		@RequestParam(value = "input") String input
 		){
+		SimpleDateFormat timeStamp = new SimpleDateFormat("MMMM d Y h:mm a");
+		ArrayList<String> activities = new ArrayList<String>();
 		Integer currentCount = (Integer) session.getAttribute("count");
+		Random randomNum = new Random();
+		if (session.getAttribute("activities") == null) {
+			session.setAttribute("activities", activities);
+		}
 		if (input.equals("desk")) {
-			System.out.println(input);
-			currentCount += 5;			
+			int value =randomNum.nextInt(5,10);		
+			currentCount += value; 
+			activities = (ArrayList<String>) session.getAttribute("activities");
+			activities.add("You cleaned off your "+ input + "! You've earned : " + value + " Schrute Bucks (" + timeStamp.format(new Date()) + ")");
 			session.setAttribute("count", currentCount);
+			session.setAttribute("logbook", activities);
 			return "redirect:";
 		}
 		else if(input.equals("bat")) {
-			System.out.println(input);
-			currentCount += 2;			
-			session.setAttribute("count", currentCount);
-			return "redirect:";
-		}else if(input.equals("beets")) {
-			System.out.println(input);
-			currentCount += 3;			
-			session.setAttribute("count", currentCount);
-			return "redirect:";
-		}else if(input.equals("sale")) {
-			System.out.println(input);
-			currentCount += 50;			
+			int value =randomNum.nextInt(10,20);		
+			currentCount += value; 
+			System.out.println("You caught the "+ input +"! You've earned : " + value + " Schrute Bucks");
 			session.setAttribute("count", currentCount);
 			return "redirect:";
 		}
-		
-		System.out.println("no change");		
-		session.setAttribute("count", currentCount);
+		else if(input.equals("beets")) {			
+			int value =randomNum.nextInt(1,5);		
+			currentCount += value; 
+			System.out.println("You grew some "+ input +"! You've earned : " + value + " Schrute Bucks");
+			session.setAttribute("count", currentCount);
+			return "redirect:";
+		}
+		else if(input.equals("sale")) {
+			int value =randomNum.nextInt(10,50);		
+			currentCount += value; 
+			System.out.println("You completed a "+ input +"! You've earned : " + value + " Schrute Bucks");
+			session.setAttribute("count", currentCount);
+			return "redirect:";
+		}
+		else if(input.equals("mock")) {
+			currentCount = 0; 
+			System.out.println("You've "+ input +"ed the Schute Bucks?! Fine, I'll take them away! ");
+			session.setAttribute("count", currentCount);
+			return "redirect:";
+		}
+		else if(input.equals("theft")) {
+			int value =randomNum.nextInt(30,50);		
+			currentCount -= value; 
+				if (currentCount < 0 ) {
+					return "redirect:/jail";
+				}else {
+					System.out.println("Identity "+ input +" is no laughing matter!! M...MICHAEL!!! You've lost "+ value + " Schrute Bucks");
+					session.setAttribute("count", currentCount);
+					return "redirect:";
+				}
+		}
+		else {
+			System.out.println("catchall activated, no change");		
+			session.setAttribute("count", currentCount);
+			return "redirect:";
+		}
+	}
+	
+	
+	@GetMapping("/jail")
+	public String toJail() {
+		return "jail.jsp";
+	}
+	
+	@GetMapping("/sorry")
+	public String sorry(HttpSession session) {
+		session.setAttribute("count", 0);
 		return "redirect:";
-		
-		}
+	}
+	
 }

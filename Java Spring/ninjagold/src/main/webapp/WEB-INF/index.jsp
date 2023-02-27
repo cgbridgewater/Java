@@ -40,7 +40,7 @@
 			
 				<div class="earnCard">
 					<h3 class="task">Clean Desk</h3>
-					<p class="task">earns 10-20 Schute Bucks </p>
+					<p class="task">earns 5-10 Schute Bucks </p>
 					<form action="/earn" method="POST">
 						<input class="input"  type="hidden" name="input" value="desk">
 						<div class="buttonbox">
@@ -51,7 +51,7 @@
 				
 				<div class="earnCard">
 					<h3 class="task">Catch Bat</h3>
-					<p class="task">earns 5-10 Schute Bucks </p>
+					<p class="task">earns 10-20 Schute Bucks </p>
 					<form action="/earn" method="POST">
 						<input class="input"  type="hidden" name="input" value="bat">
 						<div class="buttonbox">
@@ -62,7 +62,7 @@
 				
 				<div class="earnCard">
 					<h3 class="task">Grow Beets</h3>
-					<p class="task">earns 10-20 Schute Bucks </p>
+					<p class="task">earns 1-5 Schute Bucks </p>
 					<form action="/earn" method="POST">
 						<input class="input"  type="hidden" name="input" value="beets">
 						<div class="buttonbox">
@@ -73,7 +73,7 @@
 				
 				<div class="earnCard">
 					<h3 class="task">Make Sale</h3>
-					<p class="task">earns 0-50 Schute Bucks </p>
+					<p class="task">earns 10-50 Schute Bucks </p>
 					<form action="/earn" method="POST">
 						<input class="input"  type="hidden" name="input" value="sale">
 						<div class="buttonbox">
@@ -81,18 +81,47 @@
 						</div>
 					</form>		
 				</div>
+				<div class="earnCard">
+					<h3 class="task">Identity Theft</h3>
+					<p class="task">Loses 30-50 Schute Bucks </p>
+					<form action="/earn" method="POST">
+						<input class="input"  type="hidden" name="input" value="theft">
+						<div class="buttonbox">
+							<button class="button" type="submit">Earn Bucks!</button>	
+						</div>
+					</form>		
+				</div>
 			</div>
 			
-			<div class="activities">Activies:</div>
-			<div class="activityBox">
+			<div >
+				<form action="/earn" method="POST">
+					<input class="input"  type="hidden" name="input" value="mock">
+					<div class="buttonbox">
+						<button class="button" type="submit">Mock Dwight</button>	
+					</div>
+				</form>	
+			</div>
+		>
+			
+			<div class="activities">
+				Activies:
+			</div>
+			<div class="activityBox"> 
+			
+				<c:forEach var="activity" items="${logbook}">
+						<c:if test="${activity.contains('earned')}">
+							<p style="color:green; margin:0;">${activity}</p>
+						</c:if>						
+						<c:if test="${activity.contains('lost')}">
+							<p style="color:red; margin:0;">${activity}</p>
+						</c:if>		
+				   </c:forEach>
 				
 			</div>
-			
 			
 		</div>
 		
 		
-		<div></div>
 			
 
 
