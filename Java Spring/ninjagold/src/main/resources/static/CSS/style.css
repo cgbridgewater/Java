@@ -80,7 +80,7 @@ img {
 
 .activities {
 	font-size:30px;
-	margin: 20px 0 0 100px;
+	margin: 5px 0 0 100px;
 	color:darkgreen;	
 }
 
@@ -88,7 +88,7 @@ img {
 		margin: 0 auto;
 		border:2px solid darkgreen;
 		width:80%;
-		height:20%;
+		height:30%;
 		overflow-y: auto;
 		background-color:#E3E5E6;
 }

@@ -2,6 +2,7 @@ package com.chrisb.ninjagold.controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Random;
 
@@ -41,6 +42,7 @@ public class NinjaGoldController {
 		Random randomNum = new Random();
 		if (session.getAttribute("activities") == null) {
 			session.setAttribute("activities", activities);
+			return "index.jsp";
 		}
 		if (input.equals("desk")) {
 			int value =randomNum.nextInt(5,10);		
@@ -54,28 +56,36 @@ public class NinjaGoldController {
 		else if(input.equals("bat")) {
 			int value =randomNum.nextInt(10,20);		
 			currentCount += value; 
-			System.out.println("You caught the "+ input +"! You've earned : " + value + " Schrute Bucks");
+			activities = (ArrayList<String>) session.getAttribute("activities");
+			activities.add("You caught the "+ input +"! You've earned : " + value + " Schrute Bucks (" + timeStamp.format(new Date()) + ")");
 			session.setAttribute("count", currentCount);
+			session.setAttribute("logbook", activities);
 			return "redirect:";
 		}
 		else if(input.equals("beets")) {			
 			int value =randomNum.nextInt(1,5);		
 			currentCount += value; 
-			System.out.println("You grew some "+ input +"! You've earned : " + value + " Schrute Bucks");
+			activities = (ArrayList<String>) session.getAttribute("activities");
+			activities.add("You grew some "+ input +"! You've earned : " + value + " Schrute Bucks (" + timeStamp.format(new Date()) + ")");
 			session.setAttribute("count", currentCount);
+			session.setAttribute("logbook", activities);
 			return "redirect:";
 		}
 		else if(input.equals("sale")) {
 			int value =randomNum.nextInt(10,50);		
 			currentCount += value; 
-			System.out.println("You completed a "+ input +"! You've earned : " + value + " Schrute Bucks");
+			activities = (ArrayList<String>) session.getAttribute("activities");
+			activities.add("You completed a "+ input +"! You've earned : " + value + " Schrute Bucks (" + timeStamp.format(new Date()) + ")");
 			session.setAttribute("count", currentCount);
+			session.setAttribute("logbook", activities);
 			return "redirect:";
 		}
 		else if(input.equals("mock")) {
 			currentCount = 0; 
-			System.out.println("You've "+ input +"ed the Schute Bucks?! Fine, I'll take them away! ");
+			activities = (ArrayList<String>) session.getAttribute("activities");
+			activities.add("You've "+ input +"ed the Schute Bucks?! Fine, I'll take them away! (" + timeStamp.format(new Date()) + ")" );
 			session.setAttribute("count", currentCount);
+			session.setAttribute("logbook", activities);
 			return "redirect:";
 		}
 		else if(input.equals("theft")) {
@@ -84,14 +94,17 @@ public class NinjaGoldController {
 				if (currentCount < 0 ) {
 					return "redirect:/jail";
 				}else {
-					System.out.println("Identity "+ input +" is no laughing matter!! M...MICHAEL!!! You've lost "+ value + " Schrute Bucks");
+					activities = (ArrayList<String>) session.getAttribute("activities");
+					activities.add("Identity "+ input +" is no laughing matter!! M...MICHAEL!!! You've lost "+ value + " Schrute Bucks (" + timeStamp.format(new Date()) + ")" );
 					session.setAttribute("count", currentCount);
+					session.setAttribute("logbook", activities);
 					return "redirect:";
 				}
 		}
 		else {
 			System.out.println("catchall activated, no change");		
 			session.setAttribute("count", currentCount);
+			session.setAttribute("logbook", activities);
 			return "redirect:";
 		}
 	}
@@ -102,10 +115,14 @@ public class NinjaGoldController {
 		return "jail.jsp";
 	}
 	
-	@GetMapping("/sorry")
+	@PostMapping("/bankruptcy")
 	public String sorry(HttpSession session) {
+		SimpleDateFormat timeStamp = new SimpleDateFormat("MMMM d Y h:mm a");
+		ArrayList<String> activities = (ArrayList<String>) session.getAttribute("activities");
+		activities.add("You've lost all of your Shcrute Bucks and declared Bankruptcy (" + timeStamp.format(new Date()) + ")");
 		session.setAttribute("count", 0);
-		return "redirect:";
+		session.setAttribute("logbook", activities);
+		return "redirect:/";
 	}
 	
 }

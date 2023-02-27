@@ -14,9 +14,13 @@
 	<div class="jail">
 			    <img class="bankrupt" src="https://media.tenor.com/3RiZ8BuGMIEAAAAC/i-declare-bakruptcy-bankrupt.gif"
      alt="bankruptcy">
-			<div >
-				<a href="/sorry">Go Back To Work</a>	
-			</div>	
+     
+					<form action="/bankruptcy" method="POST">
+						<div class="buttonbox">
+							<button class="button" type="submit">Declare Bankruptcy</button>	
+						</div>
+					</form>	
+
 	</div>
 
 

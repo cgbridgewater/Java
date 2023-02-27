@@ -87,7 +87,7 @@
 					<form action="/earn" method="POST">
 						<input class="input"  type="hidden" name="input" value="theft">
 						<div class="buttonbox">
-							<button class="button" type="submit">Earn Bucks!</button>	
+							<button class="button" type="submit">Spend Bucks!</button>	
 						</div>
 					</form>		
 				</div>
@@ -101,13 +101,13 @@
 					</div>
 				</form>	
 			</div>
-		>
 			
 			<div class="activities">
-				Activies:
+				Activity Log:
 			</div>
 			<div class="activityBox"> 
 			
+				
 				<c:forEach var="activity" items="${logbook}">
 						<c:if test="${activity.contains('earned')}">
 							<p style="color:green; margin:0;">${activity}</p>
@@ -115,6 +115,9 @@
 						<c:if test="${activity.contains('lost')}">
 							<p style="color:red; margin:0;">${activity}</p>
 						</c:if>		
+						<c:if test="${activity.contains('mocked')}">
+							<p style="color:red; margin:0;">${activity}</p>
+						</c:if>	
 				   </c:forEach>
 				
 			</div>
