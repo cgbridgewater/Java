@@ -27,7 +27,7 @@ img {
 }
 
 .counterBox {
-	border: 2px solid black;
+	border: 2px solid darkgreen;
 	border-radius:10px;	
 	height: 45px;
 	width:100px;
@@ -36,6 +36,7 @@ img {
 	font-weight:800;	
 	background-color:#c1fec1;
 	padding:2px 5px 2px 0;
+	margin-left:20px;
 }
 
 .cardHolder {
@@ -48,7 +49,7 @@ img {
 .earnCard {
 	width:18%;
 	min-width:150px;
-	border: 2px solid black;
+	border: 2px solid darkgreen;
 	border-radius:10px;
 	padding:3% 0;
 	display: flex;
