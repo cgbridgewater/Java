@@ -2,12 +2,9 @@ package com.chrisb.ninjagold.controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.Random;
-
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -103,17 +100,19 @@ public class NinjaGoldController {
 		}
 		else {
 			System.out.println("catchall activated, no change");		
-			session.setAttribute("count", currentCount);
-			session.setAttribute("logbook", activities);
 			return "redirect:";
 		}
 	}
+	
+	
 	
 	
 	@GetMapping("/jail")
 	public String toJail() {
 		return "jail.jsp";
 	}
+	
+	
 	
 	@PostMapping("/bankruptcy")
 	public String sorry(HttpSession session) {
