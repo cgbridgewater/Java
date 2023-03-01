@@ -23,7 +23,7 @@
 
 		<div class="bookWrapper">
 			<h1>Lets add a book!</h1>
-			<form action="/add/formdata" method="POST">
+			<form action="/update/{id}" method="POST">
 
 				<div class="title">
 					<label>Book Title</label>

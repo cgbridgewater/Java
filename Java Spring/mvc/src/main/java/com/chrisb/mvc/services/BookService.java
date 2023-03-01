@@ -47,10 +47,25 @@ public class BookService {
     }
 
     
+    
+    
+    
+    
 //    // delete a book                 // DESTROY
     public void deleteBook(Long id) {
     	bookRepository.deleteById(id);
     }
+
+
+    // UPDATE BOOK 
+    public Book updateBook(Book b) {
+    	return bookRepository.save(b);
+    }
+//    public Book updateBook(Long id, String title, String desc, String lang, Integer pages, String author) {
+//				bookRepository.save(id,title, desc, lang, pages, author);
+//
+//		return null;
+//	}
 
 
 
