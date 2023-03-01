@@ -1,1 +1,58 @@
 @charset "ISO-8859-1";
+
+body {
+	background-color: lightgrey;
+}
+
+
+.bookWrapper {
+	border: 3px solid blue;
+	border-radius:20px;
+ 	width:50vw;
+	margin: 10% auto 0;
+	padding: 10px;
+	text-align:center;
+	background-color: lightyellow;
+}
+
+h1 {
+	color:blue;
+	font-weight:800;
+}
+
+th, td {
+	min-width:150px;
+}
+
+td {
+
+	border-top:1px solid rgb(0,0,255,.5);
+	border-bottom:1px solid rgb(0,0,255,.5);
+	
+}
+
+.buttonbox {
+	width:200px;
+	margin: 2% auto;
+}
+
+.addBook {
+	padding:10px;
+	text-decoration:none;
+	margin-left: 40px;
+	width:100px;
+	background-color: lightyellow;
+	color: silver;
+	border-radius:5px;
+	border:2px solid blue;
+}
+
+.addBook:hover {
+	box-shadow: 8px 8px 8px 1px rgba(0, 0, 0, 0.4);
+}
+
+.delete {
+	background: red;
+	color:white;
+}
+

@@ -21,9 +21,45 @@
 
 </head>
 <body>
-
-	<h1>TESTING</h1>
-
+		
+		
+		<div>
+			<div class="bookWrapper">
+				<h1>My DB of Books</h1>
+		
+				<table>
+					<tr>
+							<th> Book ID </th>
+							<th> Author </th>
+							<th> Title</th>
+							<th> Description</th>
+							<th> Language</th>
+							<th> Actions</th>
+					</tr>
+				
+						<c:forEach var="book" items="${allBooks}">
+					<tr>
+							<td><c:out value="${book.id}" />
+							<td><c:out value="${book.author}" />
+							<td><a href="/onebook/${book.id}"><c:out value="${book.title}" /></a>
+							<td><c:out value="${book.description}" />
+							<td><c:out value="${book.language}" />
+							<td> EDIT  ||   <form action="/books/${book.id}" method="POST">
+												  <input class="delete" type="submit" value="Delete">
+											</form>
+							
+							
+							
+				<!--	<a class="delete" href="/book/delete/${book.id}">Delete</a>   -->
+							
+					</tr>
+						</c:forEach>
+				</table>
+			</div>
+			<div class="buttonbox">
+				<a class="addBook" href="/add">Add Book</a>
+			</div>
+		</div>
 
 </body>
 </html>
