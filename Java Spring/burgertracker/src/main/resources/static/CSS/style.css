@@ -6,7 +6,6 @@
 	min-height:100vh;
 }
 
-
 h1{
 	margin-left:10%;
 	color:black;
@@ -15,7 +14,6 @@ h1{
 }
 
 img{
-	
 	margin-left:30%;
 	border-radius:20px;
 	box-shadow: 6px 6px 6px 6px rgba(255,7,58, 0.6);
@@ -33,7 +31,6 @@ img{
 th, td {
 	text-align:center;
 }
-
 
 .action{
 	display:flex;
@@ -61,8 +58,27 @@ th, td {
 	color:black;
 }
 
-
 .errors {
 	color:red;
 	font-weight:800;
+	padding:0 20px;
+}
+
+.formWrapper{
+	border: 3px double red;
+	width:25%;
+	margin-left: 65%;
+	margin-top:2%;
+	
+}
+
+.formation {
+	display:flex;
+	justify-content:space-between;
+	padding:0 20px;
+}
+
+.buttonContainer {
+	width:200px;
+	margin: 1% auto;
 }

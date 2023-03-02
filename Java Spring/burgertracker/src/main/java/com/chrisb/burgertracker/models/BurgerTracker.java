@@ -25,21 +25,21 @@ public class BurgerTracker {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
-	@Size(min=3, max=50)
+	@NotNull (message="Min length 3 charactors")
+	@Size(min=3, max=50, message="Min length 3 charactors")
 	private String burgerName;
 	
-	@NotNull
-	@Size(min=3, max=50)
+	@NotNull (message="Min length 3 charactors")
+	@Size(min=3, max=50,message="Min length 3 charactors")
 	private String restName;
 	
-	@NotNull
-	@Min(1)
-	@Max(5)
+	@NotNull (message="Please Give A Rating!")
+	@Min(value=1, message="Minimum rating 1")
+	@Max(value=5, message="Maximum rating 5")
 	private Integer rating;
 	
-	@NotNull
-	@Size(min=3, max=255)
+	@NotNull (message="Min length 3 charactors")
+	@Size(min=3, max=255, message="Min length 3 charactors")
 	private String notes;
 	
 	@Column(updatable=false)

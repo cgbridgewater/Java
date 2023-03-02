@@ -64,29 +64,37 @@
 			<form:form action="/burger/add" method="POST" modelAttribute="burger">
 
 				<div class="burgerName">
-					<form:label path="burgerName">Burger Name:</form:label>
-					<form:input path="burgerName" class="input" type="text" name="burgerName"/>
+					<div class="formation">
+						<form:label path="burgerName">Burger Name:</form:label>
+						<form:input path="burgerName" class="input" type="text" name="burgerName"/>
+					</div>
 					<form:errors class="errors"  path="burgerName"/>
 				</div>
 				<br/>
 
 				<div class="restName">
-					<form:label path="restName">Restaurant Name:</form:label>
-					<form:input  path="restName" class="input"  type="text" name="restName"/>
+					<div class="formation">
+						<form:label path="restName">Restaurant Name:</form:label>
+						<form:input  path="restName" class="input"  type="text" name="restName"/>
+					</div>
 					<form:errors class="errors"  path="restName"/>
 				</div>
 				<br/>
 
 				<div class="rating">
-					<form:label path="rating">Rating: </form:label>
-					<form:input path="rating" class="input"  type="number" step="1" name="rating"/>		
+					<div class="formation">					
+						<form:label path="rating">Rating: </form:label>
+						<form:input path="rating" class="input"  type="number" step="1" name="rating"/>		
+					</div>
 					<form:errors class="errors"  path="rating"/>
 				</div>
 				<br/>
 
 				<div class="notes">
-					<form:label path="notes">Notes: </form:label>
-					<form:input path="notes" class="input"  type="text" name="notes"/>	
+					<div class="formation">
+						<form:label path="notes">Notes: </form:label>
+						<form:input path="notes" class="input"  type="text" name="notes"/>	
+					</div>
 					<form:errors class="errors"  path="notes"/>	
 				</div>
 				<br/>
