@@ -25,6 +25,11 @@ public class BurgerTrackerService {
 	public BurgerTracker createBurger(BurgerTracker b) {
 		return burgerRepo.save(b);
 	}
+
+	//updates a burger
+	public BurgerTracker updateBurger(BurgerTracker b) {
+		return burgerRepo.save(b);
+	}
 	
 	
 	//gets one burger

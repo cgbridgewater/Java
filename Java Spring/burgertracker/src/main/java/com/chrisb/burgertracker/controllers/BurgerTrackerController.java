@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.chrisb.burgertracker.models.BurgerTracker;
@@ -35,8 +36,6 @@ public class BurgerTrackerController {
     	List<BurgerTracker> allBurgers = burgerService.allBurgers();
 		//store list in model
 		model.addAttribute("allBurgers",allBurgers); 
-		
-		
 			return "index.jsp";			
 		}
 	
@@ -61,6 +60,27 @@ public class BurgerTrackerController {
 		model.addAttribute("oneBurger", oneBurger);
 		return "oneburger.jsp";
 	}
+	
+	//UPDATE Burger Form
+	@GetMapping("/burger/{id}/edit")
+	public String updateForm(@PathVariable("id")Long id, Model model) {
+		BurgerTracker oneBurger = burgerService.findBurger(id);
+		model.addAttribute("oneBurger", oneBurger);
+		return "update.jsp";
+	}
+	
+	
+	//UPDATE Burger Action
+	@PutMapping("/burger/{id}/update")
+	public String update(@Valid @ModelAttribute("oneBurger")BurgerTracker oneBurger, BindingResult result) {
+		if(result.hasErrors()) {
+			return "/update.jsp";
+		}else {
+			burgerService.updateBurger(oneBurger);
+			return "redirect:/burger";
+		}
+	}
+	
 	
     //DELETE BY ID
     @GetMapping("/burger/{id}/delete")

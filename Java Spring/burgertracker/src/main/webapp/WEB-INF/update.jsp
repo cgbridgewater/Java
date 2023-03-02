@@ -11,67 +11,24 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Whelp!</title>
+    <title>View Page</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css"> <!-- change to match your file/naming structure -->
+    <link rel="stylesheet" href="/CSS/style3.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-   
-      
-   <div class="wrapper">
-   	<div class="imgBox">
-	     <img src="https://live.staticflickr.com/65535/52720934959_7fce902559.jpg"
-	     alt="Whelp Logo"/>
-    </div>
-	<div class="headTag">
-       <h1>Whelp - Burger Reviews</h1>
-     </div>
-  		
-  		<div class="tableContainer">
-			<table class="table table-hover border- border-danger">
-			  <thead>
-			    <tr>
-		
-			      <th scope="col">Burger Name</th>
-			      <th scope="col">Restaurant Name</th>
-			      <th scope="col">Rating (out of 5)</th>
-			      <th scope="col">Action</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-				<!-- for loop to iterate list -->
-				<c:forEach var="burger" items="${allBurgers}">
-			    <tr>
-			      <td ><a href="/burger/${burger.id}"><c:out value="${burger.burgerName}" /></a></td>
-			      <td><c:out value="${burger.restName}" /></td>
-	              <td>	
-	              
-				      	<c:forEach var = "i" begin = "1" end = "${burger.rating}">  
-	              		<!--<img src="<c:url value="https://png.pngtree.com/element_pic/16/12/30/e4019353dc73e5e0126c72490c3a9ca0.jpg"/>"/>-->
-								<c:out value="⭐"/>
-							
-						</c:forEach>
-			      </td>
-			      <td>
-					<div class="action">
-						<a href="/burger/${burger.id}/edit"><button class="edit">Edit</button></a>						
-						<a href="/burger/${burger.id}/delete"><button class="delete">Delete</button></a>
-					</div>
-				</td>
-			    </tr>
-				</c:forEach>
-				<!-- end for loop to iterate list -->
-			  </tbody>
-			</table>
-   		</div>
-	
-		<div>
-			<div class="formWrapper">
-			<h2>Review A Burger!</h2>
-			<form:form action="/burger/add" method="POST" modelAttribute="burger">
 
+		<div class="wrapper">
+		   	<div class="imgBox">
+			     <img src="https://live.staticflickr.com/65535/52720934959_7fce902559.jpg"
+			     alt="Whelp Logo"/>
+    		</div>
+		
+			<div class="formWrapper">
+			<h2>Update ${oneBurger.burgerName} Review</h2>
+			<form:form action="/burger/${oneBurger.id}/update" method="POST" modelAttribute="oneBurger">
+				<input class="input" type="hidden" name="_method" value="PUT">
 				<div class="burgerName">
 					<div class="formation">
 						<form:label path="burgerName">Burger Name:</form:label>
@@ -108,33 +65,16 @@
 				</div>
 				<br/>
 
-			 	<div class="buttonContainer">		 		
-				 	<button class="button" type="submit">Add Review!</button>
+			 	<div class="btnBox">		 		
+				 	<button class="button" type="submit">Update Review!</button>
 			 	</div>
 			</form:form>
 		</div>
-		
+ 				<div class="homeBtnBox">
+					<a href="/burger"><button class="home">Home</button></a>
+				</div>
 		
 		</div>
 
-
-
-
-
-
-
-
-
-
-
-
-   </div>
-   
-   
-   
-   
-   	
-   
-   
 </body>
 </html>
