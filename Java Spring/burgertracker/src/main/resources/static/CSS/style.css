@@ -1,0 +1,68 @@
+@charset "ISO-8859-1";
+
+.wrapper {
+	background:lightgrey;
+	padding:20px;
+	min-height:100vh;
+}
+
+
+h1{
+	margin-left:10%;
+	color:black;
+	font-size:40px;
+	font-weight:700;
+}
+
+img{
+	
+	margin-left:30%;
+	border-radius:20px;
+	box-shadow: 6px 6px 6px 6px rgba(255,7,58, 0.6);
+}
+
+.tableContainer {
+	width:80%;
+	margin:0 auto;
+	margin-bottom:20px;
+	border: 2px solid red;
+	min-height:20vh;
+	box-shadow: 8px 8px 8px 8px rgba(255,7,58, 0.6);
+}
+
+th, td {
+	text-align:center;
+}
+
+
+.action{
+	display:flex;
+}
+
+.delete, .button {
+	width: 90px;
+	padding:5px;
+	background: red;
+	color:white;
+	border: 1px solid white;
+}
+
+.button {
+	width:120px;
+}
+
+.delete:hover {
+	box-shadow: 8px 8px 8px 8px rgba(255,7,58, 0.6);
+	color:black;
+}
+
+.button:hover {
+	box-shadow: 8px 8px 8px 1px rgba(0, 0, 0, 0.4);
+	color:black;
+}
+
+
+.errors {
+	color:red;
+	font-weight:800;
+}
