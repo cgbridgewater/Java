@@ -24,7 +24,7 @@
      <img src="https://live.staticflickr.com/65535/52720934959_7fce902559.jpg"
      alt="Whelp Logo"/>
      <div class="headTag">
-       <h1>Whelp Burger Reviews</h1>
+       <h1>Whelp - Burger Reviews</h1>
      </div>
   		
   		<div class="tableContainer">
@@ -42,14 +42,14 @@
 				<!-- for loop to iterate list -->
 				<c:forEach var="burger" items="${allBurgers}">
 			    <tr>
-			      <td ><c:out value="${burger.burgerName}" /></td>
+			      <td ><a href="/burger/${burger.id}"><c:out value="${burger.burgerName}" /></a></td>
 			      <td><c:out value="${burger.restName}" /></td>
 			      <td><c:out value="${burger.rating}" /></td>
 			      <td>
 					<div class="action">
+						<a href="/burger/${burger.id}/edit"><button class="edit">Edit</button></a>						
 						<a href="/burger/${burger.id}/delete"><button class="delete">Delete</button></a>
 					</div>
-		
 				</td>
 			    </tr>
 				</c:forEach>

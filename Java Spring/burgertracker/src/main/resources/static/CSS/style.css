@@ -38,6 +38,7 @@ th, td {
 
 .action{
 	display:flex;
+	justify-content:center;
 }
 
 .delete, .button {
@@ -46,6 +47,13 @@ th, td {
 	background: red;
 	color:white;
 	border: 1px solid white;
+}
+.edit {
+	width: 90px;
+	padding:5px;
+	background: white;
+	color:red;
+	border: 1px solid red;
 }
 
 .button {
