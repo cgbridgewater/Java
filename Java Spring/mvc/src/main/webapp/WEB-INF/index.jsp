@@ -29,7 +29,7 @@
 		
 				<table>
 					<tr>
-							<th> Book ID </th>
+						<!-- 	<th> Book ID </th>  -->
 							<th> Author </th>
 							<th> Title</th>
 							<th> Description</th>
@@ -39,18 +39,19 @@
 				
 						<c:forEach var="book" items="${allBooks}">
 					<tr>
-							<td><c:out value="${book.id}" />
+						<!-- 	<td><c:out value="${book.id}" />   -->
 							<td><c:out value="${book.author}" />
 							<td><a href="/onebook/${book.id}"><c:out value="${book.title}" /></a>
 							<td><c:out value="${book.description}" />
 							<td><c:out value="${book.language}" />
-							<td> EDIT  ||   <form action="/books/${book.id}" method="POST">
-												  <input class="delete" type="submit" value="Delete">
-											</form>
+							<td> 
+								<div class="action">
+									<a href="/books/edit/${book.id}"><button class="edit">Edit</button></a>
+									<a href="/books/${book.id}"><button class="delete">Delete</button></a>
+								</div>
 							
 							
-							
-				<!--	<a class="delete" href="/book/delete/${book.id}">Delete</a>   -->
+	
 							
 					</tr>
 						</c:forEach>

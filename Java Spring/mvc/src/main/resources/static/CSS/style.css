@@ -6,9 +6,12 @@ body {
 
 
 .bookWrapper {
+	display:flex;
+	justify-content:center;
+	flex-direction:column;
 	border: 3px solid blue;
 	border-radius:20px;
- 	width:60vw;
+ 	width:55vw;
 	margin: 10% auto 0;
 	padding: 10px;
 	text-align:center;
@@ -42,17 +45,35 @@ td {
 	margin-left: 40px;
 	width:100px;
 	background-color: lightyellow;
-	color: silver;
+	color: blue;
 	border-radius:5px;
 	border:2px solid blue;
 }
 
 .addBook:hover {
 	box-shadow: 8px 8px 8px 1px rgba(0, 0, 0, 0.4);
+	color:darkblue;
+}
+
+.action{
+	display:flex;
+}
+
+.edit {
+	width:70px;
+	color:white;
+	background:blue;
+	border: 1px solid white;
 }
 
 .delete {
+	width:70px;
 	background: red;
 	color:white;
+	border: 1px solid white;
 }
 
+.errors {
+	color:red;
+	font-weight:800;
+}

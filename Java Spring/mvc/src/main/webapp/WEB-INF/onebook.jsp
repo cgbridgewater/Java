@@ -20,7 +20,7 @@
 </head>
 <body>
 
-					<div>
+
 						<div class="bookWrapper">
 					<!--  		<p>Book ID:<c:out value="${oneBook.id}" /></p> -->
 							<p>Author: <c:out value="${oneBook.author}" /></p>
@@ -29,9 +29,9 @@
 							<p>Language: <c:out value="${oneBook.language}" /></p>
 						</div>
 						<div class="buttonbox">
-							<a  href="/">Go Home</a>
+							<a href="/"><button class="addBook">Cancel</button></a>
 						</div>
-					</div>
+
 
 
 </body>

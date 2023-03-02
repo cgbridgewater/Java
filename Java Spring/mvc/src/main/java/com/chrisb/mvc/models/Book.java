@@ -26,24 +26,24 @@ public class Book {
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 	 
-	    @NotEmpty
-	    @Size(min = 3, max = 200)
+	    @NotEmpty (message="Min length 3 charactors")
+	    @Size(min = 3, max = 200, message="Min length 3 charactors")
 	    private String title;
 	    
-	    @NotEmpty
-	    @Size(min = 3, max = 200)
+	    @NotEmpty (message="Min length 3 charactors")
+	    @Size(min = 3, max = 200, message="Min length 3 charactors")
 	    private String description;
 	    
-	    @NotEmpty
-	    @Size(min = 3, max = 40)
+	    @NotEmpty (message="Min length 3 charactors")
+	    @Size(min = 3, max = 40, message="Min length 3 charactors")
 	    private String language;
 	    
-	    @NotNull
-	    @Min(10)
+	    @NotNull (message="Min length 10 pages")
+	    @Min(value=10, message="Must be at least 100 pages.")
 	    private Integer numberOfPages;
 	    
-	    @NotEmpty
-	    @Size(min = 3, max = 200)
+	    @NotEmpty (message="Min length 3 charactors")
+	    @Size(min = 3, max = 200, message="Min length 3 charactors")
 	    private String author;
 	    
 	    // This will not allow the createdAt column to be updated after creation
