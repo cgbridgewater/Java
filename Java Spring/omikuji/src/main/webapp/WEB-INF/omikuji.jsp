@@ -22,7 +22,8 @@
 		<div class="wrapper">
 	
 			<p>
-			 	In <c:out value="${number}"/> years, you will live in 
+			 	In 
+			 	<c:out value="${number}"/> years, you will live in 
 				<c:out value="${city}"/> with 
 				<c:out value="${name}"/> as your roomate, selling
 				<c:out value="${hobby}"/> for a living. The next time you see a 

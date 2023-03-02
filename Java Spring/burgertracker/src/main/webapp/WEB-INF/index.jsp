@@ -19,7 +19,7 @@
 </head>
 <body>
    
-   
+      
    <div class="wrapper">
      <img src="https://live.staticflickr.com/65535/52720934959_7fce902559.jpg"
      alt="Whelp Logo"/>
@@ -44,7 +44,14 @@
 			    <tr>
 			      <td ><a href="/burger/${burger.id}"><c:out value="${burger.burgerName}" /></a></td>
 			      <td><c:out value="${burger.restName}" /></td>
-			      <td><c:out value="${burger.rating}" /></td>
+	              <td>	
+	              
+				      	<c:forEach var = "i" begin = "1" end = "${burger.rating}">  
+	              		<!--<img src="<c:url value="https://png.pngtree.com/element_pic/16/12/30/e4019353dc73e5e0126c72490c3a9ca0.jpg"/>"/>-->
+								<c:out value="⭐"/>
+							
+						</c:forEach>
+			      </td>
 			      <td>
 					<div class="action">
 						<a href="/burger/${burger.id}/edit"><button class="edit">Edit</button></a>						
