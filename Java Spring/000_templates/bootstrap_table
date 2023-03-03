@@ -1,0 +1,25 @@
+   <h1> Table Name Here!! </h1>
+ 		<!-- Table Display SECTION -->
+  		<div class="tableContainer">
+		   <table class="table .table-hover">
+			  <thead>
+			    <tr>
+			      <th scope="col">Col 1 </th>
+			      <th scope="col">Col 2 </th>
+			      <th scope="col">Col 3</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  <!-- Loop to iterate expense list -->
+			  <c:forEach var="expense" items="${allExpenses}">
+			    <tr>
+			      <td><a href="/expense/${expense.id}"><c:out value="${expense.expense}" /></a> </td>
+			      <td><c:out value="${expense.vendor}" /> </td>
+			      <td><c:out value="${expense.amount}" /> </td>
+			    </tr>
+			 </c:forEach>
+              <!-- END Loop to iterate expense list -->
+			  </tbody>
+			</table>
+            <!-- END Table Display SECTION -->
+ 		</div>
