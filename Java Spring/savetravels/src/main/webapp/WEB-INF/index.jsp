@@ -34,7 +34,7 @@
 			  <!-- Loop to iterate expense list -->
 			  <c:forEach var="expense" items="${allExpenses}">
 			    <tr>
-			      <td><a href="/burger/${expense.id}"><c:out value="${expense.expense}" /></a> </td>
+			      <td><a href="/expense/${expense.id}"><c:out value="${expense.expense}" /></a> </td>
 			      <td><c:out value="${expense.vendor}" /> </td>
 			      <td><c:out value="${expense.amount}" /> </td>
 			    </tr>
@@ -47,22 +47,64 @@
    		<h1>Add an Expense</h1>
    		<div class="formContainer">
    			<!-- FORM INPUT SECTION -->
-   			<form:form action="" method="" modelAttribute="">
-   			
-   				<div>
-   					<div>
-   						<form:label path="">  </form:label>	
-   						<form:input path="" class="" type="" name=""/>
+   			<form:form action="/expense/new" method="POST" modelAttribute="expense">
+   				
+   				<!-- section ONE -->
+   				<div class="sectionOne">
+   					<div class="formation">
+   						<form:label path="amount">  </form:label>	
+   						<form:input path="amount" class="input" type="text" name="amount"/>
    					</div>
-   					<form:errors class=""  path=""/>
+   					<div class="errors">
+	   					<form:errors class="errors"  path="amount"/>
+   					</div>
    				</div>
    			
+   					<!-- section TWO -->
+   				<div class="sectionTwo">
+   					<div class="formation">
+   						<form:label path="description">  </form:label>	
+   						<form:input path="description" class="input" type="text" name="description"/>
+   					</div>
+   					<div class="errors">
+	   					<form:errors class="errors"  path="description"/>
+   					</div>
+   				</div>
    			
+   					<!-- section THREE -->
+   				<div class="sectionThree">
+   					<div class="formation">
+   						<form:label path="expense">  </form:label>	
+   						<form:input path="expense" class="input" type="number" step=".01" name="expense"/>
+   					</div>
+   					<div class="errors">
+	   					<form:errors class="errors"  path="expense"/>
+   					</div>
+   				</div>
+   			
+   					<!-- section Four -->
+   				<div class="sectionFour">
+   					<div class="formation">
+   						<form:label path="vendor">  </form:label>	
+   						<form:input path="vendor" class="input" type="text" name="vendor"/>
+   					</div>
+   					<div class="errors">
+	   					<form:errors class="errors"  path="vendor"/>
+   					</div>
+   				</div>
+   			
+			 	<div class="buttonContainer">		 		
+				 	<button class="button" type="submit">Add Review!</button>
+			 	</div>
    			
    			</form:form>
    		
    		
    		</div>
+   
+   
+   
+   
    
    	
    
