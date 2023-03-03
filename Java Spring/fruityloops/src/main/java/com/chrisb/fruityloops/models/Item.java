@@ -29,7 +29,5 @@ public class Item {
 		this.price = price;
 	}
     
-    // As always, don't forget to generate Getters and Setters!
-	
 	
 }
