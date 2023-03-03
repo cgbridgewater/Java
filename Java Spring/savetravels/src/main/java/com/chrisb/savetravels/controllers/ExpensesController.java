@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.chrisb.savetravels.models.Expense;
 import com.chrisb.savetravels.services.ExpenseService;
@@ -24,10 +23,6 @@ public class ExpensesController {
 	@Autowired
 	private ExpenseService expenseServ;
 	
-	@RequestMapping("")
-	public String index () {
-		return "index.jsp";
-	}
 
 	
 	//Read All Expenses
@@ -73,11 +68,11 @@ public class ExpensesController {
 	
 	//Update Expense action
 	@PutMapping("/expense/{id}/update")
-	public String updateExpense(@Valid @ModelAttribute("oneExpense") Expense expense, BindingResult result) {
+	public String updateExpense(@Valid @ModelAttribute("oneExpense") Expense oneExpense, BindingResult result) {
 		if(result.hasErrors()) {
 			return "/update.jsp";
 		}else {
-			expenseServ.updateExpense(expense);
+			expenseServ.updateExpense(oneExpense);
 			return "redirect:/";
 		}
 	}

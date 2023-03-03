@@ -28,15 +28,17 @@
 			      <th scope="col">Expense</th>
 			      <th scope="col">Vendor</th>
 			      <th scope="col">Amount</th>
+			      <th scope="col">Actions</th>
 			    </tr>
 			  </thead>
 			  <tbody>
 			  <!-- Loop to iterate expense list -->
 			  <c:forEach var="expense" items="${allExpenses}">
 			    <tr>
-			      <td><a href="/expense/${expense.id}"><c:out value="${expense.expense}" /></a> </td>
+			      <td><a href="/expense/${expense.id}"><c:out value="${expense.expenseName}" /></a> </td>
 			      <td><c:out value="${expense.vendor}" /> </td>
 			      <td><c:out value="${expense.amount}" /> </td>
+			      <td>edit || delete</td>
 			    </tr>
 			 </c:forEach>
 
@@ -52,8 +54,8 @@
    				<!-- section ONE -->
    				<div class="sectionOne">
    					<div class="formation">
-   						<form:label path="amount">  </form:label>	
-   						<form:input path="amount" class="input" type="text" name="amount"/>
+   						<form:label path="amount">Amount:</form:label>	
+   						<form:input path="amount" class="input" type="number" step="0.01" name="amount"/>
    					</div>
    					<div class="errors">
 	   					<form:errors class="errors"  path="amount"/>
@@ -63,38 +65,38 @@
    					<!-- section TWO -->
    				<div class="sectionTwo">
    					<div class="formation">
-   						<form:label path="description">  </form:label>	
+   						<form:label path="description">Description:</form:label>	
    						<form:input path="description" class="input" type="text" name="description"/>
    					</div>
    					<div class="errors">
 	   					<form:errors class="errors"  path="description"/>
    					</div>
    				</div>
-   			
+   			  				
    					<!-- section THREE -->
    				<div class="sectionThree">
    					<div class="formation">
-   						<form:label path="expense">  </form:label>	
-   						<form:input path="expense" class="input" type="number" step=".01" name="expense"/>
+   						<form:label path="expenseName">expense</form:label>
+   						<form:input path="expenseName" class="input" type="text" name="expenseName"/>
    					</div>
    					<div class="errors">
-	   					<form:errors class="errors"  path="expense"/>
+   						<form:errors class="errors" path="expenseName"/>
    					</div>
    				</div>
-   			
    					<!-- section Four -->
    				<div class="sectionFour">
    					<div class="formation">
-   						<form:label path="vendor">  </form:label>	
+   						<form:label path="vendor">Vendor:</form:label>	
    						<form:input path="vendor" class="input" type="text" name="vendor"/>
    					</div>
    					<div class="errors">
 	   					<form:errors class="errors"  path="vendor"/>
    					</div>
    				</div>
+   				
    			
 			 	<div class="buttonContainer">		 		
-				 	<button class="button" type="submit">Add Review!</button>
+				 	<button class="button" type="submit">Submit</button>
 			 	</div>
    			
    			</form:form>

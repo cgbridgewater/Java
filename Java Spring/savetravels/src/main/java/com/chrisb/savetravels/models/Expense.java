@@ -27,12 +27,12 @@ public class Expense {
     private Long id;
  
 	//expense
-    @NotEmpty (message="Min length 3 charactors")
+    @NotEmpty (message="Must contain an entry!")
     @Size(min = 3, max = 200, message="Min length 3 charactors")
-    private String expense;
+    private String expenseName;
         
     //vendor
-    @NotEmpty (message="Min length 3 charactors")
+    @NotEmpty (message="Must contain an entry!")
     @Size(min = 3, max = 40, message="Min length 3 charactors")
     private String vendor;
     
@@ -42,7 +42,7 @@ public class Expense {
     private Double amount;
     
     //description
-    @NotEmpty (message="Min length 3 charactors")
+    @NotEmpty (message="Must contain an entry!")
     @Size(min = 3, max = 200, message="Min length 3 charactors")
     private String description;
 
@@ -58,7 +58,7 @@ public class Expense {
     public Expense() {}    //Required to be a Java Bean
     
 
-    public Long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -68,16 +68,16 @@ public class Expense {
 	}
 
 
-	public String getExpense() {
-		return expense;
+	public String getExpenseName() {
+		return expenseName;
 	}
 
 
-	public void setExpense(String expense) {
-		this.expense = expense;
+	public void setExpenseName(String expenseName) {
+		this.expenseName = expenseName;
 	}
 
-	
+
 	public String getVendor() {
 		return vendor;
 	}
@@ -86,6 +86,7 @@ public class Expense {
 	public void setVendor(String vendor) {
 		this.vendor = vendor;
 	}
+
 
 
 	public Double getAmount() {
@@ -122,7 +123,7 @@ public class Expense {
 		return updatedAt;
 	}
 
-
+	
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}

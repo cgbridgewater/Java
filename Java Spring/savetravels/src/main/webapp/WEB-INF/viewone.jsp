@@ -19,7 +19,14 @@
 </head>
 <body>
    
-   <h1>TESTING..</h1>
+   <h1>Expense Details</h1>
+   <a href="/">Go Home</a>
+   <h3>Expense Description: $<c:out value="${oneExpense.description}"/></h3>
+   <h3>Expense Name: $<c:out value="${oneExpense.expenseName}"/></h3>
+   <h3>Vendor: $<c:out value="${oneExpense.vendor}"/></h3>
+   <h3>Amount Spent: $<c:out value="${oneExpense.amount}"/></h3>
+ 
+   
    
 </body>
 </html>
