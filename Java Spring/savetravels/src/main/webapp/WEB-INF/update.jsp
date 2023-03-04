@@ -19,7 +19,61 @@
 </head>
 <body>
    
-   <h1>TESTING..</h1>
+   <h1>Update an Expense</h1>
+   		<div class="formContainer">
+   			<!-- FORM INPUT SECTION -->
+   			<form:form action="/expense/${oneExpense.id}/update" method="POST" modelAttribute="oneExpense">
+   					<input class="input" type="hidden" name="_method" value="PUT">
+   				<!-- section ONE -->
+   				<div class="sectionOne">
+   					<div class="formation">
+   						<form:label path="amount">Amount:</form:label>	
+   						<form:input path="amount" class="input" type="number" step="0.01" name="amount"/>
+   					</div>
+   					<div class="errors">
+	   					<form:errors class="errors"  path="amount"/>
+   					</div>
+   				</div>
+   			
+   					<!-- section TWO -->
+   				<div class="sectionTwo">
+   					<div class="formation">
+   						<form:label path="description">Description:</form:label>	
+   						<form:input path="description" class="input" type="text" name="description"/>
+   					</div>
+   					<div class="errors">
+	   					<form:errors class="errors"  path="description"/>
+   					</div>
+   				</div>
+   			  				
+   					<!-- section THREE -->
+   				<div class="sectionThree">
+   					<div class="formation">
+   						<form:label path="expenseName">expense</form:label>
+   						<form:input path="expenseName" class="input" type="text" name="expenseName"/>
+   					</div>
+   					<div class="errors">
+   						<form:errors class="errors" path="expenseName"/>
+   					</div>
+   				</div>
+   					<!-- section Four -->
+   				<div class="sectionFour">
+   					<div class="formation">
+   						<form:label path="vendor">Vendor:</form:label>	
+   						<form:input path="vendor" class="input" type="text" name="vendor"/>
+   					</div>
+   					<div class="errors">
+	   					<form:errors class="errors"  path="vendor"/>
+   					</div>
+   				</div>
+   				
+   			
+			 	<div class="buttonContainer">		 		
+				 	<button class="button" type="submit">Submit</button>
+			 	</div>
+   			
+   			</form:form>
+   		</div>
    
 </body>
 </html>
