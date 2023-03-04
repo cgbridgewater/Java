@@ -35,10 +35,18 @@
 			  <!-- Loop to iterate expense list -->
 			  <c:forEach var="expense" items="${allExpenses}">
 			    <tr>
-			      <td><a href="/expense/${expense.id}"><c:out value="${expense.expenseName}" /></a> </td>
-			      <td><c:out value="${expense.vendor}" /> </td>
-			      <td><c:out value="${expense.amount}" /> </td>
-			      <td>edit || delete</td>
+			      <td><a href="/expense/${expense.id}">${expense.expenseName}</a> </td>
+			      <td>${expense.vendor} </td>
+			      <td> $<fmt:formatNumber type="number" minFractionDigits="2" value="${expense.amount}"/>
+			      </td>
+			      <td>
+			  
+			      		<a href="/expense/${expense.id}/edit">Edit</a>
+			      		
+			      		|| 
+			      		<a href="/expense/${expense.id}/delete">Delete</a>
+			      
+			      </td>
 			    </tr>
 			 </c:forEach>
 
@@ -46,6 +54,8 @@
 			</table>
  		</div>
    
+   		
+   		
    		<h1>Add an Expense</h1>
    		<div class="formContainer">
    			<!-- FORM INPUT SECTION -->
@@ -100,8 +110,6 @@
 			 	</div>
    			
    			</form:form>
-   		
-   		
    		</div>
    
    
