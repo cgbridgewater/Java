@@ -12,11 +12,11 @@
 			  <tbody>
 			  <!-- Loop to iterate expense list -->
 			  <c:forEach var="expense" items="${allExpenses}">
-			    <tr>
-			      <td><a href="/expense/${expense.id}"><c:out value="${expense.expense}" /></a> </td>
-			      <td><c:out value="${expense.vendor}" /> </td>
-			      <td><c:out value="${expense.amount}" /> </td>
-			    </tr>
+				<tr>
+					<td><a href="/expense/${expense.id}">${expense.expense}</a> </td>
+					<td>${expense.vendor}</td>
+					<td> $<fmt:formatNumber type="number" minFractionDigits="2" value="${expense.amount}"/></td>
+				</tr>
 			 </c:forEach>
               <!-- END Loop to iterate expense list -->
 			  </tbody>
