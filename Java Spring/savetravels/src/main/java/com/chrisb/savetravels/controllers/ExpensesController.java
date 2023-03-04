@@ -43,7 +43,7 @@ public class ExpensesController {
 	}
 	
 	
-	//Create Expense
+	//Create Expense action route
 	@PostMapping("/expense/new")
 	public String newExpense(@Valid @ModelAttribute("expense") Expense expense, BindingResult result, Model model) {
 		if (result.hasErrors()) {
@@ -66,7 +66,7 @@ public class ExpensesController {
 	}
 	
 	
-	//Update Expense action
+	//Update Expense action route
 	@PutMapping("/expense/{id}/update")
 	public String updateExpense(@Valid @ModelAttribute("oneExpense") Expense oneExpense, BindingResult result) {
 		if(result.hasErrors()) {
@@ -84,5 +84,6 @@ public class ExpensesController {
 		expenseServ.deleteExpense(id);
 		return "redirect:/";
 	}
+	
 	
 }
