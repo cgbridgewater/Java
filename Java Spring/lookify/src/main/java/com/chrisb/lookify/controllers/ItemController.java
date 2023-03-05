@@ -55,7 +55,7 @@ public class ItemController {
 			return "newform.jsp";
 		} else {
 			itemServ.createItem(newItem);
-				return "redirect:/";
+				return "redirect:/dashboard";
 		}
 	}
 	

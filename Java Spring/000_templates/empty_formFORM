@@ -3,7 +3,7 @@
     <h1>Add an Expense</h1>
     <div class="formContainer">
         <!-- FORM INPUT SECTION -->
-        <form:form action="" method="" modelAttribute="">
+        <form:form action="" method="POST" modelAttribute="">
         
             <div class="sectionOne">
                 <div class="formation">
