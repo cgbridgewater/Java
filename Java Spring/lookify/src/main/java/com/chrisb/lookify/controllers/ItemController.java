@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chrisb.lookify.models.Item;
 import com.chrisb.lookify.services.ItemService;
@@ -72,19 +73,19 @@ public class ItemController {
 	// UPDATE FORM
 	@GetMapping("/songs/{id}/update")
 	public String updateForm(@PathVariable("id")Long id, Model model) {
-	Item oneItem = itemServ.findItem(id);
-	model.addAttribute("oneItem",oneItem);
+	Item item = itemServ.findItem(id);
+	model.addAttribute("item",item);
 		return "updateform.jsp";
 	}
 	
 	
 	// UPDATE ACTION
 	@PutMapping("/songs/{id}/update")
-	public String updateAction(@Valid @ModelAttribute("oneItem")Item oneItem, BindingResult result) {
+	public String updateAction(@Valid @ModelAttribute("item")Item item, BindingResult result) {
 		if(result.hasErrors()) {
 			return "updateform.jsp";
 		} else {
-			itemServ.updateItem(oneItem);
+			itemServ.updateItem(item);
 				return "redirect:/dashboard";
 		}
 	}
@@ -101,28 +102,28 @@ public class ItemController {
 	
 	// Search artist 
 	@PostMapping("/search")
-	public String findArtist(@Valid @ModelAttribute("name") Item name, BindingResult result) {
-		if (result.hasErrors()) {
-			return "redirect:/";
-		} else {
-			itemServ.createItem(name);
-			return "searchresult.jsp";
+	public String findArtist(@RequestParam("artist") String artist, Model model) {
+		model.addAttribute("artist",artist);
+		return "redirect:/searchresult/"+artist;
 		}
-	}
 	
 	
 
 	
 	// get search by artist results
 //	return "searchresult.jsp";
+	@GetMapping("/searchresult/{artist}")
+	public String searchresult(@PathVariable("artist")  String artist ,Model model) {
+	model.addAttribute("items", itemServ.searchArtist(artist));
+	model.addAttribute("artistName",artist);
+		return "searchresult.jsp";
+	}
 	
-	
-	
-	
-	
+
 	// TOP 10 
 	@GetMapping("/songs/top10")
-	public String topTen() {
+	public String topTen(Model model) {
+		
 		return "top10.jsp";
 	}
 

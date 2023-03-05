@@ -11,15 +11,26 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>View Page</title>
+    <title>TOP 10 SONGS</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/CSS/style.css"> <!-- change to match your file/naming structure -->
+    <link rel="stylesheet" href="/CSS/style5.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/JS/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
    
-   		<h1> TESTING TOP 10 Songs </h1>
-   			<h4><a href="/dashboard">dashboard</a></h4>
+   			<h1> Top 10 Songs </h1>
+	
+			<ul>
+				<c:forEach var="result" items="${results}">
+					
+					<li>${result.rating} - ${result.title} - ${result.name}</li>
+								
+				</c:forEach>
+			</ul>
+	 	  	<div class="buttonContainer">
+		     	<h4><a href="/dashboard">dashboard</a></h4>
+	     	</div>
+
 </body>
 </html>

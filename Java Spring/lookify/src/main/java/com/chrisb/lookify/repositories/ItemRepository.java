@@ -16,7 +16,7 @@ public interface ItemRepository extends CrudRepository<Item, Long>{
 	
 
 	 // this method finds the artist by search
-	List<Item> findByArtistContaining(String name);
+	List<Item> findByArtistContaining(String artist);
 	
 	
 	// this method finds the top 10 rated songs 

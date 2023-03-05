@@ -51,9 +51,14 @@ public class ItemService {
 	    public List<Item> searchArtist(String name) {
 	    	return itemRepo.findByArtistContaining(name);
 	    }
+
+
+
+	    // Sort By top 10
 	    
 	    
-	}
+
+}
 
 	
 	

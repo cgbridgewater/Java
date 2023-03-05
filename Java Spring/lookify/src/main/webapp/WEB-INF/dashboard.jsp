@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>View Page</title>
+    <title>DASHBOARD</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/CSS/style.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
@@ -24,24 +24,14 @@
    		<h1><a href="/songs/top10">Top Songs</a></h1>
 		<div>
 	        <!-- FORM INPUT SECTION -->
-	        <form:form action="/search" method="POST" modelAttribute="name">
-	        <div class="searchformContainer">
-	            <div class="sectionOne">
-	                <div class="formation">
-	
-	                    <form:input path="artist" class="searchArtist" type="test" name="artist"/>
-	                </div>
-	                <div class="errors">
-	                    <form:errors class="artist"  path="artist"/>
-	                </div>
-	            </div>
+	        <form action="search" method="POST">
+	        	<input class="searchArtist" name="artist" placeholder="Search Artist"/>
+	        	<button class="searchbutton" type="submit">Search</button>
+	        </form>
 	        
-	            <div class="buttonContainer">		 		
-	                <button class="searchbutton" type="submit">Search Artist</button>
-	            </div>
-	        </div>
 	        
-	        </form:form>
+	        
+
 	
 	        <!-- END FORM INPUT SECTION -->
     	</div>
