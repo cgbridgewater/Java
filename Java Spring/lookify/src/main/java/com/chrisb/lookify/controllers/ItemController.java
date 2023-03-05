@@ -35,7 +35,7 @@ public class ItemController {
 	
 	// Dashboard  READ ALL
 	@RequestMapping("/dashboard")
-	public String dashboard(Model model) {
+	public String dashboard(@ModelAttribute("name") Item name,Model model) {
 	List<Item> allItems = itemServ.allItems();
 	model.addAttribute("allItems",allItems);
 		return "dashboard.jsp";
@@ -70,7 +70,7 @@ public class ItemController {
 	
 	
 	// UPDATE FORM
-	@GetMapping("/songs/update")
+	@GetMapping("/songs/{id}/update")
 	public String updateForm(@PathVariable("id")Long id, Model model) {
 	Item oneItem = itemServ.findItem(id);
 	model.addAttribute("oneItem",oneItem);
@@ -99,17 +99,32 @@ public class ItemController {
     }
 	
 	
-	// Search 
-	@GetMapping("/search/{name}")
-	public String findArtist(@PathVariable("name") String name, Model model) {
-		List<Item> results = itemServ.searchArtist(name);
-		model.addAttribute("results",results);
-		return "searchresult.jsp";
-		
+	// Search artist 
+	@PostMapping("/search")
+	public String findArtist(@Valid @ModelAttribute("name") Item name, BindingResult result) {
+		if (result.hasErrors()) {
+			return "redirect:/";
+		} else {
+			itemServ.createItem(name);
+			return "searchresult.jsp";
+		}
 	}
 	
 	
-	// TOP 10 
+
 	
+	// get search by artist results
+//	return "searchresult.jsp";
+	
+	
+	
+	
+	
+	// TOP 10 
+	@GetMapping("/songs/top10")
+	public String topTen() {
+		return "top10.jsp";
+	}
+
 	
 }

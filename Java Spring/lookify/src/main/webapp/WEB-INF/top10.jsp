@@ -11,20 +11,15 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Lookify Home</title>
+    <title>View Page</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/CSS/style.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
+    <script type="text/javascript" src="/JS/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-     
-     <div class="welcome">
-	     <h1>Welcome To Lookify!</h1>
-     </div>
-     <div class="welcome">
-	     <a href="/dashboard">Start Looking!</a>
-     </div>
-     
+   
+   		<h1> TESTING TOP 10 Songs </h1>
+   			<h4><a href="/dashboard">dashboard</a></h4>
 </body>
 </html>
