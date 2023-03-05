@@ -25,3 +25,33 @@
 			</table>
             <!-- END Table Display SECTION -->
 		</div>
+
+
+
+
+
+<!-- 	CSS		 -->
+
+body{
+	background-image: url("");
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size:cover;
+	height:98vh;
+}
+
+
+
+#displayTable {
+	width:40%;
+	min-width:420px;
+	margin:0 auto;
+	padding:15px;
+	border: 4px double #3E37F2;
+	border-radius: 10px;
+	text-align:center;
+}
+
+tr {
+	background-color: #FFD3FE;
+}
