@@ -19,12 +19,12 @@
 </head>
 <body>
    
-   <h1>Save Travels</h1>
+   <h1>Travel Expenses</h1>
  		<!-- Table Display SECTION -->
   		<div class="tableContainer">
-		   <table class="table .table-hover">
+		   <table id="displayTable" class="table table-hover">
 			  <thead>
-			    <tr>
+			    <tr class="bg-primary">
 			      <th scope="col">Expense</th>
 			      <th scope="col">Vendor</th>
 			      <th scope="col">Amount</th>
@@ -37,7 +37,7 @@
 			    <tr>
 			      <td><a href="/expense/${expense.id}">${expense.expenseName}</a> </td>
 			      <td>${expense.vendor} </td>
-			      <td> $<fmt:formatNumber type="number" minFractionDigits="2" value="${expense.amount}"/>
+			      <td> $<fmt:formatNumber type="number" minFractionDigits="2" value="${expense.amount}"></fmt:formatNumber>
 			      </td>
 			      <td>
 			  
@@ -64,6 +64,17 @@
    				<!-- section ONE -->
    				<div class="sectionOne">
    					<div class="formation">
+   						<form:label path="expenseName">expense</form:label>
+   						<form:input path="expenseName" class="input" type="text" name="expenseName"/>
+   					</div>
+   					<div class="errors">
+   						<form:errors class="errors" path="expenseName"/>
+   					</div>
+   				</div>
+
+   					<!-- section TWO -->
+   				<div class="sectionTwo">
+   					<div class="formation">
    						<form:label path="amount">Amount:</form:label>	
    						<form:input path="amount" class="input" type="number" step="0.01" name="amount"/>
    					</div>
@@ -72,35 +83,25 @@
    					</div>
    				</div>
    			
-   					<!-- section TWO -->
-   				<div class="sectionTwo">
-   					<div class="formation">
-   						<form:label path="description">Description:</form:label>	
-   						<form:input path="description" class="input" type="text" name="description"/>
-   					</div>
-   					<div class="errors">
-	   					<form:errors class="errors"  path="description"/>
-   					</div>
-   				</div>
-   			  				
    					<!-- section THREE -->
    				<div class="sectionThree">
-   					<div class="formation">
-   						<form:label path="expenseName">expense</form:label>
-   						<form:input path="expenseName" class="input" type="text" name="expenseName"/>
-   					</div>
-   					<div class="errors">
-   						<form:errors class="errors" path="expenseName"/>
-   					</div>
-   				</div>
-   					<!-- section Four -->
-   				<div class="sectionFour">
    					<div class="formation">
    						<form:label path="vendor">Vendor:</form:label>	
    						<form:input path="vendor" class="input" type="text" name="vendor"/>
    					</div>
    					<div class="errors">
 	   					<form:errors class="errors"  path="vendor"/>
+   					</div>
+   				</div>
+   			  				
+   					<!-- section Four -->
+   				<div class="sectionFour">
+   					<div class="formation">
+   						<form:label path="description">Description:</form:label>	
+   						<form:textarea path="description" class="input" type="text" name="description"/>
+   					</div>
+   					<div class="errors">
+	   					<form:errors class="errors"  path="description"/>
    					</div>
    				</div>
    				
@@ -112,11 +113,6 @@
    			</form:form>
    		</div>
    
-   
-   
-   
-   
-   	
    
 </body>
 </html>

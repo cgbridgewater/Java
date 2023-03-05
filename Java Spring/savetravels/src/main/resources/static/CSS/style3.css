@@ -1,32 +1,17 @@
 @charset "ISO-8859-1";
 
-body{
-	background-image: url("https://th.bing.com/th/id/R.74073cf0119c6c7e61ab28c061c49aa7?rik=B13ypnRf36OiGg&riu=http%3a%2f%2fwallpapercave.com%2fwp%2f6tFtkNQ.jpg&ehk=Ho9J%2bxl8%2fDfU7jyInqXAoYv%2f%2bHexLZh5%2fH7sHEOYt1k%3d&risl=&pid=ImgRaw&r=0");
-	background-repeat:no-repeat;
-	background-position: center center;
-	background-size:cover;
-	height:98vh;
-
-}
-
 h1{
 	margin-top:20px;
 	text-align: center;
 	color:white;
 }
 
-#displayTable {
-	width:40%;
-	min-width:420px;
-	margin:0 auto;
-	padding:15px;
-	border: 4px double #3E37F2;
-	border-radius: 10px;
-	text-align:center;
-}
-
-tr {
-	background-color: #FFD3FE;
+body{
+	background-image: url("https://th.bing.com/th/id/R.74073cf0119c6c7e61ab28c061c49aa7?rik=B13ypnRf36OiGg&riu=http%3a%2f%2fwallpapercave.com%2fwp%2f6tFtkNQ.jpg&ehk=Ho9J%2bxl8%2fDfU7jyInqXAoYv%2f%2bHexLZh5%2fH7sHEOYt1k%3d&risl=&pid=ImgRaw&r=0");
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size:cover;
+	height:98vh;
 }
 
 .formContainer {
@@ -52,16 +37,17 @@ tr {
 	min-width:160px;
 	width:300px;
 }
-
 label {
 	color:#3E37F2;
-	min-width:100px;
+	min-width:100px
 }
 
 .buttonContainer {
 	width:20%;
 	margin:0 auto;
 	margin-top:5px;
+	display:flex;
+	justify-content:center
 }
 
 .button{

@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <title>INDEX</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/CSS/style.css"> <!-- change to match your file/naming structure -->
+    <link rel="stylesheet" href="/CSS/style3.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/JS/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
@@ -27,28 +27,6 @@
    				<!-- section ONE -->
    				<div class="sectionOne">
    					<div class="formation">
-   						<form:label path="amount">Amount:</form:label>	
-   						<form:input path="amount" class="input" type="number" step="0.01" name="amount"/>
-   					</div>
-   					<div class="errors">
-	   					<form:errors class="errors"  path="amount"/>
-   					</div>
-   				</div>
-   			
-   					<!-- section TWO -->
-   				<div class="sectionTwo">
-   					<div class="formation">
-   						<form:label path="description">Description:</form:label>	
-   						<form:input path="description" class="input" type="text" name="description"/>
-   					</div>
-   					<div class="errors">
-	   					<form:errors class="errors"  path="description"/>
-   					</div>
-   				</div>
-   			  				
-   					<!-- section THREE -->
-   				<div class="sectionThree">
-   					<div class="formation">
    						<form:label path="expenseName">expense</form:label>
    						<form:input path="expenseName" class="input" type="text" name="expenseName"/>
    					</div>
@@ -56,14 +34,37 @@
    						<form:errors class="errors" path="expenseName"/>
    					</div>
    				</div>
-   					<!-- section Four -->
-   				<div class="sectionFour">
+   			
+   					<!-- section TWO -->
+   				<div class="sectionTwo">
+   					<div class="formation">
+   						<form:label path="amount">Amount:</form:label>	
+   						<form:input path="amount" class="input" type="number" step="0.01" name="amount"/>
+   					</div>
+   					<div class="errors">
+	   					<form:errors class="errors"  path="amount"/>
+   					</div>
+   				</div>
+   			  				
+   					<!-- section THREE -->
+   				<div class="sectionThree">
    					<div class="formation">
    						<form:label path="vendor">Vendor:</form:label>	
    						<form:input path="vendor" class="input" type="text" name="vendor"/>
    					</div>
    					<div class="errors">
 	   					<form:errors class="errors"  path="vendor"/>
+   					</div>
+   				</div>
+
+   					<!-- section Four -->
+   				<div class="sectionFour">
+   					<div class="formation">
+   						<form:label path="description">Description:</form:label>	
+   						<form:textarea path="description" rows="2" class="input" type="text" name="description"/>
+   					</div>
+   					<div class="errors">
+	   					<form:errors class="errors"  path="description"/>
    					</div>
    				</div>
    				
@@ -74,6 +75,8 @@
    			
    			</form:form>
    		</div>
-   
+		<div class="buttonContainer">	
+			<a href="/"><button class="button" type="submit">Go Home</button></a>	 		
+	 	</div>
 </body>
 </html>
