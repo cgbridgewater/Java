@@ -74,7 +74,7 @@ public class BurgerTrackerController {
 	@PutMapping("/burger/{id}/update")
 	public String update(@Valid @ModelAttribute("oneBurger")BurgerTracker oneBurger, BindingResult result) {
 		if(result.hasErrors()) {
-			return "/update.jsp";
+			return "update.jsp";
 		}else {
 			burgerService.updateBurger(oneBurger);
 			return "redirect:/burger";
