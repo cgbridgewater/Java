@@ -1,25 +1,27 @@
-   <h1> Table Name Here!! </h1>
- 		<!-- Table Display SECTION -->
-  		<div class="tableContainer">
-		   <table class="table .table-hover">
-			  <thead>
-			    <tr>
-			      <th scope="col">Col 1 </th>
-			      <th scope="col">Col 2 </th>
-			      <th scope="col">Col 3</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			  <!-- Loop to iterate expense list -->
-			  <c:forEach var="expense" items="${allExpenses}">
-				<tr>
-					<td><a href="/expense/${expense.id}">${expense.expense}</a> </td>
-					<td>${expense.vendor}</td>
-					<td> $<fmt:formatNumber type="number" minFractionDigits="2" value="${expense.amount}"/></td>
-				</tr>
-			 </c:forEach>
-              <!-- END Loop to iterate expense list -->
-			  </tbody>
+<!-- CSS AT BOTTOM -->
+
+	<h1> Table Name Here!! </h1>
+		<!-- Table Display SECTION -->
+		<div class="tableContainer">
+			<table id="displayTable"  class="table .table-hover">
+				<thead>
+					<tr class="bg-primary">
+						<th scope="col">Col 1 </th>
+						<th scope="col">Col 2 </th>
+						<th scope="col">Col 3</th>
+					</tr>
+				</thead>
+				<tbody>
+				<!-- Loop to iterate expense list -->
+				<c:forEach var="expense" items="${allExpenses}">
+					<tr>
+						<td><a href="/expense/${expense.id}">${expense.expense}</a> </td>
+						<td>${expense.vendor}</td>
+						<td> $<fmt:formatNumber type="number" minFractionDigits="2" value="${expense.amount}"></fmt:formatNumber></td>
+					</tr>
+				</c:forEach>
+				<!-- END Loop to iterate expense list -->
+				</tbody>
 			</table>
             <!-- END Table Display SECTION -->
- 		</div>
+		</div>

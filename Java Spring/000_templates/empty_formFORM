@@ -1,23 +1,25 @@
-<h1>Add an Expense</h1>
-<div class="formContainer">
-    <!-- FORM INPUT SECTION -->
-    <form:form action="" method="" modelAttribute="">
-    
-        <div class="sectionOne">
-            <div class="inputOne">
-                <form:label path="">  </form:label>	
-                <form:input path="" class="" type="" name=""/>
-            </div>
-            <div class="errors">
-                <form:errors class=""  path=""/>
-            </div>
-        </div>
-    
-        <div class="buttonContainer">		 		
-            <button class="button" type="submit">Submit</button>
-        </div>
-    
-    </form:form>
+<!-- CSS AT BOTTOM -->
 
-    <!-- END FORM INPUT SECTION -->
-</div>
+    <h1>Add an Expense</h1>
+    <div class="formContainer">
+        <!-- FORM INPUT SECTION -->
+        <form:form action="" method="" modelAttribute="">
+        
+            <div class="sectionOne">
+                <div class="inputOne">
+                    <form:label path="">  </form:label>	
+                    <form:input path="" class="" type="" name=""/>
+                </div>
+                <div class="errors">
+                    <form:errors class=""  path=""/>
+                </div>
+            </div>
+        
+            <div class="buttonContainer">		 		
+                <button class="button" type="submit">Submit</button>
+            </div>
+        
+        </form:form>
+
+        <!-- END FORM INPUT SECTION -->
+    </div>

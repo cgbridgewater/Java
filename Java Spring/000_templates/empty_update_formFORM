@@ -1,55 +1,57 @@
-<h1>Update a ___________</h1>
-<div class="formContainer">
-    <!-- FORM INPUT SECTION -->
-    <form:form action="MUST CONTAIN ACTION ROUTE FROM CONTROLLER" method="POST" modelAttribute="MUST CONTAIN MODEL NAME FROM CONTROLLER">
-            <input class="input" type="hidden" name="_method" value="PUT">
-        <!-- section ONE -->
-        <div class="sectionOne">
-            <div class="formation">
-                <form:label path="">THING 1:</form:label>	
-                <form:input path="" class="input" type="number" step="0.01" name=""/>
-            </div>
-            <div class="errors">
-                <form:errors class="errors"  path=""/>
-            </div>
-        </div>
-    
-            <!-- section TWO -->
-        <div class="sectionTwo">
-            <div class="formation">
-                <form:label path="">THING 2:</form:label>	
-                <form:input path="" class="input" type="text" name=""/>
-            </div>
-            <div class="errors">
-                <form:errors class="errors"  path=""/>
-            </div>
-        </div>
+<!-- CSS AT BOTTOM -->
 
-            <!-- section THREE -->
-        <div class="sectionThree">
-            <div class="formation">
-                <form:label path="">THING 3:</form:label>
-                <form:input path="" class="input" type="text" name=""/>
+<h1>Update a ___________</h1>
+    <div class="formContainer">
+        <!-- FORM INPUT SECTION -->
+        <form:form action="MUST CONTAIN ACTION ROUTE FROM CONTROLLER" method="POST" modelAttribute="MUST CONTAIN MODEL NAME FROM CONTROLLER">
+                <input class="input" type="hidden" name="_method" value="PUT">
+            <!-- section ONE -->
+            <div class="sectionOne">
+                <div class="formation">
+                    <form:label path="">THING 1:</form:label>	
+                    <form:input path="" class="input" type="number" step="0.01" name=""/>
+                </div>
+                <div class="errors">
+                    <form:errors class="errors"  path=""/>
+                </div>
             </div>
-            <div class="errors">
-                <form:errors class="errors" path=""/>
+        
+                <!-- section TWO -->
+            <div class="sectionTwo">
+                <div class="formation">
+                    <form:label path="">THING 2:</form:label>	
+                    <form:input path="" class="input" type="text" name=""/>
+                </div>
+                <div class="errors">
+                    <form:errors class="errors"  path=""/>
+                </div>
             </div>
-        </div>
-            <!-- section Four -->
-        <div class="sectionFour">
-            <div class="">
-                <form:label path="vendor">THING 4:</form:label>	
-                <form:input path="" class="input" type="text" name=""/>
+
+                <!-- section THREE -->
+            <div class="sectionThree">
+                <div class="formation">
+                    <form:label path="">THING 3:</form:label>
+                    <form:input path="" class="input" type="text" name=""/>
+                </div>
+                <div class="errors">
+                    <form:errors class="errors" path=""/>
+                </div>
             </div>
-            <div class="errors">
-                <form:errors class="errors"  path=""/>
+                <!-- section Four -->
+            <div class="sectionFour">
+                <div class="">
+                    <form:label path="vendor">THING 4:</form:label>	
+                    <form:input path="" class="input" type="text" name=""/>
+                </div>
+                <div class="errors">
+                    <form:errors class="errors"  path=""/>
+                </div>
             </div>
+            
+        
+        <div class="buttonContainer">		 		
+            <button class="button" type="submit">Submit</button>
         </div>
         
-    
-      <div class="buttonContainer">		 		
-          <button class="button" type="submit">Submit</button>
-      </div>
-    
-    </form:form>
-</div>
+        </form:form>
+    </div>
