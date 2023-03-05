@@ -1,0 +1,58 @@
+
+@Entity
+@Table(name = "item")
+public class Item {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@NotNull (message="Min length 3 charactors")
+	@Size(min=3, max=50, message="Min length 3 charactors")
+	private String burgerName;
+	
+	@NotNull (message="Min length 3 charactors")
+	@Size(min=3, max=50,message="Min length 3 charactors")
+	private String restName;
+	
+	@NotNull (message="Please Give A Rating!")
+	@Min(value=1, message="Minimum rating 1")
+	@Max(value=5, message="Maximum rating 5")
+	private Integer rating;
+	
+    @NotEmpty (message="Min length 3 charactors")
+    @Size(min = 3, max = 200, message="Min length 3 charactors")
+    private String description;
+
+	@NotNull (message="Min length 3 charactors")
+	@Size(min=3, max=255, message="Min length 3 charactors")
+	private String notes;
+	
+	@Column(updatable=false)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date createdAt;
+
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date updatedAt;
+	
+	public Item() {}
+
+
+// add getters and setters here!!
+
+
+
+
+	
+	@PrePersist
+	protected void onCreate() {
+		this.createdAt = new Date();
+	}
+	
+	@PreUpdate
+	protected void onUpdate() {
+		this.updatedAt = new Date();
+	}
+	
+
+}

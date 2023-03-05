@@ -1,0 +1,45 @@
+@Service
+public class ItemService {
+
+	
+
+
+
+		
+		@Autowired
+		private ItemRepository itemRepo;
+		
+ 		//GETALL Items
+		public List<Item> allMODEL(){
+			return itemRepo.findAll();
+		}
+		
+		//Create an Item
+		public Item createItem(Item b) {
+			return itemRepo.save(b);
+		}
+
+		//UPDATE an Item
+		public Item updateItem(Item b) {
+			return itemRepo.save(b);
+		}
+				
+		//GETONE Item
+		public Item findItem(Long id) {
+			Optional<Item> optionalItem = itemRepo.findById(id);
+			if(optionalItem.isPresent()) {
+				return optionalItem.get();
+			}else {
+				return null;
+			}
+		}
+		
+	    // DELETE an Item                 // DESTROY
+        public void deleteItem(Long id) {
+            itemRepo.deleteById(id);
+        }
+
+		
+	}
+
+	
