@@ -11,16 +11,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>View Page</title>
+    <title>Add License</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/CSS/style3.css"> <!-- change to match your file/naming structure -->
+    <link rel="stylesheet" href="/CSS/style4.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/JS/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
    
    		
-	<h1> Driver Details</h1>
+	<h1> Add License</h1>
 
     <div class="formContainer">
         <!-- FORM INPUT SECTION -->
