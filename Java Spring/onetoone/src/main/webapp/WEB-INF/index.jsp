@@ -44,7 +44,7 @@
 					<td><a id="links" href="/person/${person.id}">${person.firstName} ${person.lastName}</a></td>
 					<td>${person.license.number}</td>
 					<td>${person.license.state}</td>
-					<td>${person.license.expirationDate}</td>
+					<td>${person.license.expirationDate}</td>	
 				</tr>
 			</c:forEach>
 			<!-- END Loop to iterate expense list -->

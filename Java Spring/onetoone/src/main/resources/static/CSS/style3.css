@@ -1,26 +1,33 @@
 @charset "ISO-8859-1";
 
 h1{
-	margin:10px;
+	margin-left:10%;
 	display:flex;
 	align-items: center;
-	margin-left:10%;
-	margin-top:5%;
 	color: #F5DB40;
 }
 
 body{
-	background-image: url("https://pbs.twimg.com/media/EowU808XUAgoPbF.jpg");
+	background-image: url("https://i.pinimg.com/736x/e1/32/a7/e132a796db790cc8c8cd887afde40375--the-simpsons-saturday-morning.jpg");
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
-	min-height:90vh;
+	min-height:89vh;
+}
+
+.bgBox{
+	width:30%;
+	background-color:#65CBFF;
+	border: 8px double #F5DB40;
+	border-radius: 5px;
+	padding:15px;
+	margin: 5% 0 0 10%;
 }
 
 .formContainer {
-	width:30%;
+	width:85%;
 	min-width:300px;
-	margin-left:10%;
+	margin:0 auto;
 	padding:15px;
 	border: 4px double #3E37F2;
 	border-radius: 5px;
@@ -67,6 +74,6 @@ label {
 #home {
 	text-decoration:none;
 	color: #F5DB40;
-	margin-left:10%;
+	margin-left:20%;
 	font-size:20px;
 }
