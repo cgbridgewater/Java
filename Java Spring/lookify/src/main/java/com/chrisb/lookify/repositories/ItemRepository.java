@@ -20,5 +20,7 @@ public interface ItemRepository extends CrudRepository<Item, Long>{
 	
 	
 	// this method finds the top 10 rated songs 
-	
+	List<Item> findFirst10ByOrderByRatingDesc();
 }
+//List<Item> orderByRatingDescendingLimitTen();
+//}

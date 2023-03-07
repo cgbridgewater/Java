@@ -19,15 +19,17 @@
 </head>
 <body>
    
-   			<h1> Top 10 Songs </h1>
+   			<h1> Top 10 Songs By Rating </h1>
 	
-			<ul>
+		<div class="topTenContainer">
+			
 				<c:forEach var="result" items="${results}">
 					
-					<li>${result.rating} - ${result.title} - ${result.name}</li>
+					<p>${result.rating} - ${result.title} - ${result.artist}</p>
 								
 				</c:forEach>
-			</ul>
+			
+		</div>
 	 	  	<div class="buttonContainer">
 		     	<h4><a href="/dashboard">dashboard</a></h4>
 	     	</div>

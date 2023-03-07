@@ -55,8 +55,11 @@ public class ItemService {
 
 
 	    // Sort By top 10
+	    public List<Item> topRated() {
+	    	return itemRepo.findFirst10ByOrderByRatingDesc();
+	    }
 	    
-	    
+//	    return itemRepo.sortByRatingDescendingLimitTen();
 
 }
 

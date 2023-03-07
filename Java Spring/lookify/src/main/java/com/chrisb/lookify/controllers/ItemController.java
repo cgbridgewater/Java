@@ -123,7 +123,7 @@ public class ItemController {
 	// TOP 10 
 	@GetMapping("/songs/top10")
 	public String topTen(Model model) {
-		
+		model.addAttribute("results", itemServ.topRated());
 		return "top10.jsp";
 	}
 

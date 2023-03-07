@@ -10,8 +10,8 @@ h1{
 
 
 
-#displayTable {
-	width:80%;
+.topTenContainer{
+	width:50%;
 	min-width:420px;
 	margin:0 auto;
 	padding:15px;
@@ -19,7 +19,6 @@ h1{
 	border-radius: 10px;
 	text-align:center;
 }
-
 
 
 .buttonContainer {
