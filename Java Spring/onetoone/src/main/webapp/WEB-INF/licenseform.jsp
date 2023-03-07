@@ -72,7 +72,7 @@
         <!-- END FORM INPUT SECTION -->
     </div>
 
-	   		<a id="home" href="/">Go Home</a>
+ 	<a id="home" href="/">Go Home</a>
 
    
 </body>

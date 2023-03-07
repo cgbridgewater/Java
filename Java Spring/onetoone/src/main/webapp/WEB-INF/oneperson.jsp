@@ -22,28 +22,28 @@
    		
 	<h1> Driver Details</h1>
 		<!-- Table Display SECTION -->
-		<div class="tableContainer">
-			<table id="displayTable"  class="table .table-hover">
-				<thead>
-					<tr class="bg-primary">
-						<th >Name </th>
-						<th >License Number </th>
-						<th > State</th>
-						<th >Exp Date</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>${onePerson.firstName} ${onePerson.lastName}</td>
-						<td> ${onePerson.license.number}</td>
-						<td>${onePerson.license.state}</td>
-						<td>${onePerson.license.expirationDate}</td>
-					</tr>
-				</tbody>
-			</table>
-            <!-- END Table Display SECTION -->
-		</div>
-   		<a id="home" href="/">Go Home</a>
+	<div class="tableContainer">
+		<table id="displayTable"  class="table .table-hover">
+			<thead>
+				<tr class="bg-primary">
+					<th >Name </th>
+					<th >License Number </th>
+					<th > State</th>
+					<th >Exp Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>${onePerson.firstName} ${onePerson.lastName}</td>
+					<td> ${onePerson.license.number}</td>
+					<td>${onePerson.license.state}</td>
+					<td>${onePerson.license.expirationDate}</td>
+				</tr>
+			</tbody>
+		</table>
+           <!-- END Table Display SECTION -->
+	</div>
+  	<a id="home" href="/">Go Home</a>
 
    		
 </body>

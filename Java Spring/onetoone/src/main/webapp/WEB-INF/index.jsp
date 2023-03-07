@@ -26,32 +26,34 @@
 			<h3><a id="create" href="/person/new">Create Person</a></h3>
 		</div>
 	</div>
-		<div class="tableContainer">
-			<table id="displayTable"  class="table .table-hover">
+	<div class="tableContainer">
+		<table id="displayTable"  class="table .table-hover">
 		<!-- Table Display SECTION -->
-				<thead>
-					<tr class="bg-primary">
-						<th >Name</th>
-						<th >License Number</th>
-						<th >State</th>
-						<th >Exp Date</th>
-					</tr>
-				</thead>
-				<tbody>
-				<!-- Loop to iterate expense list -->
-				<c:forEach var="person" items="${allDrivers}">
-					<tr>
-						<td><a id="links" href="/person/${person.id}">${person.firstName} ${person.lastName}</a></td>
-						<td>${person.license.number}</td>
-						<td>${person.license.state}</td>
-						<td>${person.license.expirationDate}</td>
-					</tr>
-				</c:forEach>
-				<!-- END Loop to iterate expense list -->
-				</tbody>
-			</table>
-            <!-- END Table Display SECTION -->
-		</div>
- 		<a id="home" href="/license">Add License</a>
+			<thead>
+				<tr class="bg-primary">
+					<th >Name</th>
+					<th >License Number</th>
+					<th >State</th>
+					<th >Exp Date</th>
+				</tr>
+			</thead>
+			<tbody>
+			<!-- Loop to iterate expense list -->
+			<c:forEach var="person" items="${allDrivers}">
+				<tr>
+					<td><a id="links" href="/person/${person.id}">${person.firstName} ${person.lastName}</a></td>
+					<td>${person.license.number}</td>
+					<td>${person.license.state}</td>
+					<td>${person.license.expirationDate}</td>
+				</tr>
+			</c:forEach>
+			<!-- END Loop to iterate expense list -->
+			</tbody>
+		</table>
+        <!-- END Table Display SECTION -->
+	</div>
+	<a id="home" href="/license">Add License</a>
+	
+	
 </body>
 </html>

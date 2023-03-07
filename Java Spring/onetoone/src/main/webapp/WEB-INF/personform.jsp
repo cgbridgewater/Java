@@ -21,7 +21,7 @@
    
    		
 	<h1> Create a Driver</h1>
-	    <div class="formContainer">
+    <div class="formContainer">
         <!-- FORM INPUT SECTION -->
         <form:form action="/person/create" method="POST" modelAttribute="newPerson">
         
@@ -52,7 +52,7 @@
 
         <!-- END FORM INPUT SECTION -->
     </div>
-	   		<a id="home" href="/">Go Home</a>
+	<a id="home" href="/">Go Home</a>
 	
 		
 </body>

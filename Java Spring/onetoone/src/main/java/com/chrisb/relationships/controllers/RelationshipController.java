@@ -50,9 +50,6 @@ public class RelationshipController {
 			return "personform.jsp";
 		}
 
-		
-		
-		
 		// create person action
 		@PostMapping("/person/create")
 		public String createPerson(@Valid @ModelAttribute("newPerson") Person newPerson, BindingResult result) {
@@ -63,10 +60,6 @@ public class RelationshipController {
 				return "redirect:/";
 			}
 		}
-
-		
-		
-		
 		
 		// create license form
 		@GetMapping("/license")
@@ -76,8 +69,6 @@ public class RelationshipController {
 			return "licenseform.jsp";
 		}
 
-		
-		
 		// create person action
 		@PostMapping("/license/create")
 		public String createLicense(@Valid @ModelAttribute("newLicense") License newLicense, BindingResult result) {
@@ -88,6 +79,5 @@ public class RelationshipController {
 				return "redirect:/";
 			}
 		}
-		
 		
 }

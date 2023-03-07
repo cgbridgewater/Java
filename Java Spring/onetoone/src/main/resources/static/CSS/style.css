@@ -20,8 +20,6 @@ body{
 	min-height:90vh;
 }
 
-
-
 #displayTable {
 	width:40%;
 	min-width:420px;
@@ -47,7 +45,6 @@ tr {
 .createBox {
 margin-left:5%;
 }
-
 
 #create {
 	text-decoration:none;
