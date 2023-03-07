@@ -8,10 +8,10 @@
             <div class="sectionOne">
                 <div class="formation">
                     <form:label path="">  </form:label>	
-                    <form:input path="" class="" type="" name=""/>
+                    <form:input path="" class="input" type="" name=""/>
                 </div>
                 <div class="errors">
-                    <form:errors class=""  path=""/>
+                    <form:errors class="errors"  path=""/>
                 </div>
             </div>
         
@@ -77,4 +77,9 @@ label {
 	color:white;
 	border:2px solid white;
 	border-radius:5px;
+}
+
+.errors{
+	color:red;
+	font-weight:800;
 }
