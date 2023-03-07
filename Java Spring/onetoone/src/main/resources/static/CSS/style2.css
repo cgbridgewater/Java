@@ -1,15 +1,12 @@
 @charset "ISO-8859-1";
 
-.navi{
+h1{
 	margin:10px;
 	display:flex;
 	align-items: center;
 	margin-left:10%;
-	margin-top:3%;
-}
-
-h3{
-	color: #F5DB40;	
+	margin-top:5%;
+	color: #F5DB40;
 }
 
 body{
@@ -27,7 +24,7 @@ body{
 	min-width:420px;
 	margin-left:10%;
 	padding:15px;
-	border: 6px double #F5DB40;
+	border: 4px double #3E37F2;
 	border-radius: 10px;
 	text-align:center;
 }
@@ -35,7 +32,6 @@ body{
 tr {
 	background-color: blue;
 	color:white;
-	border-color:blue;
 }
 
 #links {
@@ -48,11 +44,6 @@ tr {
 margin-left:5%;
 }
 
-
-#create {
-	text-decoration:none;
-	color: #F5DB40;
-}
 
 #home {
 	text-decoration:none;

@@ -5,15 +5,11 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.chrisb.relationships.models.Person;
+import com.chrisb.relationships.models.License;
 
 @Repository
-public interface PersonRepository extends CrudRepository<Person, Long> {
+public interface LicenseRepository extends CrudRepository<License, Long> {
 
 	@Override
-	List<Person> findAll();
-	
-	
-	
-	
+	List<License> findAll();
 }
