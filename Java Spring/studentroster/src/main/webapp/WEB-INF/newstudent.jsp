@@ -19,8 +19,7 @@
 </head>
 <body>
    
-   		<h1>Welcome to the Dorm Registration Site</h1>
-   		<a href="/dorms">View Dorms</a>
+   		<h1> TESTING... </h1>
    
 </body>
 </html>
