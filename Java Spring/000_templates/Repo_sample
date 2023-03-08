@@ -1,8 +1,8 @@
 @Repository
-public interface ItemRepository extends CrudRepository<Item, Long>{
+public interface DormRepository extends CrudRepository<Dorm, Long> {
 
 	@Override
-	List<Item> findAll();
+	List<Dorm> findAll();
 	
 	
 }

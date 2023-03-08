@@ -1,45 +1,37 @@
 @Service
-public class ItemService {
+public class DormService {
 
+	@Autowired
+	private DormRepository dormRepo;
 	
-
-
-
-		
-		@Autowired
-		private ItemRepository itemRepo;
-		
- 		//GETALL Items
-		public List<Item> allMODEL(){
-			return itemRepo.findAll();
-		}
-		
-		//Create an Item
-		public Item createItem(Item b) {
-			return itemRepo.save(b);
-		}
-
-		//UPDATE an Item
-		public Item updateItem(Item b) {
-			return itemRepo.save(b);
-		}
-				
-		//GETONE Item
-		public Item findItem(Long id) {
-			Optional<Item> optionalItem = itemRepo.findById(id);
-			if(optionalItem.isPresent()) {
-				return optionalItem.get();
-			}else {
-				return null;
-			}
-		}
-		
-	    // DELETE an Item                 // DESTROY
-        public void deleteItem(Long id) {
-            itemRepo.deleteById(id);
-        }
-
-		
+		// GETALL 
+	public List<Dorm> getAll(){
+		return dormRepo.findAll();
+	}
+	
+	// CREATE
+	public Dorm create(Dorm b) {
+		return dormRepo.save(b);
 	}
 
+	//UPDATE 
+	public Dorm update(Dorm b) {
+		return dormRepo.save(b);
+	}
+			
+	//GETONE Dorm
+	public Dorm findById(Long id) {
+		Optional<Dorm> optDorm = dormRepo.findById(id);
+		if(optDorm.isPresent()) {
+			return optDorm.get();
+		}else {
+			return null;
+		}
+	}
 	
+    // DELETE 
+    public void delete(Long id) {
+    	dormRepo.deleteById(id);
+    }
+
+}
