@@ -63,7 +63,15 @@ public class DojosController {
 	
 	
 	
+	// Delete ROUTES
 	
+	
+	//Delete dojo by id
+	@GetMapping("dojos/{dojoid}/delete")
+	public String removeDojo(@PathVariable("dojoid")Long dojoid) {
+		dojoServ.deleteDojo(dojoid);
+		return "redirect:/";
+	}
 	
 	
 	
