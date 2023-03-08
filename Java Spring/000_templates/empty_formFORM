@@ -8,10 +8,10 @@
             <div class="sectionOne">
                 <div class="formation">
                     <form:label path="">  </form:label>	
-                    <form:input path="" class="input" type="" name=""/>
+                    <form:input path="" type="" class="input" />
                 </div>
                 <div class="errors">
-                    <form:errors class="errors"  path=""/>
+                    <form:errors path="" class="errors"/>
                 </div>
             </div>
         

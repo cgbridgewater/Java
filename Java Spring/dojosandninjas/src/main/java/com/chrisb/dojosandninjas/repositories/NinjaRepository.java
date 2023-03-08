@@ -5,12 +5,12 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.chrisb.dojosandninjas.models.Dojo;
+import com.chrisb.dojosandninjas.models.Ninja;
 
 @Repository
-public interface DojoRepository extends CrudRepository<Dojo, Long> {
+public interface NinjaRepository extends CrudRepository<Ninja, Long> {
 
+	@Override
+	List<Ninja> findAll();
 	
-		@Override
-		List<Dojo> findAll();
 }

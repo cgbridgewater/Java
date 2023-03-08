@@ -6,6 +6,7 @@ body {
 	height:100vh;
 }
 
+
 .navi{
 	display:flex;
 	justify-content:space-between;
@@ -15,7 +16,16 @@ body {
 	border-bottom:3px solid black;
 }
 
-
+.formContainer {
+	width:20%;
+	min-width:300px;
+	margin:0 auto;
+	margin-top:3%;
+	padding:15px;
+	border: 4px double #3E37F2;
+	border-radius: 5px;
+	background-color:whitesmoke;
+}
 
 
 .formation {
@@ -25,11 +35,19 @@ body {
 }
 
 .input {
-	background-color:whitesmoke;
+	background-color:lightblue;
 	border-color:#3E37F2;
 	border-radius:5px;
 	min-width:160px;
 	width:300px;
+}
+.input2 {
+	background-color:lightblue;
+	border-color:#3E37F2;
+	border-radius:5px;
+	text-align:center;
+	min-width:100px;
+	width:100px;
 }
 
 label {
@@ -69,7 +87,6 @@ label {
 tr {
 	background-color: whitesmoke;
 }
-
 
 
 .linkContainer {
