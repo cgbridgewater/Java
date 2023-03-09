@@ -1,0 +1,7 @@
+SELECT * FROM student_roster.dorm;
+
+INSERT INTO dorm(dorm_name)
+VALUES("West Wing");
+
+SELECT * FROM lookify
+ORDER BY rating DESC LIMIT 10;
