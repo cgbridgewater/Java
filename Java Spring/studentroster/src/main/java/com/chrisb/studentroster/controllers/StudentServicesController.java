@@ -39,7 +39,9 @@ public class StudentServicesController {
 	@GetMapping("/dorms")
 	public String showDorms(Model model) {
 		List<Dorm> allDorms = dormServ.getAll();
-		model.addAttribute("allDorms",allDorms);
+		model.addAttribute("allDorms",allDorms);		
+		List<Student> allStudents = studentServ.getAll();
+		model.addAttribute("allStudents",allStudents);
 		return "dorms.jsp";
 	}
 	

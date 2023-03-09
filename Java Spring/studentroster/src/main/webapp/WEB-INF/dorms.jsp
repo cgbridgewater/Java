@@ -7,6 +7,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!-- for rendering errors on PUT routes -->
 <%@ page isErrorPage="true" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,13 +29,8 @@
    			</div>	
   		</div>
 
-   				<% int count = 0; %>
-   			<c:forEach var="dorm" items="${allDorms}">
-   				<% count +=1; %>
-   				<c:out value="count" />
-   			</c:forEach>
-   			
-   			
+
+
    			
    			
 		<!-- Table Display SECTION -->
@@ -46,7 +42,7 @@
 				<thead>
 					<tr class="bg-primary">
 						<th>Dorm Name</th>
-						<th>Action</th>
+						<th> Students (Student Count)</th>
 		
 					</tr>
 				</thead>
@@ -54,9 +50,8 @@
 				<!-- Loop to iterate expense list -->
 				<c:forEach var="dorm" items="${allDorms}">
 					<tr>
-						<td>${dorm.dormName}</td>
-						<td><a href="/dorms/${dorm.id}">See Students</a> </td>
-
+						<td>${dorm.dormName}</td>	
+						<td><a href="/dorms/${dorm.id}">See Students</a>  &nbsp;&nbsp; (${fn:length(dorm.students)}) </td>
 					</tr>
 				</c:forEach>
 				<!-- END Loop to iterate expense list -->
