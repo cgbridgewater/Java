@@ -7,15 +7,15 @@ public class Item {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull (message="Min length 3 charactors")
+	@NotEmpty (message="Min length 3 charactors")
 	@Size(min=3, max=50, message="Min length 3 charactors")
 	private String burgerName;
 	
-	@NotNull (message="Min length 3 charactors")
+	@NotEmpty (message="Min length 3 charactors")
 	@Size(min=3, max=50,message="Min length 3 charactors")
 	private String restName;
 	
-	@NotNull (message="Please Give A Rating!")
+	@NotEmpty (message="Please Give A Rating!")
 	@Min(value=1, message="Minimum rating 1")
 	@Max(value=5, message="Maximum rating 5")
 	private Integer rating;
@@ -24,7 +24,7 @@ public class Item {
     @Size(min = 3, max = 200, message="Min length 3 charactors")
     private String description;
 
-	@NotNull (message="Min length 3 charactors")
+	@NotEmpty (message="Min length 3 charactors")
 	@Size(min=3, max=255, message="Min length 3 charactors")
 	private String notes;
 	
