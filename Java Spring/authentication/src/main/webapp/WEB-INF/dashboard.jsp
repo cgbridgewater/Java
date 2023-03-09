@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>View Page</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/CSS/style2.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
@@ -19,13 +19,11 @@
 </head>
 <body>
    
-   
    		<div class="nav">
 	   		<h1> Hello, <c:out value="${user.userName}"/> </h1>
 	   		<h3><a href="/logout">Logout</a></h3>
    		</div>
    		
-   		
-   		
+   		   
 </body>
 </html>
