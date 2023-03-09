@@ -1,0 +1,65 @@
+@charset "ISO-8859-1";
+
+body {
+	background:grey;
+}
+
+h1 {
+	color:white;
+}
+
+.nav {
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	background:black;
+	border-bottom: 4px double blue;
+	padding:1% 5%;
+}
+
+.formContainer {
+	width:40%;
+	min-width:470px;
+	margin:2% auto;
+	padding:15px;
+	border: 6px double blue;
+	border-radius: 5px;
+	background-color:lightgrey;
+}
+
+.formation {
+	margin-bottom:5px;
+	display:flex;
+	justify-content:space-between;
+}
+
+.input {
+	background-color:darkgrey;
+	border-color:blue;
+	border-radius:5px;
+	min-width:140px;
+	width:300px;
+}
+
+label {
+	color:blue;
+	min-width:100px;
+}
+
+.buttonContainer {
+	width:20%;
+	margin:0 auto;
+	margin-top:5px;
+}
+
+.button{
+	background-color:blue;
+	color:whitesmoke;
+	border:2px solid whitesmoke;
+	border-radius:5px;
+}
+
+.errors{
+	color:red;
+	font-weight:800;
+}

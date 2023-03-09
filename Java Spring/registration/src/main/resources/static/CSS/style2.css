@@ -1,0 +1,21 @@
+@charset "ISO-8859-1";
+
+body {
+	background:grey;
+
+}
+
+.nav {
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	background:black;
+	border-bottom: 4px double blue;
+	padding:1% 5%;
+}
+
+h1, h3, a {
+	color:white;
+	text-decoration:none;
+}
+
