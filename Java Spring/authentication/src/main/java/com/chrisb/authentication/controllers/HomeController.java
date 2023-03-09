@@ -47,12 +47,17 @@ public class HomeController {
 	// DASHBOARD ROUTE
 	@GetMapping("/dashboard")
 	public String dashboard(Model model, HttpSession session) {
-		List<User> allUsers = userServ.getAll();
 		Long id = (Long) session.getAttribute("userId");
+			if(id == null) { //if none in session gtfo!
+				return "redirect:/";
+			}
+			else {				
+		List<User> allUsers = userServ.getAll();
 		User loggedUser = userServ.findById(id);
 		model.addAttribute("user", loggedUser);
 		model.addAttribute("allUsers", allUsers);
 		return "dashboard.jsp";
+			}
 	}
 		
 		

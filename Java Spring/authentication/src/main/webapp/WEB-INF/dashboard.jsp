@@ -24,6 +24,40 @@
 	   		<h3><a href="/logout">Logout</a></h3>
    		</div>
    		
+   		
+		<!-- Table Display SECTION -->
+		<div class="tableContainer">
+			<table id="displayTable"  class="table .table-hover">
+				<thead>
+					<tr class="bg-primary">
+						<th scope="col">User Name </th>
+						<th scope="col">Contact Email </th>
+						<th scope="col">Actions </th>
+					</tr>
+				</thead>
+				<tbody>
+				<!-- Loop to iterate expense list -->
+				<c:forEach var="users" items="${allUsers}">
+					<tr>
+						<td>${users.userName} </td>
+						<td>${users.email}</td>
+						<c:if test="${user.id == users.id}"> 
+						<td>
+						<a href="/dashboard/${users.id}/edit">Edit</a> ||
+						<a href="/dashboard/${users.id}/delete">Delete!</a>
+						</td>
+						</c:if>
+						<c:if test="${user.id != users.id}"> 
+						<td></td>
+						</c:if>
+					</tr>
+				</c:forEach>
+				<!-- END Loop to iterate expense list -->
+				</tbody>
+			</table>
+            <!-- END Table Display SECTION -->
+		</div>
+   		
    		   
 </body>
 </html>
