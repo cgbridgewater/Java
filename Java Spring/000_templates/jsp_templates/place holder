@@ -1,0 +1,31 @@
+ 			<!--- Transfer Student Form --->
+		   <div class="formContainer">
+		        <!-- FORM INPUT SECTION -->
+		        <form:form action="/students/update/${oneDorm.id}" method="POST" modelAttribute="newStudent">
+                <input type="hidden" name="_method" value="PUT">
+        
+   
+               <!--- Drop down select menu --->
+             <div class="formation">
+			    <form:input type="hidden" path="dorm" value="${oneDorm.id}"/>
+            	<form:label path="dorm"> Transfer a Student:  </form:label>	
+			    <form:select class="input" path="studentName">
+			        <c:forEach var="student" items="${allStudents}">
+			        	<c:if test="${oneDorm.id != student.dorm.id}"> 	
+				            <!--- Each option VALUE is the id of the person --->
+				            <form:option value="${student.studentName}" path="studentName">
+				            <!--- This is what shows to the user as the option --->
+				                <c:out value="${student.studentName} (${student.dorm.dormName})"/>
+                       
+				            </form:option>
+		            	</c:if>
+			        </c:forEach>
+			    </form:select>
+		    </div>
+			<!--- ... --->
+           <div class="buttonContainer">		 		
+                <button class="button" type="submit">Add</button>
+            </div>
+        
+        </form:form>
+   		</div>

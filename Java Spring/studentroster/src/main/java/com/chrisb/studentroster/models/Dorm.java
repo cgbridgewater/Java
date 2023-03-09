@@ -38,7 +38,7 @@ public class Dorm {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
-	@OneToMany(mappedBy="dojo", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="dorm", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Student> students;
 	
 	public Dorm() {}

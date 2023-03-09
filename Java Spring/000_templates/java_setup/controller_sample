@@ -1,0 +1,19 @@
+@Controller
+public class StudentServicesController {
+
+
+	
+	@Autowired 
+	DormService dormServ;
+	@Autowired 
+	StudentService studentServ;
+	
+	
+	@GetMapping("/")
+	public String index() {
+		return "index.jsp";
+	}
+	
+	
+	
+}

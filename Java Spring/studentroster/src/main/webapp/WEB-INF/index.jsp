@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>View Page</title>
+    <title>Welcome!</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/CSS/style.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
@@ -20,7 +20,7 @@
 <body>
    
    		<h1>Welcome to the Dorm Registration Site</h1>
-   		<a href="/dorms">View Dorms</a>
+   		<h3><a href="/dorms">View Dorms</a></h3>
    
 </body>
 </html>
