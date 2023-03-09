@@ -28,6 +28,14 @@
    			</div>	
   		</div>
 
+   				<% int count = 0; %>
+   			<c:forEach var="dorm" items="${allDorms}">
+   				<% count +=1; %>
+   				<c:out value="count" />
+   			</c:forEach>
+   			
+   			
+   			
    			
 		<!-- Table Display SECTION -->
 	
@@ -39,7 +47,7 @@
 					<tr class="bg-primary">
 						<th>Dorm Name</th>
 						<th>Action</th>
-
+		
 					</tr>
 				</thead>
 				<tbody>
