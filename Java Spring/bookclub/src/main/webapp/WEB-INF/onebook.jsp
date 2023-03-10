@@ -20,6 +20,7 @@
 <body>
    
    		
+  	<!-- NAV BAR -->
 	<div class="nav">
 		<div class="navLeft">
 	 		<h1><c:out value="${oneBook.title}"/> </h1>
@@ -30,38 +31,39 @@
 	 		<h3><a href="/dashboard">back to the shelves</a></h3>
 		</div>
 	</div>
+   	<!-- NAV BAR -->
+   	
    		
- 	<div class="content">
+ 	<div class="content">	
+ 	
+ 		<!-- If user and creater match -->
+		<c:if test="${user.id == oneBook.user.id}"> 
+			<td>
+				<h3> You read ${oneBook.title} by ${oneBook.author}</h3>
+		       <h5 class="rightSide">Here's your thoughts:</h5>
+			</td>
+		</c:if>
 		
-					<c:if test="${user.id == oneBook.user.id}"> 
-						<td>
-        					<h3> You read ${oneBook.title} by ${oneBook.author}</h3>
-						       <h5 class="rightSide">Here's your thoughts:</h5>
-						</td>
-						</c:if>
-						<c:if test="${user.id != oneBook.user.id}"> 
-						<td>
-        					<h3> ${oneBook.user.userName} read  ${oneBook.title} by ${oneBook.author}</h3>
-			       			<h5 class="rightSide">Here's ${oneBook.user.userName} thoughts:</h5>
-						</td>
-						</c:if>
+		<!-- If user and creater DO NOT match -->
+		<c:if test="${user.id != oneBook.user.id}"> 
+			<td>
+  				<h3> ${oneBook.user.userName} read  ${oneBook.title} by ${oneBook.author}</h3>
+       			<h5 class="rightSide">Here's ${oneBook.user.userName} thoughts:</h5>
+			</td>
+		</c:if>
 		
-		
-		
- 
 		<hr/>    
         <p> ${oneBook.thoughts}</p>
 		<hr/>    
 		
-			<c:if test="${user.id == oneBook.user.id}"> 
-				<div class="flexControl">
-	     			<h3><a href="/books/${oneBook.id}/update">Update</a></h3>   
-	     			<h3><a href="/books/${oneBook.id}/delete">Delete</a></h3>
-				</div>
-         	</c:if>
-        </div>
+		<!-- If user and creater match -->
+		<c:if test="${user.id == oneBook.user.id}"> 
+			<div class="flexControl">
+     			<h3><a href="/books/${oneBook.id}/update">Update</a></h3>   
+     			<h3><a href="/books/${oneBook.id}/delete">Delete</a></h3>
+			</div>
+       	</c:if>
+    </div>
    		
-   
-   
 </body>
 </html>

@@ -13,9 +13,7 @@ import com.chrisb.authentication.models.User;
 
 		public Optional<User> findByEmail(String email);
 		
-		
 		@Override
 		List<User> findAll();
-	
-	
+
 }

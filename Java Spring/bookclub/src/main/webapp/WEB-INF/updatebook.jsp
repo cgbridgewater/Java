@@ -20,7 +20,7 @@
 <body>
    
    	
-   
+		<!-- NAV BAR -->	   
    		<div class="nav">
 	   		<div class="navLeft">
 				<h3>Change Your Entry</h3>
@@ -30,15 +30,17 @@
 		   		<h3><a href="/dashboard">back to the shelves</a></h3>
 	   		</div>
    		</div>
-   		
+   		<!-- NAV BAR -->
    
    
-    <div class="formContainer">
         <!-- FORM INPUT SECTION -->
+    <div class="formContainer">
         <form:form action="/books/${updateBook.id}/update" method="POST" modelAttribute="updateBook">
         	    <input type="hidden" name="_method" value="PUT">
         	<form:input type="hidden" path="user" value="${oneBook.user.id}" />
         	<form:input type="hidden" path="id" value="${oneBook.id}" />
+        	
+     	    <!-- INPUT SECTION 1 -->
             <div class="sectionOne">
                 <div class="formation">
                     <form:label path="title"> Title: </form:label>	
@@ -48,7 +50,8 @@
                     <form:errors path="title" class="errors"/>
                 </div>
             </div>
-        
+
+     	    <!-- INPUT SECTION 2 -->
             <div class="sectiontwo">
                 <div class="formation">
                     <form:label path="author"> Author Name: </form:label>	
@@ -59,6 +62,7 @@
                 </div>
             </div>
         
+     	    <!-- INPUT SECTION 3 -->
             <div class="sectionThree">
                 <div class="formation">
                     <form:label path="thoughts"> My Thoughts: </form:label>	
@@ -69,6 +73,7 @@
                 </div>
             </div>
         
+     	    <!-- BUTTON -->        
             <div class="buttonContainer">		 		
                 <button class="button" type="submit">Submit</button>
             </div>

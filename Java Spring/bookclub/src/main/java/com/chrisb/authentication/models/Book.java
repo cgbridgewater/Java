@@ -18,10 +18,6 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-/**
- * @author cgbri
- *
- */
 @Entity
 @Table(name = "books")
 public class Book {
@@ -42,8 +38,6 @@ public class Book {
 	@Size(min=3, max=500,message="Min length 3 charactors")
 	private String thoughts;
 	
-	
-	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -55,79 +49,63 @@ public class Book {
     @JoinColumn(name="user_id")
     private User user;
   
-
 	public Book() {}
-	
 	
 	public Long getId() {
 	return id;
-}
+	}
 
-	
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
 	
 	public String getTitle() {
 		return title;
 	}
 	
-	
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
 	
 	public String getAuthor() {
 		return author;
 	}
 	
-	
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	
 	
 	public String getThoughts() {
 		return thoughts;
 	}
 	
-	
 	public void setThoughts(String thoughts) {
 		this.thoughts = thoughts;
 	}
-	
 	
 	public Date getCreatedAt() {
 		return createdAt;
 	}
 	
-	
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-	
 	
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
 	
-	
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
 	
 	public User getUser() {
 		return user;
 	}
 	
-	
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 
 	@PrePersist
 	protected void onCreate() {
@@ -138,5 +116,4 @@ public class Book {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-	
 }

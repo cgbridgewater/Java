@@ -19,16 +19,16 @@
 </head>
 <body>
    
-   		
+   		 	<!-- NAV BAR -->
 			<div class="nav"  >
    				<h1> Welcome to the Login!</h1>
 			</div>   
-
-		
+ 			<!-- NAV BAR -->
 		
 	   		<div class="container">
-   			    <div class="formContainer">
+
 			        <!-- FORM REGISTER SECTION -->
+   			    <div class="formContainer">
 			        <form:form action="/register" method="POST" modelAttribute="user">
 			        	<h2>Register Here:</h2>
 
@@ -84,10 +84,10 @@
 			            <div class="buttonContainer">		 		
 			                <button class="button" type="submit">Register</button>
 			            </div>
-			        
+			        	<!-- ... -->
 			        </form:form>
-			
 			        <!-- END FORM INPUT SECTION -->
+			
 			    </div>
    				
    				
@@ -108,6 +108,7 @@
 			                </div>
 			            </div>
 						 <!-- ...  -->
+						 
 						 <!-- FORM PASSWORD SECTION -->
 			            <div class="sectionTwo">
 			                <div class="formation">
@@ -124,15 +125,12 @@
 			            <div class="buttonContainer">		 		
 			                <button class="button" type="submit">Login</button>
 			            </div>
-			        
-			        </form:form>
-			
-			        <!-- END FORM LOGIN SECTION -->
+			        	<!-- ... -->
+			        </form:form>			
 			    </div>
+			        <!-- END FORM LOGIN SECTION -->
    			
-   			
-   		
-   		
+   	
    			</div>
    
    

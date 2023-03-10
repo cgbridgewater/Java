@@ -19,6 +19,8 @@
 </head>
 <body>
    
+   
+   		<!-- NAV BAR -->
    		<div class="nav">
 	   		<div class="navLeft">
 		   		<h1> Hello, <c:out value="${user.userName}"/> </h1>
@@ -29,6 +31,7 @@
 		   		<h3><a href="/books/new">Add a book to the shelf</a></h3>
 	   		</div>
    		</div>
+  		<!-- NAV BAR -->
    		
    		
 		<!-- Table Display SECTION -->
@@ -50,16 +53,13 @@
 						<td><a href="/books/${book.id}/view">${book.title }</a> </td>
 						<td>${book.author}</td>
 						<td>${book.user.userName}</td>
-	
-
-
 					</tr>
 				</c:forEach>
 				<!-- END Loop to iterate Book list -->
 				</tbody>
 			</table>
-            <!-- END Table Display SECTION -->
 		</div>
+            <!-- END Table Display SECTION -->
    		
    		   
 </body>
