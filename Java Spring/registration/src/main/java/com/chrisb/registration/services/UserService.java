@@ -2,6 +2,7 @@ package com.chrisb.registration.services;
 
 import java.util.Optional;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
@@ -24,6 +25,8 @@ public class UserService {
 		if(result.hasErrors()) {
 			return null;
 		}
+		String hashPW = BCrypt.hashpw(u.getPassword(), BCrypt.gensalt());
+		u.setPassword(hashPW);
 		return userRepo.save(u);
 	}
 	
@@ -34,7 +37,7 @@ public class UserService {
 			return null;
 		}
 		User user = optUser.get();
-		if (!user.getPassword().equals(l.getPassword())) {
+		if (!BCrypt.checkpw(l.getPassword(), user.getPassword())) {
 			return null;
 		}
 		return user;

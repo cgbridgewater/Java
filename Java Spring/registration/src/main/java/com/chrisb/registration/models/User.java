@@ -34,7 +34,7 @@ public class User {
 	private String email;
 	
 	@NotEmpty (message="Min length 8 charactors")
-	@Size(min=8, max=50,message="Min length 8 charactors")
+	@Size(min=8, message="Min length 8 charactors")
 	private String password;
 	
 	@Transient

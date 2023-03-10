@@ -54,14 +54,11 @@ public class DojosController {
 	public String showDojo(@PathVariable("dojo_id")Long dojo_id,Model model) {
 		Dojo oneDojo = dojoServ.findDojo(dojo_id);
 		model.addAttribute("oneDojo", oneDojo);
-		List<Ninja> allNinjas = ninjaServ.allNinjas();
-		model.addAttribute("allNinjas",allNinjas);
+//		List<Ninja> allNinjas = ninjaServ.allNinjas();
+//		model.addAttribute("allNinjas",allNinjas);
 			return "onedojo.jsp";
 	}
 			
-	
-	
-	
 	
 	// Delete ROUTES
 	
