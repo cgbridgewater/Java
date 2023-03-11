@@ -50,6 +50,7 @@
 				<tbody>
 				<!-- Loop to iterate book list -->
 				<c:forEach var="book" items="${allBooks}">
+					<c:if test="${book.userBook.id == null}">
 					<tr>
 						<td>${book.id} </td>
 						<td><a href="/books/${book.id}/view">${book.title }</a> </td>
@@ -65,14 +66,17 @@
 					       	</c:if>
 							<c:if test="${user.id != book.user.id}"> 
 								<div class="flexControl">
-					     			<p><a href="/books/${book.id}/checkout">Check Out</a></p>   
-					     			
+					     		<form action="/books/${user.id}/borrow" method="POST" class="">
+				     				<input type="hidden" name="bookId" value="${book.id}"/>
+					     			<button class="checkout">Check Out</button>
+				     			</form>		
 								</div>
 					       	</c:if>
 
 
 						</td>
 					</tr>
+					</c:if>
 				</c:forEach>
 				<!-- END Loop to iterate Book list -->
 				</tbody>
@@ -97,13 +101,19 @@
 				<tbody>
 				<!-- Loop to iterate book list -->
 				<c:forEach var="book" items="${allBooks}">
+				
+						<c:if test="${book.userBook.id == user.id}">
+				
+				
 					<tr>
 						<td>${book.id} </td>
-						<td><a href="/books/${book.id}/view">${book.title }</a> </td>
+						<td><a href="/books/${book.id}/view">${book.title}</a> </td>
 						<td>${book.author}</td>
 						<td>${book.user.userName}</td>
 						<td><a href="/books/${book.id}/return">Return</a></td>
 					</tr>
+					
+					</c:if>
 				</c:forEach>
 				<!-- END Loop to iterate Book list -->
 				</tbody>

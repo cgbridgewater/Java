@@ -53,9 +53,21 @@ public class User {
 	
    @OneToMany(mappedBy="user", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Book> books;
+   
+   @OneToMany(mappedBy="userBook", fetch=FetchType.LAZY)
+   private List<Book> booksBorrowed;
+
+   public User() {}
 	
-	public User() {}
+	public List<Book> getBooksBorrowed() {
+	return booksBorrowed;
+	}
 	
+	public void setBooksBorrowed(List<Book> booksBorrowed) {
+		this.booksBorrowed = booksBorrowed;
+	}
+
+//	
 	public Long getId() {
 		return id;
 	}

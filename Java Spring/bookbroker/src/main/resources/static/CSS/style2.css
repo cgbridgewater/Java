@@ -61,3 +61,11 @@ tr {
 	display:flex;
 	justify-content:center;
 }
+
+.checkout {
+	width:150px;
+	border:none;
+	background:none;
+	color:blue;
+	text-decoration:underline;
+}

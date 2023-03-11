@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chrisb.authentication.models.Book;
 import com.chrisb.authentication.models.User;
@@ -115,4 +116,33 @@ public class BookController {
 	bookServ.delete(book_id);
 		return "redirect:/dashboard";
 	}
+	
+	
+	// borrow             ////////TEST ME MORE
+	@PostMapping("books/{borrowerId}/borrow")
+	public String borrow(@PathVariable("borrowerId") Long borrowerId, @RequestParam(value="bookId") Long bookId,Model model, HttpSession session) {
+		Long id = (Long) session.getAttribute("userId");
+		User user = userServ.findById(borrowerId);
+		Book book = bookServ.findById(bookId);
+		book.setUserBook(user);
+		bookServ.update(book);
+		User loggedUser = userServ.findById(id);
+		model.addAttribute("user", loggedUser);
+		return "redirect:/dashboard";
+	}
+	
+	
+	
+	// return a book   ////////TEST ME MORE
+	@GetMapping("/books/{id}/return")
+	public String returnBook(@PathVariable("id") Long Id) {
+		Book book = bookServ.findById(Id);
+		book.setUserBook(null);
+		bookServ.update(book);
+		return "redirect:/dashboard";
+	}
+	
+	
+	
+	
 }

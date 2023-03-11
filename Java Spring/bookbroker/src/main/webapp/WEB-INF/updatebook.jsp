@@ -40,6 +40,9 @@
         	<form:input type="hidden" path="user" value="${oneBook.user.id}" />
         	<form:input type="hidden" path="id" value="${oneBook.id}" />
         	
+     	<c:if test="${updateBook.userBook.id != null}">    
+      	   	<form:input type="hidden" path="userBook.id" value="${updateBook.userBook.id}" />
+        	</c:if>
      	    <!-- INPUT SECTION 1 -->
             <div class="sectionOne">
                 <div class="formation">
@@ -82,6 +85,10 @@
 
         <!-- END FORM INPUT SECTION -->
     </div>
+    
+   			<div class="flexControl">  
+     			<h3><a href="/books/${updateBook.id}/delete">Delete</a></h3>
+			</div>
    
    
 </body>
