@@ -1,0 +1,47 @@
+@charset "ISO-8859-1";
+
+body {
+	background:grey;
+
+}
+
+.nav {
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	background:black;
+	border-bottom: 4px double blue;
+	padding:1% 5%;
+}
+
+.navLeft{
+	text-align:start;	
+}
+
+.navRight{
+	text-align:end;	
+}
+
+h1, h3 {
+	color:white;
+	text-decoration:none;
+}
+
+a {
+	color:blue;
+}
+
+.content {
+	padding:2%;
+	width:80%;
+	min-width:420px;
+	margin:2% auto;
+}
+
+.flexControl {
+	width:30%;
+	margin:0 auto;
+	display:flex;
+	justify-content:space-between;
+}
+

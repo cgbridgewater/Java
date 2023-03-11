@@ -21,6 +21,10 @@ public class UserService {
 	
 	//REGISTER
 	public User register(User u, BindingResult result) {
+		Optional<User> optUser = userRepo.findByEmail(u.getEmail());
+		if(optUser.isPresent()) {
+			result.rejectValue("email", "Matches", "That email is already in use!" );
+		}
 		if (!u.getConfirmPass().equals(u.getPassword())) {
 			result.rejectValue("confirmPass", "Passwords do not match!");
 		}
@@ -32,18 +36,22 @@ public class UserService {
 		return userRepo.save(u);
 	}
 	
+	
 	//LOGIN
 	public User login(LoginUser l, BindingResult result) {
 		Optional<User> optUser = userRepo.findByEmail(l.getEmail());
 		if (optUser.isEmpty()) {
+			result.rejectValue("email", "Matches" , "User not found!");
 			return null;
 		}
 		User user = optUser.get();
 		if (!BCrypt.checkpw(l.getPassword(), user.getPassword())) {
+			result.rejectValue("password", "Matches", "Invalid Password!");
 			return null;
 		}
 		return user;
 	}
+	
 	
 	
 	//Find By ID
