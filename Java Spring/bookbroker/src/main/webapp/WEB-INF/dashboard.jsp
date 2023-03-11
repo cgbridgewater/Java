@@ -66,10 +66,11 @@
 					       	</c:if>
 							<c:if test="${user.id != book.user.id}"> 
 								<div class="flexControl">
-					     		<form action="/books/${user.id}/borrow" method="POST" class="">
+			<!-- Button Method  <form action="/books/${user.id}/borrow" method="POST" class="">
 				     				<input type="hidden" name="bookId" value="${book.id}"/>
 					     			<button class="checkout">Check Out</button>
-				     			</form>		
+				     			</form>  -->
+				     			<p><a href="/books/${book.id}/borrow">Borrow</a></p>		
 								</div>
 					       	</c:if>
 

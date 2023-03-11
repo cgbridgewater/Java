@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chrisb.authentication.models.Book;
 import com.chrisb.authentication.models.User;
@@ -31,7 +30,7 @@ public class BookController {
 	@GetMapping("/books/new")
 	public String newBook(@ModelAttribute("newBook")Book newBook, HttpSession session, Model model) {
 	Long id = (Long) session.getAttribute("userId");
-	if(id == null) { //if none in session gtfo!
+	if(id == null) { //if none in session BOOT!
 		return "redirect:/";
 	}
 	else {
@@ -45,7 +44,7 @@ public class BookController {
 	@PostMapping("/books/new")
 	public String createBook(@Valid @ModelAttribute("newBook") Book newBook, BindingResult result, HttpSession session,Model model) {
 	Long id = (Long) session.getAttribute("userId");
-	if(id == null) { //if none in session gtfo!
+	if(id == null) { //if none in session BOOT!
 		return "redirect:/";
 	}
 	if (result.hasErrors()) {
@@ -62,7 +61,7 @@ public class BookController {
 	@GetMapping("/books/{book_id}/view")
 	public String viewBook(@PathVariable("book_id")Long book_id, Model model, HttpSession session) {
 	Long id = (Long) session.getAttribute("userId");
-	if(id == null) { //if none in session gtfo!
+	if(id == null) { //if none in session BOOT!
 		return "redirect:/";
 	}
 	User loggedUser = userServ.findById(id);
@@ -78,7 +77,7 @@ public class BookController {
 	Long id = (Long) session.getAttribute("userId");
 	Book oneBook =  bookServ.findById(book_id);
 	if(id != oneBook.getUser().getId()) {
-		session.setAttribute("userId", null);//if none in session gtfo!
+		session.setAttribute("userId", null);//if none in session BOOT!!
 		return "redirect:/";
 	}
 	User loggedUser = userServ.findById(id);
@@ -93,7 +92,7 @@ public class BookController {
 	Long id = (Long) session.getAttribute("userId");
 	Book oneBook =  bookServ.findById(book_id);
 	if(id != oneBook.getUser().getId()) {
-		session.setAttribute("userId", null);//if none in session gtfo!
+		session.setAttribute("userId", null);//if none in session BOOT!
 		return "redirect:/";
 	}
 	if (result.hasErrors()) {
@@ -110,7 +109,7 @@ public class BookController {
 	Long id = (Long) session.getAttribute("userId");
 	Book oneBook =  bookServ.findById(book_id);
 	if(id != oneBook.getUser().getId()) {
-		session.setAttribute("userId", null);//if none in session gtfo!
+		session.setAttribute("userId", null);//if none in session BOOT!
 		return "redirect:/";
 	}
 	bookServ.delete(book_id);
@@ -118,31 +117,61 @@ public class BookController {
 	}
 	
 	
-	// borrow             ////////TEST ME MORE
-	@PostMapping("books/{borrowerId}/borrow")
-	public String borrow(@PathVariable("borrowerId") Long borrowerId, @RequestParam(value="bookId") Long bookId,Model model, HttpSession session) {
+//	// borrow             ////////Works but as button
+//	@PostMapping("books/{borrowerId}/borrow")
+//	public String borrow(@PathVariable("borrowerId") Long borrowerId, @RequestParam(value="bookId") Long bookId,Model model, HttpSession session) {
+//		Long id = (Long) session.getAttribute("userId");
+//		User user = userServ.findById(borrowerId);
+//		Book book = bookServ.findById(bookId);
+//		book.setUserBook(user);
+//		bookServ.update(book);
+//		User loggedUser = userServ.findById(id);
+//		model.addAttribute("user", loggedUser);
+//		return "redirect:/dashboard";
+//	}
+	
+	
+	@GetMapping("/books/{bookId}/borrow")
+	public String borrow(@PathVariable("bookId") Long bookId, HttpSession session) {
 		Long id = (Long) session.getAttribute("userId");
-		User user = userServ.findById(borrowerId);
+		if(id == null) { //if none in session BOOT!
+			return "redirect:/";
+		}
 		Book book = bookServ.findById(bookId);
-		book.setUserBook(user);
-		bookServ.update(book);
-		User loggedUser = userServ.findById(id);
-		model.addAttribute("user", loggedUser);
-		return "redirect:/dashboard";
-	}
-	
-	
-	
-	// return a book   ////////TEST ME MORE
-	@GetMapping("/books/{id}/return")
-	public String returnBook(@PathVariable("id") Long Id) {
-		Book book = bookServ.findById(Id);
-		book.setUserBook(null);
+		if(book.getUserBook() != null) { // bypass for if borrower ID is null
+			if(id != book.getUserBook().getId()) {//if borrower not person in session BOOT!
+				session.setAttribute("userId", null);
+				return "redirect:/";
+			}
+		}
+		User user = userServ.findById(id);
+		book.setUserBook(user); // set borrower to session person
 		bookServ.update(book);
 		return "redirect:/dashboard";
 	}
 	
 	
 	
+	
+	// return a book   
+	@GetMapping("/books/{bookId}/return")
+	public String returnBook(@PathVariable("bookId") Long bookId, HttpSession session) {
+		Long id = (Long) session.getAttribute("userId");
+		if(id == null) { //if none in session BOOT!
+			return "redirect:/";
+		}
+		
+		Book book = bookServ.findById(bookId);
+		if(book.getUserBook() != null) {// bypass for if borrower ID is null
+			if(id != book.getUserBook().getId()) {//if borrower not person in session BOOT!
+				session.setAttribute("userId", null);
+				return "redirect:/";
+			}
+		}
+		book.setUserBook(null); // set borrower to null
+		bookServ.update(book);
+		return "redirect:/dashboard";
+	}
+
 	
 }
