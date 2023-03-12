@@ -26,7 +26,7 @@ public class UserService {
 			result.rejectValue("email", "Matches", "That email is already in use!" );
 		}
 		if (!u.getConfirmPass().equals(u.getPassword())) {
-			result.rejectValue("confirmPass", "Passwords do not match!");
+			result.rejectValue("confirmPass","Matches", "Passwords do not match!");
 		}
 		if(result.hasErrors()) {
 			return null;
