@@ -22,7 +22,18 @@ body {
 	padding:1% 5%;
 }
 
-h1, h3, a, li, ul {
+h4{
+	color:red;
+}
+.like{
+	color:pink;
+}
+
+.like:hover{
+	color:red;
+}
+
+h1, h3, a, td {
 	color:white;
 	text-decoration:none;
 	list-style-type: none
@@ -56,16 +67,7 @@ li {
 	color:  #45f3ff;
 }
 
-h4{
-	color:red;
-}
-.like{
-	color:pink;
-}
 
-.like:hover{
-	color:red;
-}
 
 .formContainer {
 	width:20%;
@@ -104,7 +106,7 @@ label {
 
 .button{
 	background-color:#45f3ff;
-	color:whitesmoke;
+	color:darkblue;
 	border:2px solid whitesmoke;
 	border-radius:5px;
 	padding:3px;

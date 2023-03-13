@@ -59,37 +59,95 @@
     		
     		<div class="resultContainer">
     		
-    			<div>
-   					<h3>Your Posts:</h3>
-		   				<ul>
-		    				<c:forEach var="post" items="${user.posts}">
-		 
-		    					<li><c:out value="${post.title}"/></li>	
-		 
-		    				</c:forEach>
-		    			</ul>
-    			</div>
+    			
+    			
+    			
+		<!-- Table Display SECTION -->
+		<div class="tableContainer">
+    				<h1> Your Posts </h1>
+			<table id="displayTable"  class="table .table-hover">
+				<thead>
+					<tr class="">
+						<th scope="col"> </th>
+					</tr>
+				</thead>
+				<tbody>
+				<!-- Loop to iterate expense list -->
+				<c:forEach var="post" items="${user.posts}">
+		    				
+					<tr>
+						<td>
+		    					<h3><c:out value="${post.title}"/></h3>	
+						</td>
+					</tr>
+		    			
+				</c:forEach>
+				<!-- END Loop to iterate expense list -->
+				</tbody>
+			</table>
+            <!-- END Table Display SECTION -->
+		</div>
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    			
     		
     			
-	    			<div class="allPosts">
-   					<h3> All Posts:</h3>
-		   				<ul>
-		    				<c:forEach var="post" items="${allPosts}">
-		 
-		    					<li>
-									<h5 class="title"><a href="/post/${post.id}">
-										<c:out value="${post.title}" />
-									</a></h5>  
-									<c:if test="${post.createdBy.id != idInSession}">
-										<h4><a class="like" href="post/${post.id}/like"> ♡like♡</a></h4>
-									</c:if>
-									 | 
-									 <h4><c:out value="${post.likedBy.size()}"/> ♡'s</h4>
-								</li>	
-								
-		    				</c:forEach>
-		    			</ul>
-    			</div>
+
+					<!-- Table Display SECTION -->
+					<div class="tableContainer">
+    				<h1> All Posts </h1>
+						<table id="displayTable"  class="table .table-hover">
+							<thead>
+								<tr class="">
+									<th ></th>
+									<th >Give Likes </th>
+									<th >Likes</th>
+								</tr>
+							</thead>
+							<tbody>
+							<!-- Loop to iterate expense list -->
+							<c:forEach var="post" items="${allPosts}">
+								<tr>
+									<td>
+										<h3><a href="/post/${post.id}">
+											<c:out value="${post.title}" />
+										</a></h3>
+									</td>
+									<td>
+										<c:if test="${post.createdBy.id != idInSession}">
+											<h4><a class="like" href="post/${post.id}/like"> ♡like♡</a></h4>
+										</c:if>
+									</td>
+									<td><h4><c:out value="${post.likedBy.size()}"/> ♡'s</h4></td>
+								</tr>
+							</c:forEach>
+							<!-- END Loop to iterate expense list -->
+							</tbody>
+						</table>
+			            <!-- END Table Display SECTION -->
+					</div>
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
     		
     		</div>
 
