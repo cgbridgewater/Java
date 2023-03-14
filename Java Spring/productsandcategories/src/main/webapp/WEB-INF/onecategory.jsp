@@ -37,7 +37,7 @@
    		<h2>Categories:</h2>
 			   	<c:forEach var="product"  items="${allProducts}">
 			  
-			  		 <c:out value="${product.name}"/>
+			  		 <li><c:out value="${product.name}"/></li>
 	   		
 			   </c:forEach>
 	   
@@ -45,7 +45,7 @@
 	   
 	   <h2>Add Category:</h2>
   	   	<c:forEach var="product"  items="${noProducts}">
-	  		 <c:out value="${product.name}"/>
+	  		<li> <c:out value="${product.name}"/></li>
 	   </c:forEach>
 	   	
 	   	

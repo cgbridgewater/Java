@@ -28,7 +28,7 @@
    		</div>
    		
    		<div class="title">
-   			<h1><c:out value="${product.id}"/></h1>
+   			<h1><c:out value="${product.name}"/></h1>
    		</div>
    		<hr/>
    		
@@ -36,7 +36,7 @@
    		<h2>Products:</h2>
 			   	<c:forEach var="cat"  items="${allCategories}">
 			  
-			  		 <c:out value="${cat.name}"/>
+			  		<li> <c:out value="${cat.name}"/></li>
 	   		
 			   </c:forEach>
 	   
@@ -44,7 +44,7 @@
 	   
 	   <h2>Add Product:</h2>
   	   	<c:forEach var="cat"  items="${noCategories}">
-	  		 <c:out value="${cat.name}"/>
+	  		 <li><c:out value="${cat.name}"/></li>
 	   </c:forEach>
 	   	
    

@@ -77,7 +77,7 @@ public class ProductController {
 		model.addAttribute("allCategories",allCategories);
 		List<Category> noCategories = categoryServ.findByCategoriesNotContains(oneProduct);
 		model.addAttribute("noCategories",noCategories);
-			return "onecategory.jsp";
+			return "oneproduct.jsp";
 	}
 	
 	
