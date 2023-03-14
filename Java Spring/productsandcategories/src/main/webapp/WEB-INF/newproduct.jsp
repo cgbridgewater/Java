@@ -31,49 +31,52 @@
    			<h1>New Product</h1>
    		</div>
    		
-   		  
-    <div class="formContainer">
-        <!-- FORM INPUT SECTION -->
-        <form:form action="/product/new" method="POST" modelAttribute="product">
-        
-            <div class="sectionOne">
-                <div class="formation">
-                    <form:label path="name"> Name:  </form:label>	
-                    <form:input path="name" class="input" />
-                </div>
-                <div class="errors">
-                    <form:errors path="name" class="errors"/>
-                </div>
-            </div>
-        
-            <div class="sectionTwo">
-                <div class="formation">
-                    <form:label path="description"> Description:  </form:label>	
-                    <form:input path="description" class="input" />
-                </div>
-                <div class="errors">
-                    <form:errors path="description" class="errors"/>
-                </div>
-            </div>
-        
-            <div class="sectionThree">
-                <div class="formation">
-                    <form:label path="price"> Price: </form:label>	
-                    <form:input path="price" type="number" step="0.01" class="input" />
-                </div>
-                <div class="errors">
-                    <form:errors path="price" class="errors"/>
-                </div>
-            </div>
-        
-            <div class="buttonContainer">		 		
-                <button class="button" type="submit">Submit</button>
-            </div>
-        
-        </form:form>
-
-        <!-- END FORM INPUT SECTION -->
-    </div>
+	   		  
+	    <div class="formContainer">
+	        <!-- FORM INPUT SECTION -->
+	        <form:form action="/product/new" method="POST" modelAttribute="product">
+	       		 <!--  INPUT  -->
+	            <div class="sectionOne">
+	                <div class="formation">
+	                    <form:label path="name"> Name:  </form:label>	
+	                    <form:input path="name" class="input" />
+	                </div>
+	                <div class="errors">
+	                    <form:errors path="name" class="errors"/>
+	                </div>
+	            </div>
+	        
+	        	 <!--  INPUT  -->
+	            <div class="sectionTwo">
+	                <div class="formation">
+	                    <form:label path="description"> Description:  </form:label>	
+	                    <form:input path="description" class="input" />
+	                </div>
+	                <div class="errors">
+	                    <form:errors path="description" class="errors"/>
+	                </div>
+	            </div>
+	        
+	        	 <!--  INPUT  -->
+	            <div class="sectionThree">
+	                <div class="formation">
+	                    <form:label path="price"> Price: </form:label>	
+	                    <form:input path="price" type="number" step="0.01" class="input" />
+	                </div>
+	                <div class="errors">
+	                    <form:errors path="price" class="errors"/>
+	                </div>
+	            </div>
+	        
+	        	 <!--  BUTTON  -->
+	            <div class="buttonContainer">		 		
+	                <button class="button" type="submit">Submit</button>
+	            </div>
+	        
+	        </form:form>
+	
+	        <!-- END FORM INPUT SECTION -->
+	    </div>
    		
    
 </body>

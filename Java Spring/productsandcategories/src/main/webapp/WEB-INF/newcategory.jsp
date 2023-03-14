@@ -32,28 +32,29 @@
    		</div>
    		
    		    
-    <div class="formContainer">
-        <!-- FORM INPUT SECTION -->
-        <form:form action="/category/new" method="POST" modelAttribute="category">
-        
-            <div class="sectionOne">
-                <div class="formation">
-                    <form:label path="name"> Name: </form:label>	
-                    <form:input path="name" class="input" />
-                </div>
-                <div class="errors">
-                    <form:errors path="name" class="errors"/>
-                </div>
-            </div>
-        
-            <div class="buttonContainer">		 		
-                <button class="button" type="submit">Submit</button>
-            </div>
-        
-        </form:form>
-
-        <!-- END FORM INPUT SECTION -->
-    </div>
+	    <div class="formContainer">
+	        <!-- FORM INPUT SECTION -->
+	        <form:form action="/category/new" method="POST" modelAttribute="category">
+	        
+	         <!--  INPUT  -->
+	            <div class="sectionOne">
+	                <div class="formation">
+	                    <form:label path="name"> Name: </form:label>	
+	                    <form:input path="name" class="input" />
+	                </div>
+	                <div class="errors">
+	                    <form:errors path="name" class="errors"/>
+	                </div>
+	            </div>
+	      	   <!-- BUTTON -->
+	            <div class="buttonContainer">		 		
+	                <button class="button" type="submit">Submit</button>
+	            </div>
+	        
+	        </form:form>
+	
+	        <!-- END FORM INPUT SECTION -->
+	    </div>
    		
    		
    

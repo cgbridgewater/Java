@@ -7,7 +7,6 @@
 	font-family:  sans-serif;
 }
 
-
 body {
 	background: lightgrey;
 
@@ -15,6 +14,23 @@ body {
 
 h1{
 	color: blue;
+}
+
+h2{
+	color:blue;
+	text-align:center;
+}
+
+.box{
+	width:20%;
+	margin:2% auto;
+	color:blue;
+}
+
+hr{
+	width: 80%;
+	margin:2% auto;
+	border:6px double blue;
 }
 
 .nav {

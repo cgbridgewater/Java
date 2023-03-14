@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chrisb.authentication.models.Category;
 import com.chrisb.authentication.models.Product;
@@ -31,8 +32,7 @@ public class CategoryController {
 	@Autowired
 	ProductService productServ;
 	
-
-
+	
 	// Get Form
 	@GetMapping("/category/new")
 	public String newproduct(@ModelAttribute("category") Category category,HttpSession session, Model model)  {
@@ -44,13 +44,12 @@ public class CategoryController {
 			User loggedUser = userServ.findById(id);
 			model.addAttribute("user", loggedUser);
 		}
-		return "newcategory.jsp";
+			return "newcategory.jsp";
 	}
-	
 	
 	// Get One
 	@GetMapping("/category/{category_id}")
-	public String viewProduct(@PathVariable("category_id")Long category_id, Model model, HttpSession session) {
+	public String viewProduct(@ModelAttribute("category") Category category,@PathVariable("category_id")Long category_id, Model model, HttpSession session) {
 		Long id = (Long) session.getAttribute("userId");
 		if(id == null) { //if none in session BOOT!
 			return "redirect:/";
@@ -63,36 +62,43 @@ public class CategoryController {
 		model.addAttribute("allProducts",allProducts);
 		List<Product> noProducts = productServ.findByProductNotContains(oneCategory);
 		model.addAttribute("noProducts",noProducts);
+			
 			return "onecategory.jsp";
 	}
-	
 	
 	
 	// Create 
 	@PostMapping("/category/new")
 	public String createBook(@Valid @ModelAttribute("category") Category category, BindingResult result, HttpSession session,Model model) {
 	Long id = (Long) session.getAttribute("userId");
-	if(id == null) { //if none in session BOOT!
-		return "redirect:/";
-	}
-	if (result.hasErrors()) {
-		User loggedUser = userServ.findById(id);
-		model.addAttribute("user", loggedUser);
-		return "newcategory.jsp";
-	}else {
-		categoryServ.create(category);
-		return "redirect:/dashboard";
+		if(id == null) { //if none in session BOOT!
+			return "redirect:/";
 		}
+		if (result.hasErrors()) {
+			User loggedUser = userServ.findById(id);
+			model.addAttribute("user", loggedUser);
+			return "newcategory.jsp";
+		}else {
+			categoryServ.create(category);
+				return "redirect:/dashboard";
+			}
 	}	
 	
 	
-	
-	
-	
-	
-	
-	
-	
+	// Add product Action Route
+	@PostMapping("/category/{categoryId}/add")
+	public String addCategory(@RequestParam(value="productId") Long productId, Model model,HttpSession session, @PathVariable("categoryId")Long categoryId) {
+		Long id = (Long) session.getAttribute("userId");
+		if(id == null) { //if none in session BOOT!
+			return "redirect:/";
+		} else {
+			Category category = categoryServ.findById(categoryId);
+			Product product = productServ.findById(productId);
+			category.getProducts().add(product);
+			categoryServ.update(category);
+			return "redirect:/category/" + categoryId;
+		}
+	}
 	
 	
 }

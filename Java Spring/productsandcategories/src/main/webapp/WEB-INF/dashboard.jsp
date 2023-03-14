@@ -25,7 +25,7 @@
    		</div>
    		
    		<div class="title">
-   		<h1>HomePage</h1>
+   			<h1>HomePage</h1>
    		</div>
    		
  		<!-- Links to Create New -->
@@ -39,33 +39,31 @@
    		
    		<div class="displayContainer">
    		
-   		<!-- Product list display -->
-   		<div class="displayLeft">
-			<h3>Products</h3>
-			<ul>
-				<c:forEach var="product" items="${products}">
-					<li>
-						<a href="/product/${product.id}"><c:out value="${product.name}" /></a>
-					</li>
-				</c:forEach>
-			</ul>
-   		</div>
-   		<!-- ... -->
+	   		<!-- Product list display -->
+	   		<div class="displayLeft">
+				<h3>Products</h3>
+				<ul>
+					<c:forEach var="product" items="${products}">
+						<li>
+							<a href="/product/${product.id}"><c:out value="${product.name}" /></a>
+						</li>
+					</c:forEach>
+				</ul>
+	   		</div>
+	   		<!-- ... -->
 
-
-
-   		<!-- Category list display -->
-   		<div class="displayRight">
-			<h3>Categories</h3>
-			<ul>
-				<c:forEach var="category" items="${categories}">
-					<li>
-						<a href="/category/${category.id}"><c:out value="${category.name}" /></a>
-					</li>
-				</c:forEach>
-			</ul>
-   		</div>
-   		<!-- ... -->
+	   		<!-- Category list display -->
+	   		<div class="displayRight">
+				<h3>Categories</h3>
+				<ul>
+					<c:forEach var="category" items="${categories}">
+						<li>
+							<a href="/category/${category.id}"><c:out value="${category.name}" /></a>
+						</li>
+					</c:forEach>
+				</ul>
+	   		</div>
+	   		<!-- ... -->
    		
    		</div>
    		   

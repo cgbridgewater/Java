@@ -33,20 +33,43 @@
    		</div>
    		<hr/>
    		
-   		
-   		<h2>Categories:</h2>
+   		<div class="box">
+	   		<h2>Products:</h2>
 			   	<c:forEach var="product"  items="${allProducts}">
-			  
-			  		 <li><c:out value="${product.name}"/></li>
-	   		
+			  		 <p><c:out value="${product.name}"/></p>
 			   </c:forEach>
+   		</div>
 	   
+	   <br>
+	   <hr/>
 	   
-	   
-	   <h2>Add Category:</h2>
-  	   	<c:forEach var="product"  items="${noProducts}">
-	  		<li> <c:out value="${product.name}"/></li>
-	   </c:forEach>
+	   <h2>Add Product:</h2>
+    		
+    		<!--- Transfer product Form --->
+		   <div class="formContainer">
+		        <!-- FORM INPUT SECTION -->
+		        <form action="/category/${category.id}/add" method="POST">
+		        
+		    		<!--- Drop down select menu --->
+				    <select name="productId" id="productId">
+				        <c:forEach var="product"  items="${noProducts}">
+				            <!--- Each option VALUE is the id of the person --->
+				            <option value="${product.id}" >
+				            <!--- This is what shows to the user as the option --->
+				                <c:out value="${product.name}"/>
+				            </option>
+				        </c:forEach>
+				    </select>
+					<!--- ... --->
+		        
+		           	<div class="buttonContainer">		 		
+		                <button class="button" type="submit">Add</button>
+		            </div>
+	        
+	       		 </form>
+  		   </div>
+   			<!--- ...  --->
+	   	
 	   	
 	   	
 </body>
