@@ -1,0 +1,8 @@
+	<c:if test="${post.createdBy.id != idInSession}">
+        <h4><a class="like" href="post/${post.id}/like"> ♡like♡</a></h4>
+    </c:if>
+
+
+	<c:forEach var="post" items="${allPosts}">
+        <td></td>
+    </c:forEach>
