@@ -1,0 +1,19 @@
+
+
+
+// add this to the MANY side
+
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="TABLE_id")
+	private Team team;
+
+
+
+// add this to the ONE side
+//map to this table
+@OneToMany(mappedBy="THIS TABLE", fetch=FetchType.LAZY)
+private List<Coach> coaches; // collect other table
+
+
+
+//dont forget GETTERS AND SETTERS!!!!

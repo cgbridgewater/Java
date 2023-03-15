@@ -1,0 +1,18 @@
+
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "categories_products", 
+        joinColumns = @JoinColumn(name = "category_id"), 
+        inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
+    private List<Product> products;
+    
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "categories_products", //Table Name
+        joinColumns = @JoinColumn(name = "product_id"),  //column from THIS class
+        inverseJoinColumns = @JoinColumn(name = "category_id") // column from OTHER class
+    )
+    private List<Category> categories;   //collect stuff from OTHER class
+    
