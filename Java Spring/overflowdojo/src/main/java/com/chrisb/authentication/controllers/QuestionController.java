@@ -56,6 +56,33 @@ public class QuestionController {
 	}
 	
 	
+	@GetMapping("/question/new")
+	public String newQ(@ModelAttribute("question") Question question, HttpSession session,RedirectAttributes redirect) {
+		redirect.addFlashAttribute("error", "You must be logged in to do that");
+		Long loggedid = (Long) session.getAttribute("userId");
+			if(loggedid == null) { //if none in session gtfo!
+				return "redirect:/";
+			}
+		return "newquestion.jsp";
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	// POSTS
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@PostMapping("/question/{question_id}")
 	public String answerOne(@Valid @ModelAttribute("answer") Answer answer, BindingResult result ,@PathVariable("question_id") Long qId, Model model,RedirectAttributes redirect ,HttpSession session){
 		if(result.hasErrors()) {

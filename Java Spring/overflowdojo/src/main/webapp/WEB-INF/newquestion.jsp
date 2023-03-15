@@ -13,17 +13,20 @@
     <meta charset="UTF-8">
     <title>View Page</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/CSS/dashboard.css"> <!-- change to match your file/naming structure -->
+    <link rel="stylesheet" href="/CSS/style.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/JS/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
    
-   
-     <!--  nav bar  -->
-     <!--  nav bar  -->
+   		
+       <!--  nav bar  -->
+       <!--  nav bar  -->
    		<div class="navbar">
-	   		<h1> Hello, <c:out value="${user.userName}"/> </h1>
+	   			<div>
+					<h1>What Is Your Question?</h1> 
+	   			</div>
+
 	   		
 	   		  <!-- hamburger -->
 			  <input type="checkbox" id="navi-toggle" class="checkbox" />
@@ -46,44 +49,16 @@
    		</div>
    		  <!-- END nav -->
    		  <!-- END nav -->
-	   <br>
-	   <br>
-	    <h4><a href="/question/new">Submit New Question</a></h4>
-	   <br>
-		<!-- Table Display SECTION -->
-		<div class="tableContainer">
-			<table id="displayTable"  class="table .table-hover">
-				<thead>
-					<tr class="bg-primary">
-						<th scope="col">Question </th>
-						<th scope="col">Tags </th>
-			
-					</tr>
-				</thead>
-				<tbody>
-				<!-- Loop to iterate expense list -->
-				<c:forEach var="q" items="${allQs}">
-			
-				
-					<tr>
-						<td><a href="/question/${q.id}">${q.text}</a></td>
-						
-						<td>
-							<c:forEach var="tag" items="${q.tags}">
-								${tag.text}
-							</c:forEach>
-						</td>
-
-					</tr>
-				</c:forEach>
-		
-	
-				<!-- END Loop to iterate expense list -->
-				</tbody>
-			</table>
-            <!-- END Table Display SECTION -->
-		</div>
-   		
-   		   
+   
+   
+   			<!-- FORM HERE!! -->
+   
+   
+   
+   
+   
+   
+   
+   
 </body>
 </html>
