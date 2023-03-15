@@ -12,15 +12,15 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.chrisb.authentication.models.Category;
 import com.chrisb.authentication.models.LoginUser;
-import com.chrisb.authentication.models.Product;
+import com.chrisb.authentication.models.Question;
 import com.chrisb.authentication.models.User;
-import com.chrisb.authentication.services.CategoryService;
-import com.chrisb.authentication.services.ProductService;
+import com.chrisb.authentication.services.AnswerService;
+import com.chrisb.authentication.services.QuestionService;
+import com.chrisb.authentication.services.TagService;
 import com.chrisb.authentication.services.UserService;
-
 
 
 
@@ -30,9 +30,13 @@ public class HomeController {
 	@Autowired
 	private UserService userServ;
 	@Autowired
-	private ProductService productServ;
+	private AnswerService answerServ;
 	@Autowired
-	private CategoryService categoryServ;
+	private TagService tagServ;
+	@Autowired
+	private QuestionService questionServ;
+	
+	
 	
 	// LOGIN REG PAGE
 	@GetMapping("")
@@ -55,20 +59,19 @@ public class HomeController {
 		
 	// DASHBOARD ROUTE
 	@GetMapping("/dashboard")
-	public String dashboard(Model model, HttpSession session) {
+	public String dashboard(Model model, HttpSession session, RedirectAttributes redirect) {
+		redirect.addFlashAttribute("error", "You must be logged in to do that");
 		Long id = (Long) session.getAttribute("userId");
-		List<Product> allProducts = productServ.getAll();
-		List<Category> allCategories = categoryServ.getAll();
 			if(id == null) { //if none in session gtfo!
 				return "redirect:/";
 			}
 			else {				
 		User loggedUser = userServ.findById(id);
 		model.addAttribute("user", loggedUser);
-		model.addAttribute("products", allProducts);
-		model.addAttribute("categories", allCategories);
-	
-		return "dashboard.jsp";
+		List<Question> allQs = questionServ.getAll();
+		model.addAttribute("allQs",allQs);
+
+				return "dashboard.jsp";
 			}
 	}
 		
@@ -87,6 +90,7 @@ public class HomeController {
 		session.setAttribute("userId", newUser.getId());
 		return "redirect:/dashboard";
 	}
+	
 	
 	
 	// LOGIN ACTION
