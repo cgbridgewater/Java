@@ -19,7 +19,7 @@ public class DormService {
 		return dormRepo.save(b);
 	}
 			
-	//GETONE Dorm
+	//GETONE 
 	public Dorm findById(Long id) {
 		Optional<Dorm> optDorm = dormRepo.findById(id);
 		if(optDorm.isPresent()) {
