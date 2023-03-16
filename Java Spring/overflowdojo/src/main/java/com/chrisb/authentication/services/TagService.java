@@ -39,5 +39,36 @@ public class TagService {
 		return null;
 	}
 }
+	
+	public Tag findByText(String text) {
+		return tagRepo.findByTextIs(text);
+	}
 
+	
+	
+//	public List<Tag> tagCheck(String tags){
+//		if(tags.length()>0) {
+//			ArrayList<Tag> questionTags = new ArrayList<Tag>();
+//			String[] tagList = tags.split(",");
+//			for(String tagString:tagList) {
+//				Tag tag = findByText(tagString.toLowerCase().strip());
+//				if(tag==null) {
+////					tag = new Tag(tagString.toLowerCase().strip());
+//					create(tag);
+//				}
+//				questionTags.add(tag);			
+//			}
+//			return questionTags;
+//		}
+//		return null;
+//	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

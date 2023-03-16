@@ -10,7 +10,7 @@ import com.chrisb.authentication.models.Tag;
 @Repository
 	public interface TagRepository extends CrudRepository<Tag, Long>{
 
-		
+	public Tag findByTextIs(String text);
 		
 		@Override
 		List<Tag> findAll();
