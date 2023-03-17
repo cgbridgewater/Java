@@ -36,6 +36,7 @@
 			 <div class="formation">
 				<label for="student"> Add a Class:  </label>	
 				<select class="input" name="classId" id="classId">
+					<option value="0">--Select Class--</option>
 					<c:forEach var="c" items="${allClasses}">
 						<c:if test="${!oneStudent.classesWithStudents.contains(c)}"> 	
 							<!--- Each option VALUE is the id of the person --->

@@ -98,7 +98,7 @@ public class StudentServicesController {
 	
 	// Show One Student
 	@GetMapping("/students/{student_id}")
-	public String showStudent(@PathVariable("student_id")Long student_id , Model model, RedirectAttributes redirect) {
+	public String showStudent(@PathVariable("student_id")Long student_id , Model model) {
 		Student oneStudent = studentServ.findById(student_id);
 		model.addAttribute("oneStudent",oneStudent);
 		List<Classes> allClasses = classServ.getAll();
@@ -132,16 +132,6 @@ public class StudentServicesController {
 	public String addClass(@ModelAttribute("newClass") Classes newClass) {
 		return "newclass.jsp";
 	}
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
 	
 	
 	
@@ -186,7 +176,14 @@ public class StudentServicesController {
 	
 	
 	@PutMapping("/students/{student_id}/update")
-	public String updateClasses(@PathVariable("student_id")Long student_id, @RequestParam(name="classId")Long classId) {
+	public String updateClasses(@PathVariable("student_id")Long student_id, @RequestParam(name="classId")Long classId, Model model) {
+		if (classId == 0) {
+			Student oneStudent = studentServ.findById(student_id);
+			model.addAttribute("oneStudent",oneStudent);
+			List<Classes> allClasses = classServ.getAll();
+			model.addAttribute("allClasses",allClasses);
+				return "onestudent.jsp";
+			}	
 		Classes classes = classServ.findById(classId);
 		Student student = studentServ.findById(student_id);
 		List<Classes> classesList = student.getClassesWithStudents();
