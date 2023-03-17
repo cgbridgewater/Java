@@ -1,0 +1,42 @@
+@charset "ISO-8859-1";
+
+h1, h3 {
+	text-align:center;
+}
+
+h3 {
+	margin-right:20%;
+}
+
+a, h1{
+	color:blue;
+}
+
+.nav {
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	padding: 2% 15%;
+	background:darkgrey;
+	border-bottom: 5px double blue;
+	color:blue;
+}
+.links{
+	width:40%;
+	margin-top:2%;
+	margin-left:20%;
+}
+
+#displayTable {
+	width:40%;
+	min-width:420px;
+	margin:2% auto;
+	padding:15px;
+	border: 4px double #3E37F2;
+	border-radius: 10px;
+	text-align:center;
+}
+
+tr {
+	background-color: lightgrey;
+}
