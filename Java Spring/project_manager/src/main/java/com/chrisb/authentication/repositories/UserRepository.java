@@ -17,5 +17,5 @@ import com.chrisb.authentication.models.User;
 		@Override
 		List<User> findAll();
 	
-	
+		User findByIdIs(Long id);
 }

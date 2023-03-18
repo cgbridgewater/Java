@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -52,27 +53,44 @@ public class User {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
+	
+	
+	@Column(updatable = false)
+	@OneToMany(mappedBy = "lead", fetch =FetchType.LAZY)
+	private List<Project> projectsLed;
+	
+	
+	
+	
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-        name = "project_team", 
-        joinColumns = @JoinColumn(name = "users_id"),  //column from THIS class
-        inverseJoinColumns = @JoinColumn(name = "projects_id") // column from OTHER class
+        name = "users_projects", 
+        joinColumns = @JoinColumn(name = "user_id"),  //column from THIS class
+        inverseJoinColumns = @JoinColumn(name = "project_id") // column from OTHER class
     )
-    private List<Project> teamProjects;   //collect stuff from OTHER class
+    private List<Project> projects;   //collect stuff from OTHER class
 	
+    
+    
+    
 	
 	public User() {}
-	
-	
-	public List<Project> getTeamProjects() {
-		return teamProjects;
+
+	public List<Project> getProjectsLed() {
+		return projectsLed;
 	}
 
-
-	public void setTeamProjects(List<Project> teamProjects) {
-		this.teamProjects = teamProjects;
+	public void setProjectsLed(List<Project> projectsLed) {
+		this.projectsLed = projectsLed;
 	}
 
+	public List<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
+	}
 
 	public Long getId() {
 		return id;

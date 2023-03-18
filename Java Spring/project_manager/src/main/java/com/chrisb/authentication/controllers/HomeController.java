@@ -55,11 +55,17 @@ public class HomeController {
 			if(id == null) { //if none in session gtfo!
 				return "redirect:/";
 			}
-			else {				
-		List<Project> allProj = projServ.getAll();
-		User loggedUser = userServ.findById(id);
-		model.addAttribute("user", loggedUser);
-		model.addAttribute("allProjects", allProj);
+			else {	
+
+		User user = userServ.findById(id);
+		model.addAttribute("user", user);
+				
+		List<Project> assignedProj = projServ.getAssignedProjects(user);
+		List<Project> unassignedProj = projServ.getUnassignedProjects(user);
+		model.addAttribute("unassignedProj",unassignedProj);
+		model.addAttribute("assignedProj",assignedProj);
+				
+	
 		return "dashboard.jsp";
 			}
 	}

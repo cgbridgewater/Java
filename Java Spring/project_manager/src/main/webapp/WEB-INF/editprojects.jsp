@@ -28,10 +28,7 @@
         <form:form action="/projects/edit/${project.id}" method="POST" modelAttribute="project">
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="id" value="${project.id}">
-            <input type="hidden" name="manager" value="${project.manager}">
-
-            <input type="hidden" name="creator" value="${project.creator}"/>
-            
+    
             <div>
                 <div class="formation">
                     <form:label path="title"> Project Title:  </form:label>	

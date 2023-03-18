@@ -22,7 +22,7 @@
    		 		<div class="buttonContainer">
    		 		<div>
 		   			<h1>${project.title} Details</h1>
-					<h4>Project Lead: ${project.creator}</h4>   		 		
+					<h4>Project Lead: ${project.lead.userName}</h4>   		 		
    		 		</div>
    			<h4><a href="/dashboard">Back To Dashboard!</a></h4>
 		</div>
@@ -37,7 +37,6 @@
 			    <div>
 			        <form:form action="/projects/${project.id}/tasks" method="POST" modelAttribute="task">
 	                <input type="hidden" name="creator" value="${user.userName}">
-	                <input type="hidden" name="project_id" value="${user.userName}">
 	            
 			            <div class="sectionOne">
 			                <div class="formation">

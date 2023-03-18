@@ -25,15 +25,9 @@
    		</div>
    		
    		<div class="flex">
-   		<h3>All Projects</h3>
-   		<h3><a href="/projects/new">New Project</a></h3>
-   		
+	   		<h3>All Projects</h3>
+	   		<h3><a href="/projects/new">New Project</a></h3>
    		</div>
-   		
-   		
-   		
-   		
-   		
    		
    		
 		<!-- Table Display SECTION -->
@@ -49,41 +43,28 @@
 				</thead>
 				<tbody>
 				<!-- Loop to iterate expense list -->
-				<c:forEach var="p" items="${allProjects}">
-				
-						<c:if test="${user.id != p.manager}">
+				<c:forEach var="p" items="${unassignedProj}">
 					<tr>
+						<c:if test="${p.lead.id != user.id}">
 						<td><a href="/projects/${p.id}">${p.title}</a> </td>
-						<td>${p.creator}</td>
-						<td>${p.date}</td>
-			
-							<td>
-							   			<!--- Join Form --->
-							   <div>
-							        <!-- FORM INPUT SECTION -->
-						       	  <form action="/projects/${p.id}/join" method="POST">
-						                <input type="hidden" name="_method" value="PUT">
-									    <input type="hidden" name="users_id" value="${user.id}"/>   
-									<!--- ... --->
-						           <div class="buttonContainer">		 		
-						                <button class="button" type="submit">Join Team</button>
-						            </div>
-						        
-						        </form>
-					   		</div>
-					   			<!--- ...  --->
-						
-						</td>
-					
+						<td><c:out value="${p.lead.userName}"/></td>
+						<td>${p.date}</td>						
+						<td><a href="/projects/${p.id}/join">Join Team</a></td>
+						</c:if>										
 					</tr>
-						</c:if>					
 				</c:forEach>
 				<!-- END Loop to iterate expense list -->
 				</tbody>
 			</table>
             <!-- END Table Display SECTION -->
 		</div>
-   		
+   	
+   	
+   		<div class="flex">
+   			<h3>Your Projects</h3>
+ 
+   		</div>
+   			
    		
 		<!-- Table Display SECTION -->
 		<div class="tableContainer">
@@ -98,24 +79,22 @@
 				</thead>
 				<tbody>
 				<!-- Loop to iterate expense list -->
-				<c:forEach var="p" items="${allProjects}">
+				<c:forEach var="p" items="${assignedProj}">
 
-				<c:if test="${user.id == p.manager}">
 					<tr>
 						<td><a href="/projects/${p.id}">${p.title}</a></td>
-						<td>${p.creator}</td>
+						<td>${p.lead.userName}</td>
 						<td>${p.date}</td>
-						<c:if test="${user.id == p.manager}"> 
+						<c:if test="${p.lead.id == user.id}"> 
 						<td>
-						<a href="/projects/edit/${p.id}">Edit</a> ||
-						<a href="/projects/${p.id}/delete">Delete</a> 
+						<a href="/projects/edit/${p.id}">Edit</a> 
 						</td>
 						</c:if>
-						<c:if test="${user.id != p.manager}"> 
-						<td>Leave Team</td>
+						<c:if test="${p.lead.id != user.id}"> 
+						<td><a href="/projects/${p.id}/leave">Leave Team</a></td>
 						</c:if>
 					</tr>
-				</c:if>
+
 				</c:forEach>
 
 				<!-- END Loop to iterate expense list -->

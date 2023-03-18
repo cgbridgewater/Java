@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chrisb.authentication.models.Project;
+import com.chrisb.authentication.models.User;
 import com.chrisb.authentication.repositories.ProjectRepository;
 
 @Service
@@ -47,6 +48,27 @@ public class ProjectService {
     	projRepo.deleteById(id);
     }
 
+    public void deleteProject(Project p) {
+    	projRepo.delete(p);
+    }
+    
+    public List<Project> getAssignedProjects(User user){
+    	return projRepo.findAllByUsers(user);
+    }
+    
+    public List<Project> getUnassignedProjects(User user){
+    	return projRepo.findByUsersNotContains(user);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 	
 	

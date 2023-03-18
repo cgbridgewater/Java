@@ -6,3 +6,7 @@
 	<c:forEach var="post" items="${allPosts}">
         <td></td>
     </c:forEach>
+
+
+
+    <td><fmt:formatDate value="${p.date}" pattern="MMMM dd"/></td>

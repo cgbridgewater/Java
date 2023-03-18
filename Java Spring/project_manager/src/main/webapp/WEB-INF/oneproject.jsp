@@ -48,7 +48,7 @@
     </div>
     <div class="buttonContainer">	
     	<h4><a href="/projects/${project.id}/tasks">See Tasks!</a></h4>
-    	<c:if test="${user.id == project.manager}">
+    	<c:if test="${user.id == project.lead.id}">
         <a href="/projects/${project.id}/delete"><button class="button" type="submit">Delete!</button></a>	
         </c:if> 		
     </div>

@@ -24,8 +24,8 @@
     <div class="formContainer">
         <!-- FORM INPUT SECTION -->
         <form:form action="/projects/new" method="POST" modelAttribute="project">
-            <input type="hidden" name="manager" value="${user.id}"/>
-            <input type="hidden" name="creator" value="${user.userName}"/>
+			<form:input type="hidden" path="lead" value="${user}"/>
+			<form:errors path="lead" class="errors"/>
             <div>
                 <div class="formation">
                     <form:label path="title"> Project Title:  </form:label>	
