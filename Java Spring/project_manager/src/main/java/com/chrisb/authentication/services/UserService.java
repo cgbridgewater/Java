@@ -68,5 +68,9 @@ public class UserService {
 		return userRepo.findAll();
 }
 	
+	public User update(User b) {
+		return userRepo.save(b);
+	}
+	
 }
 

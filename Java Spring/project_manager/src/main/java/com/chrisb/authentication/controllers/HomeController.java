@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.chrisb.authentication.models.LoginUser;
+import com.chrisb.authentication.models.Project;
 import com.chrisb.authentication.models.User;
+import com.chrisb.authentication.services.ProjectService;
 import com.chrisb.authentication.services.UserService;
 
 
@@ -24,6 +26,8 @@ public class HomeController {
 
 	@Autowired
 	private UserService userServ;
+	@Autowired
+	private ProjectService projServ;
 	
 	// LOGIN REG PAGE
 	@GetMapping("")
@@ -52,10 +56,10 @@ public class HomeController {
 				return "redirect:/";
 			}
 			else {				
-		List<User> allUsers = userServ.getAll();
+		List<Project> allProj = projServ.getAll();
 		User loggedUser = userServ.findById(id);
 		model.addAttribute("user", loggedUser);
-		model.addAttribute("allUsers", allUsers);
+		model.addAttribute("allProjects", allProj);
 		return "dashboard.jsp";
 			}
 	}

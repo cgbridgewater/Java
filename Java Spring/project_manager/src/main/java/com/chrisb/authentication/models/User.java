@@ -1,12 +1,17 @@
 package com.chrisb.authentication.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -47,8 +52,28 @@ public class User {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "project_team", 
+        joinColumns = @JoinColumn(name = "users_id"),  //column from THIS class
+        inverseJoinColumns = @JoinColumn(name = "projects_id") // column from OTHER class
+    )
+    private List<Project> teamProjects;   //collect stuff from OTHER class
+	
+	
 	public User() {}
 	
+	
+	public List<Project> getTeamProjects() {
+		return teamProjects;
+	}
+
+
+	public void setTeamProjects(List<Project> teamProjects) {
+		this.teamProjects = teamProjects;
+	}
+
+
 	public Long getId() {
 		return id;
 	}

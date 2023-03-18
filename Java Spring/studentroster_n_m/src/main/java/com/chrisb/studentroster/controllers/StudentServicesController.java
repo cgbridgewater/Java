@@ -221,7 +221,7 @@ public class StudentServicesController {
 
 	
 
-	
+	//remove
 	// MANY TO MANY
 	@PostMapping("/classes/{studentId}/update")
 	public String removeClass(@PathVariable("studentId") Long studentId, @RequestParam(name="classId") Long classId) {

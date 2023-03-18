@@ -23,13 +23,19 @@ a {
 	color:blue;
 }
 
-
+.flex{
+	display:flex;
+	justify-content:space-between;
+	width:80%;
+	margin:2% auto;
+	
+}
 .tableContainer {
 	padding:2%;
 }
 
 #displayTable {
-	width:40%;
+	width:50%;
 	min-width:420px;
 	margin:0 auto;
 	padding:15px;

@@ -4,7 +4,7 @@
     <div class="formContainer">
         <!-- FORM INPUT SECTION -->
         <form:form action="MUST CONTAIN ACTION ROUTE FROM CONTROLLER" method="POST" modelAttribute="MUST CONTAIN MODEL NAME FROM CONTROLLER">
-                <input type="hidden" name="_method" value="PUT">
+                
             <!-- section ONE -->
             <div class="sectionOne">
                 <div class="formation">

@@ -24,34 +24,100 @@
 	   		<h3><a href="/logout">Logout</a></h3>
    		</div>
    		
+   		<div class="flex">
+   		<h3>All Projects</h3>
+   		<h3><a href="/projects/new">New Project</a></h3>
+   		
+   		</div>
+   		
+   		
+   		
+   		
+   		
+   		
    		
 		<!-- Table Display SECTION -->
 		<div class="tableContainer">
 			<table id="displayTable"  class="table .table-hover">
 				<thead>
 					<tr class="bg-primary">
-						<th scope="col">User Name </th>
-						<th scope="col">Contact Email </th>
+						<th scope="col">Project </th>
+						<th scope="col">Team Lead </th>
+						<th scope="col">Due Date </th>
 						<th scope="col">Actions </th>
 					</tr>
 				</thead>
 				<tbody>
 				<!-- Loop to iterate expense list -->
-				<c:forEach var="users" items="${allUsers}">
+				<c:forEach var="p" items="${allProjects}">
+				
+						<c:if test="${user.id != p.manager}">
 					<tr>
-						<td>${users.userName} </td>
-						<td>${users.email}</td>
-						<c:if test="${user.id == users.id}"> 
+						<td><a href="/projects/${p.id}">${p.title}</a> </td>
+						<td>${p.creator}</td>
+						<td>${p.date}</td>
+			
+							<td>
+							   			<!--- Join Form --->
+							   <div>
+							        <!-- FORM INPUT SECTION -->
+						       	  <form action="/projects/${p.id}/join" method="POST">
+						                <input type="hidden" name="_method" value="PUT">
+									    <input type="hidden" name="users_id" value="${user.id}"/>   
+									<!--- ... --->
+						           <div class="buttonContainer">		 		
+						                <button class="button" type="submit">Join Team</button>
+						            </div>
+						        
+						        </form>
+					   		</div>
+					   			<!--- ...  --->
+						
+						</td>
+					
+					</tr>
+						</c:if>					
+				</c:forEach>
+				<!-- END Loop to iterate expense list -->
+				</tbody>
+			</table>
+            <!-- END Table Display SECTION -->
+		</div>
+   		
+   		
+		<!-- Table Display SECTION -->
+		<div class="tableContainer">
+			<table id="displayTable"  class="table .table-hover">
+				<thead>
+					<tr class="bg-primary">
+						<th scope="col">Project </th>
+						<th scope="col">Team Lead </th>
+						<th scope="col">Due Date </th>
+						<th scope="col">Actions </th>
+					</tr>
+				</thead>
+				<tbody>
+				<!-- Loop to iterate expense list -->
+				<c:forEach var="p" items="${allProjects}">
+
+				<c:if test="${user.id == p.manager}">
+					<tr>
+						<td><a href="/projects/${p.id}">${p.title}</a></td>
+						<td>${p.creator}</td>
+						<td>${p.date}</td>
+						<c:if test="${user.id == p.manager}"> 
 						<td>
-						<a href="/dashboard/${users.id}/edit">Edit</a> ||
-						<a href="/dashboard/${users.id}/delete">Delete!</a>
+						<a href="/projects/edit/${p.id}">Edit</a> ||
+						<a href="/projects/${p.id}/delete">Delete</a> 
 						</td>
 						</c:if>
-						<c:if test="${user.id != users.id}"> 
-						<td></td>
+						<c:if test="${user.id != p.manager}"> 
+						<td>Leave Team</td>
 						</c:if>
 					</tr>
+				</c:if>
 				</c:forEach>
+
 				<!-- END Loop to iterate expense list -->
 				</tbody>
 			</table>
