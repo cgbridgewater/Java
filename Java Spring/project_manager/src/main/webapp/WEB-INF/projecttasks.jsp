@@ -19,7 +19,9 @@
 </head>
 <body>
    
-   		 		<div class="buttonContainer">
+  
+   
+   		 		<div class="nav">
    		 		<div>
 		   			<h1>${project.title} Details</h1>
 					<h4>Project Lead: ${project.lead.userName}</h4>   		 		

@@ -10,3 +10,7 @@
 
 
     <td><fmt:formatDate value="${p.date}" pattern="MMMM dd"/></td>
+
+
+    				<!-- 	<td> ${fn:length(s.contributors)}</td> -->
+                    <td> ${s.contributors.size()}</td>  

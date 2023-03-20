@@ -18,7 +18,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -40,10 +42,10 @@ public class Project {
 	private String description;
 	
 
-	@NotEmpty (message="Date required!")
-	@DateTimeFormat(pattern="dd-MM-yyyy")
-//	@FutureOrPresent( message = "creation date must be in future.")
-	private String date;
+	@NotNull (message="Date required!")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@FutureOrPresent( message = "creation date must be in future.")
+	private Date date;
 	
 	@OneToMany(mappedBy="project", fetch=FetchType.LAZY, cascade=CascadeType.ALL )
 	private List<Task> tasks; 
@@ -118,14 +120,17 @@ public class Project {
 		this.description = description;
 	}
 	
-	public String getDate() {
+
+	public Date getDate() {
 		return date;
 	}
-	
-	public void setDate(String date) {
+
+
+	public void setDate(Date date) {
 		this.date = date;
 	}
-	
+
+
 	public Date getCreatedAt() {
 		return createdAt;
 	}

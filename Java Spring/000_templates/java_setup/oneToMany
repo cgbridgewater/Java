@@ -1,18 +1,18 @@
 
-
+//dont forget GETTERS AND SETTERS!!!!
 
 // add this to the MANY side
-
+// Coach model
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="TABLE_id") // THIS TABLE id
 	private Team team;  // collect other table info
 
 
-
+// team model
 // add this to the ONE side
 //map to this table
-@OneToMany(mappedBy="THIS TABLE", fetch=FetchType.LAZY)
-private List<Coach> coaches; // collect other table
+@OneToMany(mappedBy="THIS TABLE", fetch=FetchType.LAZY) //mapped MUST match 
+private List<Coach> coaches; // collect other table NAME MUST MATCH join column name!!
 
 
 

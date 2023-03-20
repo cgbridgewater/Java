@@ -5,3 +5,19 @@ VALUES("West Wing");
 
 SELECT * FROM lookify
 ORDER BY rating DESC LIMIT 10;
+
+
+
+// cutsom repo write examples   USED IN REPOSITORY
+
+List<Album> findall();
+List<Album> findByAlbumNameContaining(String containing);
+// List<Album> findTop10OrderByYearAsc();
+boolean existsByAlbumName(String albumName);
+
+	public Tag findByText(String text) {
+		return tagRepo.findByTextIs(text);
+	}	
+    
+    
+    public Optional<Song> findByTitle(String title);

@@ -31,6 +31,15 @@ a {
 	color:blue;
 }
 
+.link {
+	margin:1% 10%;
+	text-align:end;
+}
+
+.header{
+	margin:1% 10%;
+	text-align:start;
+}
 
 .tableContainer {
 	padding:2%;

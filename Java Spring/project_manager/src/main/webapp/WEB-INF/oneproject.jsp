@@ -18,11 +18,12 @@
     <script type="text/javascript" src="/JS/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
- 		<div class="buttonContainer">
-   			<h1>${project.title} Details</h1>
-   			<h4><a href="/dashboard">Back To Dashboard!</a></h4>
-		</div>
 
+
+   	<div class="nav">
+   			<h1>Project: ${project.title} Details</h1>
+   			<h4><a href="/dashboard">Back To Dashboard!</a></h4>
+   	</div>
 
 
     <div class="viewOneContainer">

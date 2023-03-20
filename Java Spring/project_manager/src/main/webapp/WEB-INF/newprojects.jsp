@@ -19,8 +19,11 @@
 </head>
 <body>
    
-   		
-    <h1>Create a project</h1>
+   	<div class="nav">
+    	<h1>Create a project</h1>
+   	</div>
+  	
+    
     <div class="formContainer">
         <!-- FORM INPUT SECTION -->
         <form:form action="/projects/new" method="POST" modelAttribute="project">

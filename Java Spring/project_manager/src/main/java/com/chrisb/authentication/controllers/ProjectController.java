@@ -181,7 +181,12 @@ public class ProjectController {
 	@PostMapping("/projects/{projid}/tasks")
 	public String newTask(@Valid @ModelAttribute("task")Task task, BindingResult result, @PathVariable("projid")Long projid, Model model, HttpSession session) {
 		if (result.hasErrors()) {
-			return "newprojects.jsp";
+			Long loggedid = (Long) session.getAttribute("userId");
+			User user = userServ.findById(loggedid);
+			model.addAttribute("user",user);
+			Project oneProject = projServ.findById(projid);
+			model.addAttribute("project", oneProject);
+			return "projecttasks.jsp";
 	
 		}
 		Long loggedid = (Long) session.getAttribute("userId");

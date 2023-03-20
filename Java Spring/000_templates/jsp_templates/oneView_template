@@ -48,11 +48,11 @@ body{
 .viewOneContainer {
 	width: 35%;
 	min-width:350px;
-	margin:0 auto;
+	margin:3% auto;
 	padding:15px;
 	border: 4px double #3E37F2;
 	border-radius: 5px;
-	background-color:#FFD3FE;
+	background-color:grey;
 }
 
 .flexControl{

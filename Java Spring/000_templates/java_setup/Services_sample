@@ -21,9 +21,9 @@ public class DormService {
 			
 	//GETONE 
 	public Dorm findById(Long id) {
-		Optional<Dorm> optDorm = dormRepo.findById(id);
-		if(optDorm.isPresent()) {
-			return optDorm.get();
+		Optional<Dorm> opt = dormRepo.findById(id);
+		if(opt.isPresent()) {
+			return opt.get();
 		}else {
 			return null;
 		}

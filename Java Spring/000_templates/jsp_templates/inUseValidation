@@ -1,0 +1,43 @@
+
+Example is for origional song title
+
+//CONTROLLER
+
+// @PostMapping("/songs/new")
+// 	public String createSong(@Valid @ModelAttribute("song") Song song, BindingResult result, HttpSession session) {
+// 		Long loggedid = (Long) session.getAttribute("userId");
+// 		if(loggedid == null) { //if none in session gtfo!
+// 			return "redirect:/";
+// 		}
+		Song newSong = songServ.checkOrigional(song, result);
+		// if (result.hasErrors()) {
+		// 	return "formpage.jsp";
+		// }
+		// songServ.create(newSong);
+		// User user = userServ.findById(loggedid);
+		// user.getSongs().add(newSong);
+		// userServ.update(user);
+		// 	return "redirect:/dashboard";
+
+
+//REPOSITORY
+
+public Optional<Song> findByTitle(String title);
+
+
+
+// SERVICE
+
+    
+	public Song checkOrigional(Song s, BindingResult result) {
+		Optional<Song> optSong = songRepo.findByTitle(s.getTitle());
+		if(optSong.isPresent()) {
+			result.rejectValue("title", "Matches", "That title is already in use!" );
+		}
+		if(result.hasErrors()) {
+			return null;
+		}
+		s.setTitle(s.getTitle());
+		return songRepo.save(s);
+	}
+    
