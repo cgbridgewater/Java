@@ -1,7 +1,5 @@
 package com.chrisb.authentication.controllers;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 import com.chrisb.authentication.models.Song;
 import com.chrisb.authentication.models.User;
-import com.chrisb.authentication.services.LyricService;
 import com.chrisb.authentication.services.SongService;
 import com.chrisb.authentication.services.UserService;
 
@@ -29,11 +26,7 @@ public class SongController {
 	private UserService userServ;
 	@Autowired
 	private SongService songServ;
-	@Autowired
-	private LyricService lyricServ;
-	
-	
-	
+
 	
 	@GetMapping("/songs/new")
 	public String newSong(@ModelAttribute("song") Song song, HttpSession session, Model model) {
@@ -99,7 +92,6 @@ public class SongController {
 			return "redirect:/dashboard";
 	}
 	
-	
 	@PutMapping("/songs/{sid}/edit")
 	public String updateSchool(@Valid @ModelAttribute("song") Song song, BindingResult result,@PathVariable("sid")Long sid,Model model, HttpSession session){
 	Long loggedid = (Long) session.getAttribute("userId");
@@ -113,57 +105,15 @@ public class SongController {
 		model.addAttribute("updatesong",updatesong);
 			return "updatepage.jsp";
 	}
-
-
-//	songServ.addContribution(usercontribute, joinSong);
-//	
 	
-	//Find User and Find Song
+	//Find the User
 	User contributer = userServ.findById((Long)session.getAttribute("userId"));
-	Song songCont = songServ.findById(sid);	
-//	// JOIN THEM
-	songServ.contribute(contributer, songCont);
+	// JOIN THEM
+	songServ.contribute(contributer, song);
 	
-	//add and save song 
-//	songServ.getAll().add(song);
-	songServ.update(song);
-	
-//	userServ.update(contributer);
+	// DASSIT!
 
 		return "redirect:/dashboard";
 	}
-		
-//	//Find User To JOIN 
-//	User user = userServ.findById(loggedid);
-//	//Find Song To JOIN
-//	Song joinsong = songServ.findById(sid);
-//	
-//	//RUN JOIN IN SERVICE PAGE
-//	songServ.contribute(user, joinsong);
-//	
-//	//UPDATE the song and user
-//	songServ.update(joinsong);
-//	userServ.update(user);
-
-	
-//	user.getSongs().add(joinsong);
-////song.getUsers().add(user);
-//joinsong.getUsers().add(user);
-//	songServ.update(song);
-//	userServ.update(user);
-//	songServ.contribute(user, song);
-
-//	user.getSonglist().add(song);
-//	song.getUsers().add(user);
-
-//	user.getSonglist().add(song);
-//	song.getUsers().add(user);
-	
-	
-	
-	
-	
-	
-	
 	
 }

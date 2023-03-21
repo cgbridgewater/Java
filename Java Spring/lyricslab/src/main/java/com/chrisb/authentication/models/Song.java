@@ -1,5 +1,6 @@
 package com.chrisb.authentication.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -75,7 +76,7 @@ public class Song {
         joinColumns = @JoinColumn(name = "song_id"),  //column from THIS class
         inverseJoinColumns = @JoinColumn(name = "user_id") // column from OTHER class
     )
-    private List<User> contributors;
+    private List<User> contributors= new ArrayList<User>();
 		
     
     

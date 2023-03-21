@@ -57,20 +57,20 @@ public class SongService {
 		return null;
 	}
 	
-	//make JOIN
-    public void addContribution(User user, Song song) {
-    	List<User> contributors = song.getContributors();
-    	contributors.add(user);
-    	songRepo.save(song);
-    }
-    
-	//undo JOIN
-    public void undoContribution(User user, Song song) {
-    	List<User> contributors = song.getContributors();
-    	contributors.remove(user);
-    	songRepo.save(song);
-    }
-    
+//	//make JOIN
+//    public void addContribution(User user, Song song) {
+//    	List<User> contributors = song.getContributors();
+//    	contributors.add(user);
+//    	songRepo.save(song);
+//    }
+//    
+//	//undo JOIN
+//    public void undoContribution(User user, Song song) {
+//    	List<User> contributors = song.getContributors();
+//    	contributors.remove(user);
+//    	songRepo.save(song);
+//    }
+//    
     
 	public Song checkOrigional(Song s, BindingResult result) {
 		Optional<Song> optSong = songRepo.findByTitle(s.getTitle());

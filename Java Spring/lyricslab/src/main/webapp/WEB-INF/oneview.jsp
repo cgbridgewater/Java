@@ -47,8 +47,8 @@
         <div class="flexControl">
         <h3> Collaborators: </h3>
         </div>
-        <c:forEach var="s" items="${oneSong.lyrics}">
-        <h3 > ${s.users.userName }</h3>
+        <c:forEach var="s" items="${oneSong.contributors}">
+        <h3 > ${s.userName }</h3>
         </c:forEach>
 
     </div>
