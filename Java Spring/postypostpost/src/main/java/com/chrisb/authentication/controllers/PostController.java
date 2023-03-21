@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.chrisb.authentication.models.Comment;
 import com.chrisb.authentication.models.Post;
 import com.chrisb.authentication.models.User;
-import com.chrisb.authentication.services.CommentService;
 import com.chrisb.authentication.services.PostService;
 import com.chrisb.authentication.services.UserService;
 
@@ -28,8 +27,7 @@ public class PostController {
 		private UserService userServ;
 		@Autowired
 		private PostService postServ;
-		@Autowired
-		private CommentService commentServ;
+	
 		
 		
 		@PostMapping("/new")
