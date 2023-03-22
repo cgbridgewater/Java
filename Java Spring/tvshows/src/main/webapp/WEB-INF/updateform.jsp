@@ -87,7 +87,7 @@
    
         
             <div class="buttonContainer">		 		
-                <button class="button" type="submit">Add Show</button>
+                <button class="button" type="submit">Update Show</button>
             </div>
         
         </form:form>

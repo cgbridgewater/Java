@@ -19,9 +19,12 @@
 </head>
 <body>
    
+      	<div class="nav">
+   			<h1>About ${oneShow.title}</h1>
+	   		<h3><a href="/logout">Logout</a></h3>
+   		</div>
+   		   		
    
-   
-   <h1>"${oneShow.title}" Details</h1>
 
     <div class="viewOneContainer">
         

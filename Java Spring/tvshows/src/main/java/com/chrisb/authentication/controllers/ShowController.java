@@ -36,6 +36,7 @@ public class ShowController {
 	@Autowired
 	CommentService commentServ;
 	
+	
 	@GetMapping("/shows/new")
 	public String newShow(@ModelAttribute("show") Show show, Model model, HttpSession session) {
 		Long loggedid = (Long) session.getAttribute("userId");
@@ -71,7 +72,6 @@ public class ShowController {
 			return "viewone.jsp";
 	}
 	
-	
 	@GetMapping("/shows/{id}/edit")
 	public String editShow(@ModelAttribute("show") Show show, Model model, HttpSession session, @PathVariable("id")Long id) {
 		Long loggedid = (Long) session.getAttribute("userId");
@@ -87,7 +87,6 @@ public class ShowController {
 		return "updateform.jsp";
 	}
 	
-	
 	@GetMapping("/shows/{id}/comment")
 	public String commentShow(@ModelAttribute("comment") Comment comment, Model model, HttpSession session, @PathVariable("id")Long id) {
 		Long loggedid = (Long) session.getAttribute("userId");
@@ -101,6 +100,73 @@ public class ShowController {
 		return "comment.jsp";
 	}
 	
+	@GetMapping("/shows/{id}/like")
+	public String likePost(@PathVariable("id") Long id,HttpSession session) {
+		Long loggedid = (Long) session.getAttribute("userId");
+		if(loggedid == null) { //if none in session gtfo!
+			return "redirect:/";
+		}
+		User loggedUser = userServ.findById(loggedid);
+		Show likedShow = showServ.findById(id);
+		showServ.like(loggedUser, likedShow);
+		return "redirect:/dashboard";
+	}
+	
+	@GetMapping("/shows/{id}/unlike")
+	public String dislikePost(@PathVariable("id") Long id,HttpSession session) {
+		Long loggedid = (Long) session.getAttribute("userId");
+		if(loggedid == null) { //if none in session gtfo!
+			return "redirect:/";
+		}
+		User loggedUser = userServ.findById(loggedid);
+		Show unlikeShow = showServ.findById(id);
+		showServ.unlike(loggedUser, unlikeShow);
+		return "redirect:/dashboard";
+	}
+
+	@GetMapping("/shows/{id}/watch")
+	public String borrowShow(@PathVariable("id") Long id,HttpSession session, Model model) {
+		Long loggedid = (Long) session.getAttribute("userId");
+		if(loggedid == null) { //if none in session gtfo!
+			return "redirect:/";
+		}
+		Show show = showServ.findById(id);
+		User user = userServ.findById(loggedid);
+		user.getPrograms().add(show);
+		userServ.update(user);
+		List<Show> myShows = showServ.getAssignedProjects(user);
+		List<Show> notMyShows = showServ.getUnassignedProjects(user);
+		model.addAttribute(myShows);
+		model.addAttribute(notMyShows);
+		model.addAttribute(user);
+		
+		
+		return "redirect:/dashboard";
+	}
+		
+		
+	@GetMapping("/shows/{id}/unwatch")
+	public String returnShow(@PathVariable("id") Long id,HttpSession session, Model model) {
+		Long loggedid = (Long) session.getAttribute("userId");
+		if(loggedid == null) { //if none in session gtfo!
+			return "redirect:/";
+		}
+		Show show = showServ.findById(id);
+		User user = userServ.findById(loggedid);
+		user.getPrograms().remove(show);
+		userServ.update(user);
+		List<Show> myShows = showServ.getAssignedProjects(user);
+		List<Show> notMyShows = showServ.getUnassignedProjects(user);
+		model.addAttribute(myShows);
+		model.addAttribute(notMyShows);
+		model.addAttribute(user);
+		
+		
+		
+		
+		return "redirect:/dashboard";
+	}
+
 	
 	// Delete
 	@GetMapping("/shows/{id}/delete")
@@ -132,7 +198,7 @@ public class ShowController {
 		}
 			showServ.update(show);
 			User user = userServ.findById(loggedid);
-			user.getShowscreated().add(newShow);
+			user.getPrograms().add(newShow);
 			userServ.update(user);
 		return "redirect:/dashboard";
 	}
@@ -152,7 +218,7 @@ public class ShowController {
 			model.addAttribute("networks",networks);
 			User user = userServ.findById(loggedid);
 			model.addAttribute("user", user);
-			return "newform.jsp";	
+			return "newnetwork.jsp";	
 		}
 		netServ.create(network);		
 			return "redirect:/dashboard";
@@ -160,8 +226,8 @@ public class ShowController {
 	
 	
 	
-	@PutMapping("/shows/{id}/edit")
-	public String updateShow(@Valid @ModelAttribute("show") Show show, BindingResult result,  Model model, HttpSession session) {
+	@PutMapping("/shows/{showId}/edit")
+	public String updateShow(@Valid @ModelAttribute("show") Show show, BindingResult result,@PathVariable("showId")Long showId,  Model model, HttpSession session) {
 		Long loggedid = (Long) session.getAttribute("userId");
 		if(loggedid == null) { //if none in session gtfo!
 			return "redirect:/";
@@ -173,10 +239,11 @@ public class ShowController {
 			model.addAttribute("user", user);
 			return "updateform.jsp";	
 		}
-		showServ.update(show);
 		User user = userServ.findById(loggedid);
-		user.getShowscreated().add(show);
-		userServ.update(user);
+		Show showupdate = showServ.findById(showId);
+		show.setShows(showupdate.getShows());
+		show.setShowCreator(user);
+		showServ.update(show);
 		return "redirect:/dashboard";
 	}
 	
@@ -186,7 +253,7 @@ public class ShowController {
 		Long loggedid = (Long) session.getAttribute("userId");
 		if (result.hasErrors()) {
 			User user = userServ.findById(loggedid);
-			model.addAttribute("user",user);
+			model.addAttribute("loggedUser",user);
 			Show show = showServ.findById(showId);
 			model.addAttribute("show",show);
 			return "comment.jsp";

@@ -20,7 +20,10 @@
 <body>
    
    		<div class="nav">
-	   		<h1> Hello, <c:out value="${loggedUser.userName}"/></h1>
+   			<div>
+		   		<h1> Hello, <c:out value="${loggedUser.userName}"/></h1>
+			    <h3>Comment on ${show.title}</h3>
+   			</div>
  			<div>
 		   		<h3><a href="/logout">Logout</a></h3>
 		   		<h3><a href="/dashboard">Dashboard</a></h3>
@@ -28,7 +31,6 @@
    		</div>
    		
    
-       <h1>Comment on ${show.title}</h1>
     <div class="formContainer">
         <!-- FORM INPUT SECTION -->
         <form:form action="/shows/${show.id}/comment" method="POST" modelAttribute="comment">
@@ -55,13 +57,13 @@
         <!-- END FORM INPUT SECTION -->
     </div>
    
-   
   			<div class="comment">
+		   		<h2>Comments:</h2>
 				<c:forEach var="c" items="${show.comment}">
 				<fmt:formatDate value="${c.createdAt}" var="formattedDate"
 					type="date" pattern="hh:mm dd MMM yyyy" />
-					<p>Added by ${c.creator} at ${formattedDate}  </p>
-					<p> ${c.text}  </p>
+					<h4> ${c.text}  </h4>
+					<p class="by" >Added by ${c.creator} at ${formattedDate}  </p>
 				</c:forEach>
 			</div>
    

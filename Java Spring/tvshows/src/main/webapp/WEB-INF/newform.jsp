@@ -72,6 +72,7 @@
                     <!--- Drop down select menu --->
 			    <label for="nets"> Network </label>	
 			    <form:select path="network">
+			            <option value="" >Select Network</option>
 			        <c:forEach var="n" items="${networks}">
 			            <!--- Each option VALUE is the id of the person --->
 			            <option value="${n.id}" >

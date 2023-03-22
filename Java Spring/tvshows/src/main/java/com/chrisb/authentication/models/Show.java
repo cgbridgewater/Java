@@ -86,6 +86,7 @@ public class Show {
         )
     	private List<User> shows;
  
+    @NotNull (message= "Select or Create a network!")
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="networkshow_id") // THIS TABLE id
 		private Network network; 

@@ -61,10 +61,10 @@ public class HomeController {
 		List<Show> allShows = showServ.getAll();
 		model.addAttribute("allShows",allShows);
 		
-//		List<Show> myShows = showServ.getAssignedShows(loggedUser);
-//		List<Show> notMyShows = showServ.getUnassignedShows(loggedUser);
-//		model.addAttribute("myShows",myShows);
-//		model.addAttribute("notMyShows",notMyShows);
+		List<Show> myShows = showServ.getAssignedProjects(loggedUser);
+		List<Show> notMyShows = showServ.getUnassignedProjects(loggedUser);
+		model.addAttribute("myShows",myShows);
+		model.addAttribute("notMyShows",notMyShows);
 			return "dashboard.jsp";
 			}
 	}

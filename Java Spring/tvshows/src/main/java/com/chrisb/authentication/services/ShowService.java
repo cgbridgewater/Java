@@ -56,7 +56,17 @@ public class ShowService {
 		}
 		return null;
 	}
+	
+	public Show unlike(User u, Show s) {
+		if(s.getLikedBy().contains(u)) {
+			s.getLikedBy().remove(u);
+			return sRepo.save(s);
+		}
+		return null;
+	}
     
+	
+	
 	public Show checkOrigional(Show s, BindingResult result) {
 		Optional<Show> optSong = sRepo.findByTitle(s.getTitle());
 		if(optSong.isPresent()) {
@@ -69,20 +79,32 @@ public class ShowService {
 		return sRepo.save(s);
 	}
     
-    
 
+    public List<Show> getAssignedProjects(User showCreator){
+    	return sRepo.findAllByShows(showCreator);
+    }
     
-//    public List<Show> getAssignedShows(User user){
-//    	return sRepo.findAllByshowCreator(user);
+    public List<Show> getUnassignedProjects(User showCreator){
+    	return sRepo.findByShowsNotContains(showCreator);
+    }
+  
+    
+//    public List<Show> getUnassignedProjects(User showCreator){
+//    	return sRepo.findAllByShowsIsNot(showCreator);
+//    }
+    
+    
+    
+    
+    
+    
+//    public List<Show> getAssignedProjects(User showCreator){
+//    	return sRepo.findAllByShowCreator(showCreator);
 //    }
 //    
-//    public List<Show> getUnassignedShows(User user){
-//    	return sRepo.findByshowCreatorNotContains(user);
+//    public List<Show> getUnassignedProjects(User showCreator){
+//    	return sRepo.findAllByShowCreatorIsNot(showCreator);
 //    }
-//    
     
-	
-	
 
-    
 }

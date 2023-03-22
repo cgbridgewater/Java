@@ -17,8 +17,22 @@ public interface ShowRepository  extends CrudRepository<Show, Long>  {
 	
 	public Optional<Show> findByTitle(String title);
 	
-//
-//	List<Show> findAllByshowCreator(User u);
-//	List<Show> findByshowCreatorNotContains(User u);
 
+
+	List<Show> findAllByShows(User c);
+	List<Show> findAllByShowsIsNot(User c);
+	
+	
+//	List<Show> findAllByShows(User user);
+	List<Show> findByShowsNotContains(User user);
+
+
+	
+	
+	
+	
+//	List<Show> findAllByShowCreator(User c);
+//	List<Show> findAllByShowCreatorIsNot(User c);
+
+	
 }
