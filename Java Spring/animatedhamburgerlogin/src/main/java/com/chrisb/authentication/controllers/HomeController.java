@@ -12,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.chrisb.authentication.models.LoginUser;
 import com.chrisb.authentication.models.User;
@@ -34,8 +33,6 @@ public class HomeController {
 		return "index.jsp";
 	}
 	
-	
-	
 	// LOG USER OUT
 		@GetMapping("/logout")
 		public String logout(HttpSession session) {
@@ -43,12 +40,9 @@ public class HomeController {
 			return "redirect:/";
 		}
 	
-	
-		
 	// DASHBOARD ROUTE
 	@GetMapping("/dashboard")
-	public String dashboard(Model model, HttpSession session, RedirectAttributes redirect) {
-		redirect.addFlashAttribute("error", "You must be logged in to do that");
+	public String dashboard(Model model, HttpSession session) {
 		Long id = (Long) session.getAttribute("userId");
 			if(id == null) { //if none in session gtfo!
 				return "redirect:/";
@@ -62,8 +56,6 @@ public class HomeController {
 			}
 	}
 		
-		
-	
 	// REGISTER ACTION
 	@PostMapping("/register")
 	public String register(@Valid @ModelAttribute("user") User user, BindingResult result, Model model, HttpSession session) {
@@ -78,8 +70,6 @@ public class HomeController {
 		return "redirect:/dashboard";
 	}
 	
-	
-	
 	// LOGIN ACTION
 	@PostMapping("/login")
 	public String login(@Valid @ModelAttribute("loginUser") LoginUser loginUser, BindingResult result, Model model, HttpSession session) {
@@ -92,8 +82,5 @@ public class HomeController {
 		session.setAttribute("userId", user.getId());
 		return "redirect:/dashboard";
 	}
-	
-	
-
 	
 }

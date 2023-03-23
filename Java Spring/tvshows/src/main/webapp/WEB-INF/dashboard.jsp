@@ -57,9 +57,7 @@
 						<td>${s.network.name}</td>
 						<td>
 					      	<c:forEach var = "i" begin = "1" end = "${s.rating}">  
-		              		<!--<img src="<c:url value="https://png.pngtree.com/element_pic/16/12/30/e4019353dc73e5e0126c72490c3a9ca0.jpg"/>"/>-->
 									<c:out value="⭐"/>
-								
 							</c:forEach>
 						</td>
 						<td>${s.showCreator.userName}</td>
