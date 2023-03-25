@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.chrisb.authentication.models.LoginUser;
@@ -40,21 +41,6 @@ public class HomeController {
 			return "redirect:/";
 		}
 	
-	// DASHBOARD ROUTE
-	@GetMapping("/dashboard")
-	public String dashboard(Model model, HttpSession session) {
-		Long id = (Long) session.getAttribute("userId");
-			if(id == null) { //if none in session gtfo!
-				return "redirect:/";
-			}
-			else {				
-		List<User> allUsers = userServ.getAll();
-		User loggedUser = userServ.findById(id);
-		model.addAttribute("user", loggedUser);
-		model.addAttribute("allUsers", allUsers);
-		return "dashboard.jsp";
-			}
-	}
 		
 	// REGISTER ACTION
 	@PostMapping("/register")
@@ -82,5 +68,45 @@ public class HomeController {
 		session.setAttribute("userId", user.getId());
 		return "redirect:/dashboard";
 	}
+
 	
+	// DASHBOARD ROUTE
+	@GetMapping("/dashboard")
+	public String dashboard(Model model, HttpSession session) {
+		Long id = (Long) session.getAttribute("userId");
+		if(id == null) { //if none in session gtfo!
+			return "redirect:/";
+		}
+		else {				
+			List<User> allUsers = userServ.getAll();
+			User loggedUser = userServ.findById(id);
+			model.addAttribute("user", loggedUser);
+			model.addAttribute("allUsers", allUsers);
+			return "dashboard.jsp";
+		}
+	}
+
+	// Edit User Route
+	@GetMapping("/user/{uid}/profile")
+	public String updateUser(Model model,@PathVariable("uid")Long uid, HttpSession session) {
+		Long loggedid = (Long) session.getAttribute("userId");
+		if(loggedid == null) { //if none in session gtfo!
+			return "redirect:/";
+		}
+		if ( !loggedid.equals(uid)) {
+			return "redirect:/";
+		}
+		System.out.println(uid);
+		System.out.println(loggedid);
+		User loggedUser = userServ.findById(loggedid);
+		model.addAttribute("user", loggedUser);
+			return "profile.jsp";
+	}
+
+
+
+
+
+
+
 }
