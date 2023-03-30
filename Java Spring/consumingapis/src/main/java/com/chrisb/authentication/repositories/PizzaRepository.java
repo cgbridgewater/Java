@@ -1,6 +1,6 @@
 package com.chrisb.authentication.repositories;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -11,7 +11,7 @@ import com.chrisb.authentication.models.Pizzapi;
 public interface PizzaRepository extends CrudRepository<Pizzapi, Long> {
 
 	@Override
-	ArrayList<Pizzapi> findAll();
+	public List<Pizzapi> findAll();
 	
 	
 }

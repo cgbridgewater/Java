@@ -1,6 +1,6 @@
 package com.chrisb.authentication.services;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class PizzaService {
 	
 
 	// GETALL 
-	public ArrayList<Pizzapi> getAll(){
+	public List<Pizzapi> getAll(){
 		return pizzaRepo.findAll();
 }
 
