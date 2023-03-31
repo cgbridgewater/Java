@@ -1,0 +1,48 @@
+.wrapper {
+    background: lightslategray;
+    height: 100vh;
+    padding: 10%;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form {
+    background-color: bisque;
+    border: 2px solid blue;
+    padding:10px;
+    width: 30%;
+    margin-left: 20%;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.buttonbox{
+    width: 30%;
+    margin:1% auto;
+}
+
+.input {
+    width: 90%;
+    border: 1px solid blue;
+
+}
+
+.tableContainer {
+    width: 60%;
+    margin:2% auto;
+}
+
+.table {
+    background-color: bisque;
+    border: 2px solid blue;
+}
+
+.delete {
+    background-color: red;
+}

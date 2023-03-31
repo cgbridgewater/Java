@@ -3,7 +3,7 @@
         .then(res => res.json())
         .then( data => { 
             for (var pizza of data) {
-                pizzaTable.innerHTML += `<tr><td>${pizza.toppings}</td><td>${pizza.crust}</td><td><button id="${pizza.id}" onclick="delPizza(this)">DELETE</button></td></tr>`
+                pizzaTable.innerHTML += `<tr><td>${pizza.toppings}</td><td>${pizza.crust}</td><td><button class="delete" id="${pizza.id}" onclick="delPizza(this)">DELETE</button></td></tr>`
             }
         })
 
@@ -24,7 +24,7 @@
         })
         .then (res => res.json())
         .then( data => {
-            pizzaTable.innerHTML += `<tr><td>${data.toppings}</td><td>${data.crust}</td><td><button id="${pizza.id}" onclick="delPizza(this)">DELETE</button></td></tr>`
+            pizzaTable.innerHTML += `<tr><td>${data.toppings}</td><td>${data.crust}</td><td><button class="delete" id="${data.id}" onclick="delPizza(this)">DELETE</button></td></tr>`
             pizzaForm.reset();
         })
     })
@@ -38,8 +38,10 @@
         })
         .then( response => response)
         .then( data => {
-            var i = element.parentNode.rowIndex;
-            console.log(i);
-            pizzaTable.deleteRow(i);
+            var i = element.parentNode.parentNode.rowIndex;
+            console.log(element.parentNode.parentNode);
+            console.log(i-1);
+            pizzaTable.deleteRow(i-1);
+
         })
     }

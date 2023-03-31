@@ -5,55 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='apis/style.css') }}">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
 </head>
 <body>
     
-    
-    
-    <h1>Hello pizzAPI!</h1>
-    
-    <form action="/api/new" method="POST" id="new-pizza-form">
-        <div>
-            <label for="toppings">Toppings:</label>
-            <input type="text" name="toppings" id="toppings">
-        </div>
-        <div>
-            <label for="crust">Crust:</label>
-            <input type="text" name="crust" id="crust">
-        </div>
+    <div class="wrapper">
 
-        <button>Create</button>
+        
+        <form class="form" action="/api/new" method="POST" id="new-pizza-form">
+            <div class="flex">
+                <label for="toppings">Toppings:</label>
+                <input type="text" name="toppings" id="toppings">
+            </div>
+            <div class="flex">
+                <label for="crust">Crust:</label>
+                <input type="text" name="crust" id="crust">
+            </div>
+            
+            <div class="buttonbox">
+                <button class="input">Create</button>
+            </div>
+            
+            
+        </form>
 
-
-    </form>
-
-
-
-
-    <!-- Table Display SECTION -->
-    <div class="tableContainer">
-            <h3> All PizzAPI's</h3>
+        
+        
+        
+        <!-- Table Display SECTION -->
+        <div class="tableContainer">
+            <h3> All PIZZapi's</h3>
 			<table  class="table .table-striped">
-				<thead>
-					<tr class="bg-primary">
-						<th scope="col">topping </th>
-						<th scope="col">crust </th>
-						<th scope="col">actions </th>
+                <thead>
+                    <tr class="bg-primary">
+                        <th scope="col">Toppings </th>
+						<th scope="col">Crust </th>
+						<th scope="col">Actions </th>
 					</tr>
 				</thead>
 				<tbody id="pizza-table">
-
-
-				</tbody>
+                    
+                    
+                </tbody>
 			</table>
             <!-- END Table Display SECTION -->
 		</div>
-
-
-
-
+        
+        
+    </div>
+        
+        
         <script src="script.js"></script>
-</body>
-</html>
+    </body>
+    </html>

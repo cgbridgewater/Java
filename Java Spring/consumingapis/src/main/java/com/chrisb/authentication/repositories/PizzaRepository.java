@@ -13,5 +13,4 @@ public interface PizzaRepository extends CrudRepository<Pizzapi, Long> {
 	@Override
 	public List<Pizzapi> findAll();
 	
-	
 }
