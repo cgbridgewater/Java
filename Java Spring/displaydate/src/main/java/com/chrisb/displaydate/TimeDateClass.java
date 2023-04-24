@@ -34,7 +34,7 @@ public class TimeDateClass {
 		  return "time.jsp";
 	  }
 }
-	  
+
 
 
 //    my way
