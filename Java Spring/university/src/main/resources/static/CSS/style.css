@@ -75,6 +75,11 @@ tr {
 	width:300px;
 }
 
+select {
+	width:115px;
+	text-align:center;
+}
+
 label {
 	color:white;
 	min-width:100px;

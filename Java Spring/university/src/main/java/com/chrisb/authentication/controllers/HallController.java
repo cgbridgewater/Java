@@ -89,14 +89,17 @@ public class HallController {
 
 	//POST ROUTES
 	@PostMapping("/hall/new")
-	public String createSchool(@Valid @ModelAttribute("hall") Hall hall, BindingResult result, @RequestParam(name="school") Long sid, HttpSession session){
+	public String createSchool(@Valid @ModelAttribute("hall") Hall hall, BindingResult result, @RequestParam(name="school") Long sid, Model model, HttpSession session){
 	Long loggedid = (Long) session.getAttribute("userId");
 		if(loggedid == null) { //if none in session gtfo!
 			return "redirect:/";
 		}
 		
 		if (result.hasErrors()) {
-			return "addhall.jsp";
+			List<School> allSchools = schoolServ.getAll();
+			model.addAttribute("allSchools",allSchools);
+			model.addAttribute("user",loggedid);
+				return "addhall.jsp";
 		}
 	hallServ.create(hall);
 	User user = userServ.findById(loggedid);
