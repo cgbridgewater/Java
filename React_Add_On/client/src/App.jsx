@@ -1,33 +1,31 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  const [light, setLight] = useState(false)
+  // const light = false;
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+        </div>
+        <div style={{display:"flex"}}>
+          <button style={{border:"2px solid black",background:"lightblue", margin:"10px", width:"200px"}} onClick={() => setLight((light) => !light)}>
+          {light?
+            <p style={{color:"red"}}>Click For Red</p>
+            :
+            <p style={{color:"green"}}>Click For Green</p>
+          }
+          </button>
+          {light?
+            <p style={{width:"60px",height:"60px", borderRadius:"50%",background:"green",color:"white",display:"flex",alignItems:"center",justifyContent:"center"}}>GREEN</p>
+            :
+            <p style={{width:"60px",height:"60px", borderRadius:"50%",background:"red",color:"white",display:"flex",alignItems:"center",justifyContent:"center"}}>RED</p>
+          }
+        </div>
     </>
   )
 }
