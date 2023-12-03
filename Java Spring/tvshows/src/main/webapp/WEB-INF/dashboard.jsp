@@ -32,7 +32,7 @@
    		
    		
 		<div class="header">
-   			<h1>All TV Shows</h1>
+   			<h1>Available TV Shows</h1>
    		</div>
    		
    	
@@ -66,7 +66,7 @@
 						<c:if test="${!s.likedBy.contains(user)}">
 							<td>  
 								<a class="likes" href="/shows/${s.id}/like">♡</a> &nbsp; &nbsp; ||  &nbsp; &nbsp;
-								<a class="rent"  href="/shows/${s.id}/watch">📼 Download</a> 
+								<a class="rent"  href="/shows/${s.id}/watch">📼 Checkout</a> 
 							</td>
 							<td>
 								(${s.comment.size()})
@@ -76,7 +76,7 @@
  						<c:if test="${s.likedBy.contains(user)}">
 							<td> 
 								<a class="likes" href="/shows/${s.id}/unlike">❤</a> &nbsp; &nbsp; ||  &nbsp; &nbsp;
-								<a class="rent"  href="/shows/${s.id}/watch">📼 Download</a> 
+								<a class="rent"  href="/shows/${s.id}/watch">📼 Checkout</a> 
 							</td>
 							<td>
 								(${s.comment.size()})
@@ -93,8 +93,8 @@
 		</div>
    	
    	
-   	  		<div class="header">
-   			<h1> My TV Shows</h1>
+  	  	<div class="header">
+   			<h1> Rented TV Shows</h1>
    		</div>
    		
    	
@@ -115,40 +115,77 @@
 				<!-- Loop to iterate expense list -->
 				<c:forEach var="s" items="${myShows}">
 					<tr>
-						<td><a href="/shows/${s.id}">${s.title}</a>  </td>
-						<td>${s.network.name}</td>
-						<td>
-					      	<c:forEach var = "i" begin = "1" end = "${s.rating}">  
-		              		<!--<img src="<c:url value="https://png.pngtree.com/element_pic/16/12/30/e4019353dc73e5e0126c72490c3a9ca0.jpg"/>"/>-->
-									<c:out value="⭐"/>
-								
-							</c:forEach>
-						</td>
-						<td>${s.showCreator.userName}</td>
-					
- 						<c:if test="${s.showCreator.id != user.id}">
-								<c:if test="${!s.likedBy.contains(user)}">
-									<td>  
-										<a class="likes" href="/shows/${s.id}/like">♡</a> &nbsp; &nbsp; ||  &nbsp; &nbsp;
-										<a class="rent"  href="/shows/${s.id}/unwatch">Remove</a> 
-									</td>
-									<td>
-										(${s.comment.size()})
-									</td>
-		 						</c:if>
-		 						<%//Unlikes %>
-		 						<c:if test="${s.likedBy.contains(user)}">
-									<td> 
-										<a class="likes" href="/shows/${s.id}/unlike">❤</a> &nbsp; &nbsp; ||  &nbsp; &nbsp;
-										<a class="rent"  href="/shows/${s.id}/unwatch">Remove</a> 
-									</td>
-									<td>
-										(${s.comment.size()})
-									</td>
-		 						</c:if>
+						<c:if test="${s.showCreator.id != user.id}">
+							<td><a href="/shows/${s.id}">${s.title}</a>  </td>
+							<td>${s.network.name}</td>
+							<td>
+						      	<c:forEach var = "i" begin = "1" end = "${s.rating}">  
+			              		<!--<img src="<c:url value="https://png.pngtree.com/element_pic/16/12/30/e4019353dc73e5e0126c72490c3a9ca0.jpg"/>"/>-->
+										<c:out value="⭐"/>
+									
+								</c:forEach>
+							</td>
+							<td>${s.showCreator.userName}</td>
+						
+							<c:if test="${!s.likedBy.contains(user)}">
+								<td>  
+									<a class="likes" href="/shows/${s.id}/like">♡</a> &nbsp; &nbsp; ||  &nbsp; &nbsp;
+									<a class="rent"  href="/shows/${s.id}/unwatch">Return</a> 
+								</td>
+								<td>
+									(${s.comment.size()})
+								</td>
+	 						</c:if>
+	 						<%//Unlikes %>
+	 						<c:if test="${s.likedBy.contains(user)}">
+								<td> 
+									<a class="likes" href="/shows/${s.id}/unlike">❤</a> &nbsp; &nbsp; ||  &nbsp; &nbsp;
+									<a class="rent"  href="/shows/${s.id}/unwatch">Return</a> 
+								</td>
+								<td>
+									(${s.comment.size()})
+								</td>
+	 						</c:if>
  						</c:if>
-					
+					</tr>
+				</c:forEach>
+				<!-- END Loop to iterate expense list -->
+				</tbody>
+			</table>
+            <!-- END Table Display SECTION -->
+		</div>
+		
+		<div class="header">
+   			<h1> Created TV Shows</h1>
+   		</div>
+		
+		<!-- Table Display SECTION -->
+		<div class="tableContainer">
+			<table id="displayTable"  class="table .table-hover">
+				<thead>
+					<tr class="bg-primary">
+						<th scope="col">Show </th>
+						<th scope="col">Network </th>
+						<th scope="col">Rating </th>
+						<th scope="col">Added By </th>
+						<th scope="col">Actions </th>
+						<th scope="col">Comments </th>
+					</tr>
+				</thead>
+				<tbody>
+				<!-- Loop to iterate expense list -->
+				<c:forEach var="s" items="${myShows}">
+					<tr>
  						<c:if test="${s.showCreator.id == user.id}">
+							<td><a href="/shows/${s.id}">${s.title}</a>  </td>
+							<td>${s.network.name}</td>
+							<td>
+						      	<c:forEach var = "i" begin = "1" end = "${s.rating}">  
+									<c:out value="⭐"/>									
+								</c:forEach>
+							</td>
+							<td>${s.showCreator.userName}</td>
+		
 							<td>
 								<a  class="rent" href="/shows/${s.id}/edit">✍️</a> &nbsp; &nbsp; ||  &nbsp; &nbsp;
 								<a class="likes"  href="/shows/${s.id}/delete">Delete</a> 

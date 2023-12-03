@@ -43,7 +43,7 @@ public class ShowController {
 		if(loggedid == null) { //if none in session gtfo!
 			return "redirect:/";
 		}
-		List<Network> networks = netServ.getAll();
+		List<Network> networks = netServ.getAllSorted();
 		model.addAttribute("networks",networks);
 		User user = userServ.findById(loggedid);
 		model.addAttribute("user", user);

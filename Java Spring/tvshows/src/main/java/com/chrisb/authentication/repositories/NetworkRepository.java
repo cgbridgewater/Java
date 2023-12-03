@@ -14,4 +14,6 @@ public interface NetworkRepository extends CrudRepository<Network, Long>  {
 	@Override
 	List<Network> findAll();
 	
+	List<Network> findAllByOrderByName();
+	
 }

@@ -39,6 +39,8 @@ public class NetworkService {
 		return nRepo.save(n);
 	}
 	
-	
+	public List<Network> getAllSorted(){
+		return nRepo.findAllByOrderByName();
+	}
 	
 }
