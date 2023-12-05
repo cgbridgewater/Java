@@ -1,10 +1,10 @@
-package com.chrisb.javareact;
+package com.chrisb.test;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JavaReactApplicationTests {
+class ReactTestApplicationTests {
 
 	@Test
 	void contextLoads() {

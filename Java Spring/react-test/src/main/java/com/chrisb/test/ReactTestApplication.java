@@ -1,13 +1,13 @@
-package com.chrisb.javareact;
+package com.chrisb.test;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JavaReactApplication {
+public class ReactTestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JavaReactApplication.class, args);
+		SpringApplication.run(ReactTestApplication.class, args);
 	}
 
 }
