@@ -14,8 +14,7 @@
 	<div class="wrapper">
       <%
          Date dNow = new Date( );
-         SimpleDateFormat ft = 
-         new SimpleDateFormat ("EEEE, MMM d, yyyy");
+         SimpleDateFormat ft = new SimpleDateFormat ("EEEE, MMM d, yyyy");
          out.print( "<h2 align=\"center\">" + ft.format(dNow) + "</h2>");
       %>
 	</div>
