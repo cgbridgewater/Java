@@ -13,18 +13,15 @@
     <meta charset="UTF-8">
     <title>View Page</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/CSS/style2.css"> <!-- change to match your file/naming structure -->
+    <link rel="stylesheet" href="/CSS/style.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/JS/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
    
-   		<div class="nav">
-	   		<h1> Hello </h1>
+   		<div>
+	   		<h1 class="Title"> Hello </h1>
    		</div>
-   		
-   	
-   		
-   		   
+
 </body>
 </html>

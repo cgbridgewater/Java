@@ -20,7 +20,7 @@ public class APIControllers {
 	@Autowired
 	private UserRepo userRepo;
 		
-	@GetMapping("/hi")
+	@GetMapping("/welcome")
 	public String getPage() {
 		return "welcome";
 	}
@@ -54,6 +54,4 @@ public class APIControllers {
 		return "Deleted user with the id: " + id;
 	}
 	
-	
-	
-}
+ }
