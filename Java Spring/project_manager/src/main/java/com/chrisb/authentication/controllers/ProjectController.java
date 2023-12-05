@@ -205,26 +205,26 @@ public class ProjectController {
 	
 	
 	// UPDATE ROUTES  //
+	
 	//  Update project
 	@PutMapping("/projects/edit/{projid}")
-	public String updateProject(@Valid @ModelAttribute("project") Project project, BindingResult result,@PathVariable("projid")Long projid, Model model, HttpSession session) {
+	public String updateProject(@Valid @ModelAttribute("project") Project project,  BindingResult result,  @PathVariable("projid")Long projid, Model model, HttpSession session) {
 		Long loggedid = (Long) session.getAttribute("userId");
+		if(loggedid == null) { //if none in session gtfo!
+			return "redirect:/";
+		}
 		if (result.hasErrors()) {
 			model.addAttribute(loggedid);
 			Project oneProject = projServ.findById(projid);
-			model.addAttribute(oneProject);	
+			model.addAttribute("oneProject", oneProject);	
 				return "editprojects.jsp";
-	
 		}
 		User user = userServ.findById(loggedid);
 		Project projectupdate = projServ.findById(projid);
 		project.setUsers(projectupdate.getUsers());
 		project.setLead(user);
 		projServ.update(project);
-		
-
-		return "redirect:/dashboard";
+			return "redirect:/dashboard";
 	}
-	
 	
 }

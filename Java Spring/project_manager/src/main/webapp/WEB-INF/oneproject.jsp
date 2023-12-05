@@ -42,7 +42,7 @@
         
         <div class="flexControl">
         <h3>  Due Date: </h3>
-        <h3 class="rightSide">${project.date}</h3>
+        <h3 class="rightSide"><fmt:formatDate value="${project.date}" type="date" dateStyle="long"  /></h3>
         </div>
         
 

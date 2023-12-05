@@ -44,7 +44,7 @@ public class Project {
 
 	@NotNull (message="Date required!")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	@FutureOrPresent( message = "creation date must be in future.")
+	@FutureOrPresent( message = "Date must be in future.")
 	private Date date;
 	
 	@OneToMany(mappedBy="project", fetch=FetchType.LAZY, cascade=CascadeType.ALL )

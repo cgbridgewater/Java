@@ -24,7 +24,8 @@
    		 		<div class="nav">
    		 		<div>
 		   			<h1>${project.title} Details</h1>
-					<h4>Project Lead: ${project.lead.userName}</h4>   		 		
+					<h4>Project Lead: ${project.lead.userName}</h4>  
+					<h4>Back to:  <a href="/projects/${project.id}">${project.title}</a></h4> 		 		
    		 		</div>
    			<h4><a href="/dashboard">Back To Dashboard!</a></h4>
 		</div>
@@ -63,9 +64,7 @@
 			
 			<div class="tasks">
 				<c:forEach var="t" items="${project.tasks}">
-				<fmt:formatDate value="${t.createdAt}" var="formattedDate"
-					type="date" pattern="hh:mm dd MMM yyyy" />
-					<p>Added by ${t.creator} at ${formattedDate}  </p>
+					<p>Added by ${t.creator} on <fmt:formatDate value="${t.createdAt}" type="both" dateStyle="long"  /></p>
 					<p> ${t.text}  </p>
 				</c:forEach>
 			</div>

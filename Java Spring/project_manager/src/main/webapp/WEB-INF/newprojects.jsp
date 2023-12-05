@@ -60,7 +60,7 @@
             </div>
         
             <div class="buttonContainer">	
-            	<h5><a  href="/dashboard">Cancel</a></h5> 		
+            	<h5><a href="/dashboard">Cancel</a></h5> 		
                 <button class="button" type="submit">Submit</button>
             </div>
         

@@ -22,7 +22,7 @@
 
 
 
-   		    <h1>Create a project</h1>
+   		    <h1>Update: ${project.title}</h1>
     <div class="formContainer">
         <!-- FORM INPUT SECTION -->
         <form:form action="/projects/edit/${project.id}" method="POST" modelAttribute="project">
