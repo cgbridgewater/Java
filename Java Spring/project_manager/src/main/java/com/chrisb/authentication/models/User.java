@@ -31,16 +31,14 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty (message="User Name is required!")
-	@Size(min=3,max=30, message="Min length 3 charactors")
+	@Size(min=3,max=30, message="Min 3 charactors")
 	private String userName;
 	
-	@NotEmpty (message="Email is required!")
-	@Email (message="Must be in valid email format")
+	@Size(min=3,max=30, message="Min 3 charactors")
+	@Email (message="Must be in valid email")
 	private String email;
 	
-	@NotEmpty (message="Password required!")
-	@Size(min=8, message="Min length 8 charactors")
+	@Size(min=8, message="Min 8 charactors")
 	private String password;
 	
 	@Transient
@@ -54,13 +52,10 @@ public class User {
 	private Date updatedAt;
 	
 	
-	
+	//Table Joins	
 	@Column(updatable = false)
 	@OneToMany(mappedBy = "lead", fetch =FetchType.LAZY)
 	private List<Project> projectsLed;
-	
-	
-	
 	
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -72,8 +67,6 @@ public class User {
 	
     
     
-    
-	
 	public User() {}
 
 	public List<Project> getProjectsLed() {

@@ -1,30 +1,34 @@
 @charset "ISO-8859-1";
 
 body {
-	background:grey;
+	background:#BFACAA;
 }
 
-h1 {
-	color:white;
+h1, h4 {
+	color:#B497D6;
+}
+
+h2 {
+	color: #454E9E;
 }
 
 .nav {
 	display:flex;
 	justify-content:space-between;
 	align-items:center;
-	background:black;
-	border-bottom: 4px double blue;
+	background:#A54657;
+	border-bottom: 8px double #7FB069;
 	padding:1% 5%;
 }
 
 .formContainer {
 	width:40%;
-	min-width:470px;
+	min-width:500px;
 	margin:2% auto;
 	padding:15px;
-	border: 6px double blue;
+	border: 6px double #7FB069;
 	border-radius: 5px;
-	background-color:lightgrey;
+	background-color: #E1E2EF;
 }
 
 .formation {
@@ -34,32 +38,76 @@ h1 {
 }
 
 .input {
-	background-color:darkgrey;
-	border-color:blue;
+	background-color:#BFACAA;
+	border: 3px solid #7FB069;
 	border-radius:5px;
+	color: #454E9E;
 	min-width:140px;
 	width:250px;
+	caret-color:#454E9E;
+}
+
+.input:hover {
+	border-color:#B497D6;
+}
+
+.input:focus {
+	background-color:#B497D6;
+	border-color: 3px solid #7FB069;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px #BFACAA inset;
+    -webkit-text-fill-color: #454E9E;
 }
 
 label {
-	color:blue;
+	color:#454E9E;
+	font-weight: 700;
 	min-width:100px;
 }
 
 .buttonContainer {
 	width:20%;
-	margin:0 auto;
-	margin-top:5px;
+	margin:10px auto 0;
 }
 
-.button{
-	background-color:blue;
-	color:whitesmoke;
-	border:2px solid whitesmoke;
-	border-radius:5px;
+.button {
+	position: relative;
+	width: 100px;
+	border: 2px solid #454E9E;
+	border-radius: 5px;
+	background-color: #B497D6;
+	color: #454E9E;
+	font-weight: 700;
+	padding: 3px
+}
+
+.button:hover {
+	border-color: #B497D6;
+	color: #B497D6;
+	background-color: #454E9E;
+}
+
+.button:active {
+	top: 2px;
+}
+
+.errorFlex {
+	display:flex;
+	flex-direction:column;
+}
+
+.errorFlex2 {
+	display:flex;
 }
 
 .errors{
+	
 	color:red;
 	font-weight:800;
 }
+
+
+
+

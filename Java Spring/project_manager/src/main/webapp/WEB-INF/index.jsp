@@ -18,64 +18,60 @@
     <script type="text/javascript" src="/JS/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-   
-   		
-			<div class="nav"  >
-   				<h1> Welcome to the Login!</h1>
+   			<!-- Nav Bar  -->
+			<div class="nav">
+				<div>
+	   				<h1>Welcome To The Project Board</h1>
+				</div>
 			</div>   
-
-		
-		
+			<!-- Page Container  -->
 	   		<div class="container">
+	   			<!-- Form Container  -->
    			    <div class="formContainer">
 			        <!-- FORM REGISTER SECTION -->
 			        <form:form action="/register" method="POST" modelAttribute="user">
 			        	<h2>Register Here:</h2>
-
 			            <!-- FORM USER Name SECTION -->
 			            <div class="sectionOne">
 			                <div class="formation">
 			                    <form:label path="userName"> User Name:  </form:label>	
-			                    <form:input path="userName" class="input" />
-			                </div>
-			                <div class="errors">
-			                    <form:errors path="userName" class="errors"/>
+				                <div class="errorFlex">
+				                    <form:input path="userName" class="input" />
+				                    <form:errors path="userName" class="errors"/>
+				                </div>
 			                </div>
 			            </div>
 			            <div class="sectionTwo">
 			            <!-- ...  -->
-
 			            <!-- FORM EMAIL SECTION -->
 			                <div class="formation">
 			                    <form:label path="email"> Email: </form:label>	
-			                    <form:input path="email" class="input" />
-			                </div>
-			                <div class="errors">
-			                    <form:errors path="email" class="errors"/>
+				                <div class="errorFlex">
+				                    <form:input path="email" class="input" />
+				                    <form:errors path="email" class="errors"/>
+				                </div>
 			                </div>
 			            </div>
 			            <div class="sectionThree">
         			    <!-- ...  -->
-
 			            <!-- FORM PASSWORD SECTION -->
 			                <div class="formation">
 			                    <form:label path="password"> Password: </form:label>	
-			                    <form:input path="password" type="password" class="input" />
-			                </div>
-			                <div class="errors">
-			                    <form:errors path="password" class="errors"/>
+				                <div class="errorFlex">
+				                    <form:input path="password" type="password" class="input" />
+				                    <form:errors path="password" class="errors"/>
+				                </div>
 			                </div>
 			            </div>
 			            <!-- ...  -->
-
 			            <!-- FORM CONF PW SECTION -->
 			            <div class="sectionFour">
 			                <div class="formation">
 			                    <form:label path="confirmPass"> Confirm Password: </form:label>	
-			                    <form:input path="confirmPass" type="password" class="input" />
-			                </div>
-			                <div class="errors">
-			                    <form:errors path="confirmPass" class="errors"/>
+				                <div class="errorFlex">
+			                    	<form:input path="confirmPass" type="password" class="input" />
+			                    	<form:errors path="confirmPass" class="errors"/>
+			                	</div>
 			                </div>
 			            </div>
 			        	 <!-- ...  -->
@@ -84,27 +80,25 @@
 			            <div class="buttonContainer">		 		
 			                <button class="button" type="submit">Register</button>
 			            </div>
-			        
 			        </form:form>
-			
-			        <!-- END FORM INPUT SECTION -->
 			    </div>
-   				
-   				
-   				
-			        <!-- FORM LOGIN SECTION -->
+		        <!-- END REGISTRATION SECTION -->
+    		    <!-- LOGIN CONTAINER -->
    			    <div class="formContainer">
+			        <!-- LOGIN FORM SECTION -->
 			        <form:form action="/login" method="POST" modelAttribute="loginUser">
-			        	<h2>Login Here:</h2>
+			        	<div>
+			        	</div>
 			        	
+			        		<h2>Login Here:</h2>
 			        	 <!-- FORM EMAIL SECTION -->
 			            <div class="sectionOne">
 			                <div class="formation">
-			                    <form:label path="email"> Email: </form:label>	
-			                    <form:input path="email" class="input" />
-			                </div>
-			                <div class="errors">
-			                    <form:errors path="email" class="errors"/>
+			                    <form:label path="email"> Email: </form:label>				                    
+				                <div class="errorFlex">
+				                    <form:input path="email" class="input" />
+				                    <form:errors path="email" class="errors"/>			                   	 	
+				                </div>
 			                </div>
 			            </div>
 						 <!-- ...  -->
@@ -112,29 +106,19 @@
 			            <div class="sectionTwo">
 			                <div class="formation">
 			                    <form:label path="password"> Password: </form:label>	
-			                    <form:input path="password" type="password" class="input" />
-			                </div>
-			                <div class="errors">
-			                    <form:errors path="password" class="errors"/>
+				                <div class="errorFlex">
+				                    <form:input path="password" type="password" class="input" />
+			                	</div>
 			                </div>
 			            </div>
 			        	 <!-- ... -->
-			        
 			        	 <!-- FORM BUTTON -->
 			            <div class="buttonContainer">		 		
 			                <button class="button" type="submit">Login</button>
 			            </div>
-			        
 			        </form:form>
-			
 			        <!-- END FORM LOGIN SECTION -->
 			    </div>
-   			
-   			
-   		
-   		
-   			</div>
-   
-   
+ 			</div>
 </body>
 </html>

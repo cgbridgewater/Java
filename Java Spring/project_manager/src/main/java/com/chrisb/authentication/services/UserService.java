@@ -40,13 +40,17 @@ public class UserService {
 	//LOGIN
 	public User login(LoginUser l, BindingResult result) {
 		Optional<User> optUser = userRepo.findByEmail(l.getEmail());
-		if (optUser.isEmpty()) {
-			result.rejectValue("email", "Matches" , "User not found!");
+		if (optUser.isEmpty() || !optUser.isPresent()) {
+			result.rejectValue("email", "Matches" , "Login Error!");
 			return null;
 		}
 		User user = optUser.get();
 		if (!BCrypt.checkpw(l.getPassword(), user.getPassword())) {
-			result.rejectValue("password", "Matches", "Invalid Password!");
+			result.rejectValue("email", "Matches", "Login Error!");
+			return null;
+		}
+		if(result.hasErrors()) {
+			result.rejectValue("email", "Matches", "Login Error!");
 			return null;
 		}
 		return user;

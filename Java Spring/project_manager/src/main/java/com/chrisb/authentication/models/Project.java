@@ -47,6 +47,8 @@ public class Project {
 	@FutureOrPresent( message = "Date must be in future.")
 	private Date date;
 	
+	
+	// Table Joins		
 	@OneToMany(mappedBy="project", fetch=FetchType.LAZY, cascade=CascadeType.ALL )
 	private List<Task> tasks; 
 
@@ -54,7 +56,6 @@ public class Project {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "project_id")
 	private User lead;
-	
 	
 	
 	@ManyToMany(fetch = FetchType.LAZY)
@@ -65,6 +66,7 @@ public class Project {
     )
     private List<User> users;   //collect stuff from OTHER class
 	
+		
 	public Project() {}
 	
 
