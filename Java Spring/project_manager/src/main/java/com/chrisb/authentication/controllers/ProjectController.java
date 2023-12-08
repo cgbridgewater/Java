@@ -36,7 +36,6 @@ public class ProjectController {
 	
 	//  Get Routes   //
 	
-	
 	// New Project Form
 	@GetMapping("/projects/new")
 	public String newProject(@ModelAttribute("project")Project project, HttpSession session, Model model) {
@@ -44,9 +43,8 @@ public class ProjectController {
 		if(id == null) { //if none in session gtfo!
 			return "redirect:/";
 		}
-		
 		model.addAttribute("user",id);
-		return "newprojects.jsp";
+			return "newprojects.jsp";
 	}
 	
 	
@@ -61,9 +59,8 @@ public class ProjectController {
 		model.addAttribute("user",user);
 		Project oneProject = projServ.findById(projid);
 		model.addAttribute("project", oneProject);
-		return "editprojects.jsp";
+			return "editprojects.jsp";
 	}
-	
 	
 	
 	@GetMapping("/projects/{id}")
@@ -76,9 +73,8 @@ public class ProjectController {
 		model.addAttribute(user);
 		Project oneProject = projServ.findById(id);
 		model.addAttribute("project", oneProject);
-		return "oneproject.jsp";
+			return "oneproject.jsp";
 	}
-	
 	
 	
 	@GetMapping("/projects/{projid}/tasks")
@@ -91,10 +87,9 @@ public class ProjectController {
 		model.addAttribute("user",user);
 		Project oneProject = projServ.findById(projid);
 		model.addAttribute("project", oneProject);
-		return "projecttasks.jsp";
+			return "projecttasks.jsp";
 	}
 		
-	
 	
 	// JOIN Proj 
 	@GetMapping("/projects/{projid}/join")
@@ -113,8 +108,6 @@ public class ProjectController {
 		model.addAttribute("unassignedProj",unassignedProj);
 		model.addAttribute("assignedProj",assignedProj);
 			return "redirect:/dashboard";
-		
-		
 	}
 	
 	
@@ -134,8 +127,7 @@ public class ProjectController {
 		model.addAttribute("user", user);
 		model.addAttribute("unassignedProj",unassignedProj);
 		model.addAttribute("assignedProj",assignedProj);
-    
-        return "redirect:/dashboard";
+			return "redirect:/dashboard";
     }
 	
 	
@@ -163,17 +155,14 @@ public class ProjectController {
 		if(loggedid == null) { //if none in session gtfo!
 			return "redirect:/";
 		}
-		
 		if (result.hasErrors()) {
 			return "newprojects.jsp";
-	
 		}
-		
 		projServ.create(project);
 		User user = userServ.findById(loggedid);
 		user.getProjects().add(project);
 		userServ.update(user);
-		return "redirect:/dashboard";
+			return "redirect:/dashboard";
 	}
 	
 	
@@ -186,8 +175,7 @@ public class ProjectController {
 			model.addAttribute("user",user);
 			Project oneProject = projServ.findById(projid);
 			model.addAttribute("project", oneProject);
-			return "projecttasks.jsp";
-	
+				return "projecttasks.jsp";
 		}
 		Long loggedid = (Long) session.getAttribute("userId");
 		User user = userServ.findById(loggedid);
@@ -197,8 +185,7 @@ public class ProjectController {
 		taskServ.create(task);
 		task.setProject(oneProject);
 		projServ.update(oneProject);
-		return "redirect:/projects/" + projid + "/tasks";
-		
+			return "redirect:/projects/" + projid + "/tasks";
 	}
 	
 	
@@ -224,7 +211,7 @@ public class ProjectController {
 		project.setUsers(projectupdate.getUsers());
 		project.setLead(user);
 		projServ.update(project);
-			return "redirect:/dashboard";
+			return "redirect:/projects/" + projid;
 	}
 	
 }

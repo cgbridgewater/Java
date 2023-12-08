@@ -61,8 +61,8 @@ public class Project {
 	@ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "users_projects", 
-        joinColumns = @JoinColumn(name = "project_id"),  //column from THIS class
-        inverseJoinColumns = @JoinColumn(name = "user_id") // column from OTHER class
+        joinColumns = @JoinColumn(name = "project_id"), 
+        inverseJoinColumns = @JoinColumn(name = "user_id")
     )
     private List<User> users;   //collect stuff from OTHER class
 	

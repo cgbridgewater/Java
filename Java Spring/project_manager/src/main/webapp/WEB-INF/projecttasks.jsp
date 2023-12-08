@@ -36,7 +36,7 @@
 		    <div class="formContainer">
 		    <h5>Add a task ticket for this team</h5>
 		        <!-- FORM INPUT SECTION -->
-		    
+
 			    <div>
 			        <form:form action="/projects/${project.id}/tasks" method="POST" modelAttribute="task">
 	                <input type="hidden" name="creator" value="${user.userName}">
@@ -56,10 +56,9 @@
 			            </div>
 			        
 			        </form:form>
-			    </div>
-			
-		        <!-- END FORM INPUT SECTION -->
+			    </div>			
 		    </div>
+	        <!-- END FORM INPUT SECTION -->
 
 			
 			<div class="tasks">
