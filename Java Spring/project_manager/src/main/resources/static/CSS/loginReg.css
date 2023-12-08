@@ -1,31 +1,43 @@
 @charset "ISO-8859-1";
 
 body {
-	background:#BFACAA;
+	background: white;
 }
 
-h1, h4 {
-	color:#B497D6;
+h1, h4, a {
+	color:#A54657;
 }
 
-h2 {
+
+h2, p {
 	color: #454E9E;
+}
+
+a,p {
+	font-weight: 700;
 }
 
 .nav {
 	display:flex;
 	justify-content:space-between;
 	align-items:center;
-	background:#A54657;
+	background:#0E0004;
 	border-bottom: 8px double #7FB069;
 	padding:1% 5%;
+}
+
+.container {
+	margin-top: 5%;
+	position: absolute;
+	left: 50%;
+	transform: translateX( -50%);
 }
 
 .formContainer {
 	width:40%;
 	min-width:500px;
-	margin:2% auto;
-	padding:15px;
+	margin:6% auto;
+	padding:10px 15px 0 15px;
 	border: 6px double #7FB069;
 	border-radius: 5px;
 	background-color: #E1E2EF;
@@ -38,26 +50,30 @@ h2 {
 }
 
 .input {
-	background-color:#BFACAA;
+	background-color:#E1E2EF;
 	border: 3px solid #7FB069;
 	border-radius:5px;
 	color: #454E9E;
 	min-width:140px;
 	width:250px;
-	caret-color:#454E9E;
+	caret-color: #454E9E;
+	padding-left:5px;
 }
 
 .input:hover {
 	border-color:#B497D6;
+	transition: 0.2s;		
 }
 
 .input:focus {
-	background-color:#B497D6;
-	border-color: 3px solid #7FB069;
+	background-color:rgba(180, 151, 214, .3);
+	border-color: #7FB069;
+	outline: 1px solid #7FB069;
+	transition: 0.2s;
 }
 
 input:-webkit-autofill {
-    -webkit-box-shadow:0 0 0 50px #BFACAA inset;
+    -webkit-box-shadow:0 0 0 50px #E1E2EF inset;
     -webkit-text-fill-color: #454E9E;
 }
 
@@ -75,18 +91,18 @@ label {
 .button {
 	position: relative;
 	width: 100px;
-	border: 2px solid #454E9E;
+	border: 2px solid #A54657;
 	border-radius: 5px;
-	background-color: #B497D6;
-	color: #454E9E;
+	color: #A54657;
+	background-color: rgba(180, 151, 214, .3);
 	font-weight: 700;
 	padding: 3px
 }
 
 .button:hover {
-	border-color: #B497D6;
-	color: #B497D6;
-	background-color: #454E9E;
+	border-color: #454E9E;
+	background-color: #A54657;
+	color: #E1E2EF;
 }
 
 .button:active {
@@ -103,11 +119,11 @@ label {
 }
 
 .errors{
-	
 	color:red;
 	font-weight:800;
 }
 
-
-
-
+.signIn {
+	margin-top:20px;
+	text-align:end;
+}
