@@ -29,14 +29,27 @@ public class HomeController {
 	@Autowired
 	private ProjectService projServ;
 	
-	// LOGIN REG PAGE
+	//	
 	@GetMapping("")
-	public String index(Model model) {
-		model.addAttribute("user", new User());
-		model.addAttribute("loginUser", new LoginUser());
+	public String index() {
 		return "index.jsp";
 	}
 	
+	// LOGIN REG PAGE
+	@GetMapping("/register")
+	public String register(Model model) {
+		model.addAttribute("user", new User());
+//		model.addAttribute("loginUser", new LoginUser());
+		return "register.jsp";
+	}
+
+	// LOGIN REG PAGE
+	@GetMapping("/login")
+	public String login(Model model) {
+//		model.addAttribute("user", new User());
+		model.addAttribute("loginUser", new LoginUser());
+		return "login.jsp";
+	}
 	
 	
 	// LOG USER OUT
@@ -64,8 +77,6 @@ public class HomeController {
 		List<Project> unassignedProj = projServ.getUnassignedProjects(user);
 		model.addAttribute("unassignedProj",unassignedProj);
 		model.addAttribute("assignedProj",assignedProj);
-				
-	
 		return "dashboard.jsp";
 			}
 	}
@@ -79,7 +90,7 @@ public class HomeController {
 		User newUser = userServ.register(user, result);
 		if(newUser == null) {
 			model.addAttribute("loginUser", new LoginUser());
-			return "index.jsp";
+			return "register.jsp";
 		}
 		// log user in
 		session.setAttribute("userId", newUser.getId());
@@ -95,7 +106,7 @@ public class HomeController {
 		User user = userServ.login(loginUser, result);
 		if (user == null) {
 			model.addAttribute("user", new User());
-			return "index.jsp";
+			return "login.jsp";
 		}
 		session.setAttribute("userId", user.getId());
 		return "redirect:/dashboard";
