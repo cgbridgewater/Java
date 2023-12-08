@@ -26,99 +26,15 @@
 			</div>   
 			<!-- Page Container  -->
 	   		<div class="container">
-	   			<!-- Form Container  -->
-   			    <div class="formContainer">
-			        <!-- FORM REGISTER SECTION -->
-			        <form:form action="/register" method="POST" modelAttribute="user">
-			        	<h2>Register Here:</h2>
-			            <!-- FORM USER Name SECTION -->
-			            <div class="sectionOne">
-			                <div class="formation">
-			                    <form:label path="userName"> User Name:  </form:label>	
-				                <div class="errorFlex">
-				                    <form:input path="userName" class="input" />
-				                    <form:errors path="userName" class="errors"/>
-				                </div>
-			                </div>
-			            </div>
-			            <div class="sectionTwo">
-			            <!-- ...  -->
-			            <!-- FORM EMAIL SECTION -->
-			                <div class="formation">
-			                    <form:label path="email"> Email: </form:label>	
-				                <div class="errorFlex">
-				                    <form:input path="email" class="input" />
-				                    <form:errors path="email" class="errors"/>
-				                </div>
-			                </div>
-			            </div>
-			            <div class="sectionThree">
-        			    <!-- ...  -->
-			            <!-- FORM PASSWORD SECTION -->
-			                <div class="formation">
-			                    <form:label path="password"> Password: </form:label>	
-				                <div class="errorFlex">
-				                    <form:input path="password" type="password" class="input" />
-				                    <form:errors path="password" class="errors"/>
-				                </div>
-			                </div>
-			            </div>
-			            <!-- ...  -->
-			            <!-- FORM CONF PW SECTION -->
-			            <div class="sectionFour">
-			                <div class="formation">
-			                    <form:label path="confirmPass"> Confirm Password: </form:label>	
-				                <div class="errorFlex">
-			                    	<form:input path="confirmPass" type="password" class="input" />
-			                    	<form:errors path="confirmPass" class="errors"/>
-			                	</div>
-			                </div>
-			            </div>
-			        	 <!-- ...  -->
-			        
-			        	 <!-- FORM BUTTON -->
-			            <div class="buttonContainer">		 		
-			                <button class="button" type="submit">Register</button>
-			            </div>
-			        </form:form>
-			    </div>
-		        <!-- END REGISTRATION SECTION -->
-    		    <!-- LOGIN CONTAINER -->
-   			    <div class="formContainer">
-			        <!-- LOGIN FORM SECTION -->
-			        <form:form action="/login" method="POST" modelAttribute="loginUser">
-			        	<div>
-			        	</div>
-			        	
-			        		<h2>Login Here:</h2>
-			        	 <!-- FORM EMAIL SECTION -->
-			            <div class="sectionOne">
-			                <div class="formation">
-			                    <form:label path="email"> Email: </form:label>				                    
-				                <div class="errorFlex">
-				                    <form:input path="email" class="input" />
-				                    <form:errors path="email" class="errors"/>			                   	 	
-				                </div>
-			                </div>
-			            </div>
-						 <!-- ...  -->
-						 <!-- FORM PASSWORD SECTION -->
-			            <div class="sectionTwo">
-			                <div class="formation">
-			                    <form:label path="password"> Password: </form:label>	
-				                <div class="errorFlex">
-				                    <form:input path="password" type="password" class="input" />
-			                	</div>
-			                </div>
-			            </div>
-			        	 <!-- ... -->
-			        	 <!-- FORM BUTTON -->
-			            <div class="buttonContainer">		 		
-			                <button class="button" type="submit">Login</button>
-			            </div>
-			        </form:form>
-			        <!-- END FORM LOGIN SECTION -->
-			    </div>
+	   			<h1>A task board created to keep <br> development on track!</h1>
+	   			<div>
+	   				<h3>Save a meeting, post it, track it, get it done!</h3>
+	   				<h4>Now, Let's get to work!</h4>
+	   				<div class="flex">
+		   				<h6>Click Here to <a href="/login">Login!</a></h6>
+		   				<h6>Click Here to <a href="/register">Register!</a></h6>
+	   				</div>
+	   			</div>
  			</div>
 </body>
 </html>
