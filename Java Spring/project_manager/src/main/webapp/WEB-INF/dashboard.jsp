@@ -27,8 +27,11 @@
    		</div>
 		<!-- Table Title -->
   		<div class="flex">
-	   		<h3>All Projects</h3>
-	   		<h5><a href="/projects/new">New Project</a> / <a href="#allProjects">All Projects</a> / <a href="#myProjects">My Projects</a></h5>
+  			<div>
+		   		<h3>All Projects</h3>
+		   		<a href="/projects/new">New Project</a>
+  			</div>
+	   		<h5><a href="#allProjects">All Projects</a> / <a href="#myProjects">My Projects</a> / <a href="#CompletedProjects">Completed Projects</a></h5>
    		</div>
 		<!-- Table Display SECTION -->
 		<div class="tableContainer">
@@ -60,7 +63,10 @@
 		</div>
    		<!-- Table Title -->	
    		<div class="flex">
-   			<h3>My Projects</h3>
+			<div>
+	   			<h3>My Projects</h3>
+		   		<a href="/projects/new">New Project</a>
+  			</div>
    		</div>
 		<!-- Table Display SECTION -->
 		<div class="tableContainer">
