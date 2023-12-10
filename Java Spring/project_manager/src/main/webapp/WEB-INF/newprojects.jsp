@@ -29,6 +29,7 @@
         <form:form action="/projects/new" method="POST" modelAttribute="project">
 			<form:input type="hidden" path="lead" value="${user}"/>
 			<form:errors path="lead" class="errors"/>
+            <!-- FORM INPUT -->
             <div>
                 <div class="formation">
                     <form:label path="title"> Project Title:  </form:label>	
@@ -38,7 +39,7 @@
                     <form:errors path="title" class="errors"/>
                 </div>
             </div>
-        
+            <!-- FORM INPUT -->        
             <div>
                 <div class="formation">
                     <form:label path="description"> Project Description:  </form:label>	
@@ -48,7 +49,7 @@
                     <form:errors path="description" class="errors"/>
                 </div>
             </div>
-        
+            <!-- FORM INPUT -->        
             <div>
                 <div class="formation">
                     <form:label path="date"> Due Date: </form:label>	
@@ -58,15 +59,14 @@
                     <form:errors path="date" class="errors"/>
                 </div>
             </div>
-        
+            <!-- FORM BUTTONS -->
             <div class="buttonContainer">	
-            	<h5><a href="/dashboard">Cancel</a></h5> 		
+            	<h5><a  href="/projects/dashboard">Cancel</a></h5> 		
                 <button class="button" type="submit">Submit</button>
             </div>
-        
+        	<!-- END FORM INPUT SECTION -->
         </form:form>
-
-        <!-- END FORM INPUT SECTION -->
+        <!-- END FORM SECTION -->
     </div>
 
 
