@@ -30,7 +30,7 @@ public class Task {
 	private String creator;
 	
 //	@NotEmpty (message="Description required!")
-	@Size(min=3, message="Description must at least contain 3 charactors")
+	@Size(min=3, message="Minimum 3 charactors!")
 	private String text;
 	
 	@ManyToOne(fetch=FetchType.LAZY)

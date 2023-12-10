@@ -34,13 +34,34 @@ public class ProjectController {
 	TaskService taskServ;	
 	
 	
-	//  Get Routes   //
+	// Get Routes / VIEWS //
+	//	                  //
+	// PROJECTS DASHBOARD
+	@GetMapping("/projects/dashboard")
+	public String dashboard(Model model, HttpSession session) {
+		Long id = (Long) session.getAttribute("userId");
+			if(id == null) {
+				return "redirect:/";
+			}
+			else {	
+		User user = userServ.findById(id);
+		model.addAttribute("user", user);
+		List<Project> allProj = projServ.getAll();
+		List<Project> assignedProj = projServ.getAssignedProjects(user);
+		List<Project> unassignedProj = projServ.getUnassignedProjects(user);
+		model.addAttribute("allProj", allProj);
+		model.addAttribute("unassignedProj",unassignedProj);
+		model.addAttribute("assignedProj",assignedProj);
+		return "dashboard.jsp";
+			}
+	}
 	
-	// New Project Form
+
+	// CREATE PROJECT FORM
 	@GetMapping("/projects/new")
 	public String newProject(@ModelAttribute("project")Project project, HttpSession session, Model model) {
 		Long id = (Long) session.getAttribute("userId");
-		if(id == null) { //if none in session gtfo!
+		if(id == null) {
 			return "redirect:/";
 		}
 		model.addAttribute("user",id);
@@ -48,11 +69,11 @@ public class ProjectController {
 	}
 	
 	
-	// Update Project Form
+	// UPDATE PROJECT FORM
 	@GetMapping("/projects/edit/{projid}")
 	public String editProject(@ModelAttribute("project")Project project,@PathVariable("projid") Long projid, Model model, HttpSession session) {
 		Long loggedid = (Long) session.getAttribute("userId");
-		if(loggedid == null) { //if none in session gtfo!
+		if(loggedid == null) {
 			return "redirect:/";
 		}
 		User user = userServ.findById(loggedid);
@@ -63,10 +84,11 @@ public class ProjectController {
 	}
 	
 	
+	// VIEW ONE PROJECT 
 	@GetMapping("/projects/{id}")
-	public String oneProject(@PathVariable("id") Long id, Model model, HttpSession session) {
+	public String oneProject(@PathVariable("id") Long id, Model model,@ModelAttribute("task") Task task, HttpSession session) {
 		Long loggedid = (Long) session.getAttribute("userId");
-		if(loggedid == null) { //if none in session gtfo!
+		if(loggedid == null) {
 			return "redirect:/";
 		}
 		User user = userServ.findById(loggedid);
@@ -77,25 +99,11 @@ public class ProjectController {
 	}
 	
 	
-	@GetMapping("/projects/{projid}/tasks")
-	public String projectTasks(@ModelAttribute("task") Task task,@PathVariable("projid") Long projid, Model model, HttpSession session) {
-		Long loggedid = (Long) session.getAttribute("userId");
-		if(loggedid == null) { //if none in session gtfo!
-			return "redirect:/";
-		}
-		User user = userServ.findById(loggedid);
-		model.addAttribute("user",user);
-		Project oneProject = projServ.findById(projid);
-		model.addAttribute("project", oneProject);
-			return "projecttasks.jsp";
-	}
-		
-	
-	// JOIN Proj 
+	// ADD USER TO PROJECT 
 	@GetMapping("/projects/{projid}/join")
 	public String joinProject(@PathVariable("projid")Long projid, HttpSession session, Model model) {
 		Long loggedid = (Long) session.getAttribute("userId");
-		if(loggedid == null) { //if none in session gtfo!
+		if(loggedid == null) {
 			return "redirect:/";
 		}
 		Project project = projServ.findById(projid);
@@ -107,15 +115,15 @@ public class ProjectController {
 		model.addAttribute("user", user);
 		model.addAttribute("unassignedProj",unassignedProj);
 		model.addAttribute("assignedProj",assignedProj);
-			return "redirect:/dashboard";
+			return "redirect:/projects/dashboard";
 	}
 	
 	
-	// Leave Proj
+	// REMOVE USER FROM PROJECT
     @GetMapping("/projects/{projid}/leave")
     public String delete(@PathVariable("projid")Long projid, HttpSession session, Model model) {
 		Long loggedid = (Long) session.getAttribute("userId");
-		if(loggedid == null) { //if none in session gtfo!
+		if(loggedid == null) {
 			return "redirect:/";
 		}
 		Project project = projServ.findById(projid);
@@ -127,28 +135,77 @@ public class ProjectController {
 		model.addAttribute("user", user);
 		model.addAttribute("unassignedProj",unassignedProj);
 		model.addAttribute("assignedProj",assignedProj);
-			return "redirect:/dashboard";
+			return "redirect:/projects/dashboard";
     }
 	
-	
+    // MARK PROJECT COMPLETED //
+	@GetMapping("/projects/completed/{projid}")
+	public String completedProject(@PathVariable("projid")Long projid, Model model, HttpSession session) {
+
+		Long loggedid = (Long) session.getAttribute("userId");
+		if(loggedid == null) {
+			return "redirect:/";
+		}
+		User user = userServ.findById(loggedid);
+		Project projectupdate = projServ.findById(projid);
+		projectupdate.setUsers(projectupdate.getUsers());
+		projectupdate.setCompleted(true);
+		projectupdate.setLead(user);
+		projServ.update(projectupdate);
+			return "redirect:/projects/" + projid;
+	}
     
+    // MARK PROJECT COMPLETED //
+	@GetMapping("/projects/incomplete/{projid}")
+	public String incompleteProject(@PathVariable("projid")Long projid, Model model, HttpSession session) {
+
+		Long loggedid = (Long) session.getAttribute("userId");
+		if(loggedid == null) {
+			return "redirect:/";
+		}
+		User user = userServ.findById(loggedid);
+		Project projectupdate = projServ.findById(projid);
+		projectupdate.setUsers(projectupdate.getUsers());
+		projectupdate.setCompleted(false);
+		projectupdate.setLead(user);
+		projServ.update(projectupdate);
+			return "redirect:/projects/" + projid;
+	}
+    
+	
+    // DELETE ROUTES //
+	//               //
+    // DELETE PROJECT    
     @GetMapping("/projects/{id}/delete")
     public String deleteProj(@PathVariable("id")Long id, HttpSession session) {
 		Long loggedid = (Long) session.getAttribute("userId");
-		if(loggedid == null) { //if none in session gtfo!
+		if(loggedid == null) {
 			return "redirect:/";
 		}
 		Project project = projServ.findById(id);
-				projServ.deleteProject(project);
-		return "redirect:/dashboard";
+		projServ.deleteProject(project);
+			return "redirect:/projects/dashboard";
     }
-		
+    
+    
+    // DELETE TASK ROUTE    
+    @GetMapping("/projects/{projid}/tasks/{id}/delete")
+	public String deleteTask(@PathVariable("projid")Long projid,@PathVariable("id")Long id, HttpSession session) {
+		Long loggedid = (Long) session.getAttribute("userId");
+		if(loggedid == null) {
+			return "redirect:/";
+		}
+		Task task = taskServ.findById(id);
+		taskServ.deleteTask(task);
+			return "redirect:/projects/" + projid;
+    }
 	
 	
 		
 		
-	// POST ROUTES //
-	// Create new project action
+	// CREATE ROUTES //
+	//             //
+	// CREATE NEW PROJECT ACTION
 	@PostMapping("/projects/new")
 	public String createProject(@Valid @ModelAttribute("project") Project project, BindingResult result, HttpSession session) {
 		Long loggedid = (Long) session.getAttribute("userId");
@@ -162,11 +219,11 @@ public class ProjectController {
 		User user = userServ.findById(loggedid);
 		user.getProjects().add(project);
 		userServ.update(user);
-			return "redirect:/dashboard";
+			return "redirect:/projects/dashboard";
 	}
 	
 	
-	//	create new task route
+	//	CREATE NEW TASK ACTION
 	@PostMapping("/projects/{projid}/tasks")
 	public String newTask(@Valid @ModelAttribute("task")Task task, BindingResult result, @PathVariable("projid")Long projid, Model model, HttpSession session) {
 		if (result.hasErrors()) {
@@ -175,7 +232,7 @@ public class ProjectController {
 			model.addAttribute("user",user);
 			Project oneProject = projServ.findById(projid);
 			model.addAttribute("project", oneProject);
-				return "projecttasks.jsp";
+				return "oneproject.jsp";
 		}
 		Long loggedid = (Long) session.getAttribute("userId");
 		User user = userServ.findById(loggedid);
@@ -185,19 +242,17 @@ public class ProjectController {
 		taskServ.create(task);
 		task.setProject(oneProject);
 		projServ.update(oneProject);
-			return "redirect:/projects/" + projid + "/tasks";
+			return "redirect:/projects/" + projid;
 	}
 	
 	
-	
-	
 	// UPDATE ROUTES  //
-	
+	//                //
 	//  Update project
 	@PutMapping("/projects/edit/{projid}")
 	public String updateProject(@Valid @ModelAttribute("project") Project project,  BindingResult result,  @PathVariable("projid")Long projid, Model model, HttpSession session) {
 		Long loggedid = (Long) session.getAttribute("userId");
-		if(loggedid == null) { //if none in session gtfo!
+		if(loggedid == null) {
 			return "redirect:/";
 		}
 		if (result.hasErrors()) {

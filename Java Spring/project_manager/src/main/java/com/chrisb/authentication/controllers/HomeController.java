@@ -20,7 +20,6 @@ import com.chrisb.authentication.services.ProjectService;
 import com.chrisb.authentication.services.UserService;
 
 
-
 @Controller
 public class HomeController {
 
@@ -39,49 +38,24 @@ public class HomeController {
 	@GetMapping("/register")
 	public String register(Model model) {
 		model.addAttribute("user", new User());
-//		model.addAttribute("loginUser", new LoginUser());
 		return "register.jsp";
 	}
 
 	// LOGIN REG PAGE
 	@GetMapping("/login")
 	public String login(Model model) {
-//		model.addAttribute("user", new User());
 		model.addAttribute("loginUser", new LoginUser());
 		return "login.jsp";
 	}
 	
 	
 	// LOG USER OUT
-		@GetMapping("/logout")
-		public String logout(HttpSession session) {
-			session.setAttribute("userId", null);
-			return "redirect:/";
-		}
-	
-	
-		
-	// DASHBOARD ROUTE
-	@GetMapping("/dashboard")
-	public String dashboard(Model model, HttpSession session) {
-		Long id = (Long) session.getAttribute("userId");
-			if(id == null) { //if none in session gtfo!
-				return "redirect:/";
-			}
-			else {	
-
-		User user = userServ.findById(id);
-		model.addAttribute("user", user);
-				
-		List<Project> assignedProj = projServ.getAssignedProjects(user);
-		List<Project> unassignedProj = projServ.getUnassignedProjects(user);
-		model.addAttribute("unassignedProj",unassignedProj);
-		model.addAttribute("assignedProj",assignedProj);
-		return "dashboard.jsp";
-			}
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.setAttribute("userId", null);
+		return "redirect:/";
 	}
-		
-		
+	
 	
 	// REGISTER ACTION
 	@PostMapping("/register")
@@ -94,9 +68,8 @@ public class HomeController {
 		}
 		// log user in
 		session.setAttribute("userId", newUser.getId());
-		return "redirect:/dashboard";
+		return "redirect:/projects/dashboard";
 	}
-	
 	
 	
 	// LOGIN ACTION
@@ -109,10 +82,7 @@ public class HomeController {
 			return "login.jsp";
 		}
 		session.setAttribute("userId", user.getId());
-		return "redirect:/dashboard";
+		return "redirect:/projects/dashboard";
 	}
-	
-	
 
-	
 }

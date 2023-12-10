@@ -53,21 +53,12 @@ public class ProjectService {
     }
     
     public List<Project> getAssignedProjects(User user){
-    	return projRepo.findAllByUsers(user);
+    	return projRepo.findAllByUsersOrderByDate(user);
     }
     
     public List<Project> getUnassignedProjects(User user){
-    	return projRepo.findByUsersNotContains(user);
+    	return projRepo.findByUsersNotContainsOrderByDate(user);
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
 	

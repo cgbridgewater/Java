@@ -41,12 +41,13 @@ public class Project {
 	@Size(min=3, max=500, message="Description must at least contain 3 charactors")
 	private String description;
 	
-
+	
 	@NotNull (message="Date required!")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@FutureOrPresent( message = "Date must be in future.")
 	private Date date;
 	
+	private boolean Completed;
 	
 	// Table Joins		
 	@OneToMany(mappedBy="project", fetch=FetchType.LAZY, cascade=CascadeType.ALL )
@@ -132,6 +133,13 @@ public class Project {
 		this.date = date;
 	}
 
+	public boolean isCompleted() {
+		return Completed;
+	}
+
+	public void setCompleted(boolean completed) {
+		Completed = completed;
+	}
 
 	public Date getCreatedAt() {
 		return createdAt;
