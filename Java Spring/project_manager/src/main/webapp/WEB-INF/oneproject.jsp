@@ -57,10 +57,17 @@
 	        <h3>Project Name: </h3>
 	        <h4 class="rightSide">${project.title}</h4>
         </div>
+        <hr>
+        <div class="flexControl">
+	        <h3>Project Lead: </h3>
+	        <h4 class="rightSide">${project.lead.userName}</h4>
+        </div>
+        <hr>
         <div class="flexControl">
 	        <h3>  Due Date: </h3>
 	        <h4 class="rightSide"><fmt:formatDate value="${project.date}" type="date" dateStyle="long"  /></h4>
         </div>
+        <hr>
         <div class="flexControl">
 	        <h3>Description: </h3>
 	        <h4 class="rightSide">${project.description}</h4>
@@ -68,9 +75,9 @@
         <!-- FILTER FOR INCOMPLETE/COMPLETE FOR APPROPRIATE BUTTONS -->
     	<c:if test="${user.id == project.lead.id and project.completed == false }">
 		    <div class="buttonContainer">	
-			   	   <a href="/projects/edit/${project.id}"><button class="button edit">Edit Task</button></a>
-			   	   <a href="/projects/completed/${project.id}"><button class="button complete">Mark Completed</button></a>
-			       <a href="/projects/${project.id}/delete"><button class="button delete">Delete!</button></a>
+			   	   <a class="link" href="/projects/edit/${project.id}"><button class="button edit">Edit Task</button></a>
+			   	   <a class="link" href="/projects/completed/${project.id}"><button class="button complete">Mark Completed</button></a>
+			       <a class="link" href="/projects/${project.id}/delete"><button class="button delete">Delete!</button></a>
 		    </div>
         </c:if>
       	<!-- FILTER FOR INCOMPLETE/COMPLETE FOR APPROPRIATE BUTTONS -->	
@@ -87,9 +94,17 @@
 	<div class="viewTwoContainer">	
 		<!-- TEAM MEMBER CONTAINER -->
 		<div class="teamMembers">
-			<h3>Team Members:</h3>
+			<div class="flexControl">
+				<h3>Team Members:</h3>
+				<c:if test="${user.id != project.lead.id and project.users.contains(user)}">
+					<a class="link" href="/projects/${project.id}/leaveone"><button class="button edit">Leave</button></a>
+				</c:if>
+				<c:if test="${user.id != project.lead.id and !project.users.contains(user)}">
+					<a class="link" href="/projects/${project.id}/joinone"><button class="button complete">Join</button></a>				
+				</c:if>
+			</div>
 			<c:forEach var="m" items="${project.users}">
-				<p class="rightSide"> ${m.userName}  </p>
+				<p class="rightSide blue"> ${m.userName}  </p>
 			</c:forEach>
 		</div>	
 	   	<!-- END TEAM MEMBER CONTAINER -->
@@ -106,7 +121,7 @@
 			            <div class="sectionOne">
 			                <div class="ticketFlex">
 			                    <form:label path="text">  </form:label>	
-			                    <form:textarea path="text" rows="2" cols="40" class="input"/>
+			                    <form:textarea path="text" rows="1" cols="40" class="input" autofocus="true"/>
 				                <button class="button submit" type="submit">Submit</button>
 			                </div>
 			                <div class="errors">
@@ -122,6 +137,7 @@
 	        <h5 class="completed">Project is marked <span class="completeWord">COMPLETE</span> <br> Addition of new tasks is disabled</h5>
 	        </c:if>
 			<c:forEach var="t" items="${project.tasks}">
+				<hr>
 				<div class="flexControl">
 					<a href="/projects/${project.id}/tasks/${t.id}/delete">Delete</a>
 					<div class="rightSide">
