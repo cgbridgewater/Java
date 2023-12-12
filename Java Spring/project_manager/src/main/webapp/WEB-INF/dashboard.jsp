@@ -18,8 +18,8 @@
     <meta charset="UTF-8">
     <title>View Page</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/CSS/dashboard.css"> 
-    <link rel="stylesheet" href="/CSS/menu.css"> 
+    <link rel="stylesheet" href="/CSS/resultTables.css"> 
+    <link rel="stylesheet" href="/CSS/menuStyle.css"> 
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/JS/app.js"></script>
     <script src="https://kit.fontawesome.com/83a0001255.js"></script>
@@ -27,7 +27,9 @@
 <body>
 	<!-- NAVBAR -->
  	<div class="nav">
-  		<h3> Welcome To The Project Board: <br> <c:out value="${user.userName}"/> </h3>
+  		<h3>The Project Board: <span class="blue">Open Projects</span></h3>
+  		<h3>User: <span class="blue"><c:out value="${user.userName}"/></span></h3>
+      	<a href="javascript:history.back()">Go Back</a>	
  	</div>
 	<!-- NAVBAR -->
 	<!-- MENU POPOUT BUTTON -->	
@@ -50,11 +52,8 @@
     <!-- END MENU POPOUT -->  	
 	<!-- TABLE TITLE -->
 	<div class="flex">
- 		<div>
-	   		<h3>Open Projects</h3>
-	   		<a href="/projects/new">New Project</a>
- 		</div>
-   		<h5 class="blue">Quick View:  <a href="/projects/myprojects">My Projects</a> / <a href="/projects/completed">Completed Projects</a></h5>
+	   	<h5><a href="/projects/new">Create New Project</a></h5>
+	   	<h5 class="blue2">Quick View:  <a href="/projects/myprojects">My Projects</a> / <a href="/projects/completed">Completed Projects</a></h5>
   	</div>
 	<!-- TABLE DISPLAY SECTION -->
 	<div class="tableContainer">
@@ -80,7 +79,7 @@
 									<td><a href="/projects/${p.id}">${p.title}</a> </td>
 									<td><p><c:out value="${p.lead.userName}"/></p></td>
 									<td><p><fmt:formatDate value="${p.date}" type="date" dateStyle="long"/></p></td>
-									<td><a href="/projects/edit/${p.id}">Edit</a> <hr> <a href="/projects/completed/${p.id}">Mark Completed</a></td>
+									<td><a href="/projects/edit/${p.id}">Edit</a> / <a href="/projects/${p.id}/delete">Delete</a> <hr> <a href="/projects/completed/${p.id}">Mark Completed</a></td>
 								</c:when>								
 
 		                      	<c:otherwise>
@@ -90,10 +89,10 @@
 	
 									<td>
 										<c:if test="${p.users.contains(user)}">
-											<a href="/projects/${p.id}/leave">Leave Team</a>
+											<a href="/projects/${p.id}/leavedash">Leave Team</a>
 										</c:if>
 										<c:if test="${!p.users.contains(user)}">
-											<a href="/projects/${p.id}/join">Join Team</a>
+											<a href="/projects/${p.id}/joindash">Join Team</a>
 										</c:if>				
 					        		</td>
 		                      	</c:otherwise>

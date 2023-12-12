@@ -25,7 +25,6 @@ import com.chrisb.authentication.services.UserService;
 @Controller
 public class ProjectController {
 
-	
 	@Autowired
 	UserService userServ;
 	@Autowired
@@ -36,7 +35,7 @@ public class ProjectController {
 	
 	// Get Routes / VIEWS //
 	//	                  //
-	// PROJECTS DASHBOARD
+	// PROJECTS DASHBOARD - ALL INCOMPETE PROJECTS
 	@GetMapping("/projects/dashboard")
 	public String dashboard(Model model, HttpSession session) {
 		Long id = (Long) session.getAttribute("userId");
@@ -45,18 +44,48 @@ public class ProjectController {
 			}
 			else {	
 		User user = userServ.findById(id);
+		List<Project> allProj = projServ.getIncompleteProjectsOrderedByDate();
 		model.addAttribute("user", user);
-		List<Project> allProj = projServ.getAll();
-		List<Project> assignedProj = projServ.getAssignedProjects(user);
-		List<Project> unassignedProj = projServ.getUnassignedProjects(user);
 		model.addAttribute("allProj", allProj);
-		model.addAttribute("unassignedProj",unassignedProj);
-		model.addAttribute("assignedProj",assignedProj);
 		return "dashboard.jsp";
 			}
 	}
 	
-
+	
+	// LOGGED USERS PROJECTS 
+	@GetMapping("/projects/myprojects")
+	public String myprojects(Model model, HttpSession session) {
+		Long id = (Long) session.getAttribute("userId");
+			if(id == null) {
+				return "redirect:/";
+			}
+			else {	
+		User user = userServ.findById(id);
+		List<Project> assignedProj = projServ.getAssignedProjects(user);
+		model.addAttribute("user", user);
+		model.addAttribute("assignedProj",assignedProj);
+		return "myprojects.jsp";
+			}
+	}
+	
+	
+	// COMPLETED PROJECTS 
+	@GetMapping("/projects/completed")
+	public String completed(Model model, HttpSession session) {
+		Long id = (Long) session.getAttribute("userId");
+			if(id == null) {
+				return "redirect:/";
+			}
+			else {	
+		User user = userServ.findById(id);
+		model.addAttribute("user", user);
+		List<Project> allProj = projServ.getCompletedProjectsOrderedByDate();
+		model.addAttribute("allProj", allProj);
+		return "completedprojects.jsp";
+			}
+	}
+	
+	
 	// CREATE PROJECT FORM
 	@GetMapping("/projects/new")
 	public String newProject(@ModelAttribute("project")Project project, HttpSession session, Model model) {
@@ -64,7 +93,9 @@ public class ProjectController {
 		if(id == null) {
 			return "redirect:/";
 		}
-		model.addAttribute("user",id);
+		User user = userServ.findById(id);
+		model.addAttribute("user",user);
+		model.addAttribute("loggedId",id);
 			return "newprojects.jsp";
 	}
 	
@@ -101,7 +132,7 @@ public class ProjectController {
 	
 	// ADD USER TO PROJECT 
 	@GetMapping("/projects/{projid}/join")
-	public String joinProject(@PathVariable("projid")Long projid, HttpSession session, Model model) {
+	public String joinProject(@PathVariable("projid")Long projid, HttpSession session) {
 		Long loggedid = (Long) session.getAttribute("userId");
 		if(loggedid == null) {
 			return "redirect:/";
@@ -110,18 +141,13 @@ public class ProjectController {
 		User user = userServ.findById(loggedid);
 		user.getProjects().add(project);
 		userServ.update(user);
-		List<Project> assignedProj = projServ.getAssignedProjects(user);
-		List<Project> unassignedProj = projServ.getUnassignedProjects(user);
-		model.addAttribute("user", user);
-		model.addAttribute("unassignedProj",unassignedProj);
-		model.addAttribute("assignedProj",assignedProj);
-			return "redirect:/projects/dashboard";
+			return "redirect:/projects/myprojects";
 	}
 	
 	
 	// REMOVE USER FROM PROJECT
     @GetMapping("/projects/{projid}/leave")
-    public String delete(@PathVariable("projid")Long projid, HttpSession session, Model model) {
+    public String leaveProject(@PathVariable("projid")Long projid, HttpSession session) {
 		Long loggedid = (Long) session.getAttribute("userId");
 		if(loggedid == null) {
 			return "redirect:/";
@@ -130,17 +156,42 @@ public class ProjectController {
 		User user = userServ.findById(loggedid);
     	user.getProjects().remove(project);
     	userServ.update(user);
-    	List<Project> assignedProj = projServ.getAssignedProjects(user);
-		List<Project> unassignedProj = projServ.getUnassignedProjects(user);
-		model.addAttribute("user", user);
-		model.addAttribute("unassignedProj",unassignedProj);
-		model.addAttribute("assignedProj",assignedProj);
+			return "redirect:/projects/myprojects";
+    }
+	
+	// ADD USER TO PROJECT 
+	@GetMapping("/projects/{projid}/joindash")
+	public String joinProjectToDash(@PathVariable("projid")Long projid, HttpSession session) {
+		Long loggedid = (Long) session.getAttribute("userId");
+		if(loggedid == null) {
+			return "redirect:/";
+		}
+		Project project = projServ.findById(projid);
+		User user = userServ.findById(loggedid);
+		user.getProjects().add(project);
+		userServ.update(user);
+			return "redirect:/projects/dashboard";
+	}
+	
+	
+	// REMOVE USER FROM PROJECT
+    @GetMapping("/projects/{projid}/leavedash")
+    public String leaveProjectToDash(@PathVariable("projid")Long projid, HttpSession session) {
+		Long loggedid = (Long) session.getAttribute("userId");
+		if(loggedid == null) {
+			return "redirect:/";
+		}
+		Project project = projServ.findById(projid);
+		User user = userServ.findById(loggedid);
+    	user.getProjects().remove(project);
+    	userServ.update(user);
 			return "redirect:/projects/dashboard";
     }
 	
+    
     // MARK PROJECT COMPLETED //
 	@GetMapping("/projects/completed/{projid}")
-	public String completedProject(@PathVariable("projid")Long projid, Model model, HttpSession session) {
+	public String completedProject(@PathVariable("projid")Long projid, HttpSession session) {
 
 		Long loggedid = (Long) session.getAttribute("userId");
 		if(loggedid == null) {
@@ -155,9 +206,10 @@ public class ProjectController {
 			return "redirect:/projects/" + projid;
 	}
     
+	
     // MARK PROJECT COMPLETED //
 	@GetMapping("/projects/incomplete/{projid}")
-	public String incompleteProject(@PathVariable("projid")Long projid, Model model, HttpSession session) {
+	public String incompleteProject(@PathVariable("projid")Long projid, HttpSession session) {
 
 		Long loggedid = (Long) session.getAttribute("userId");
 		if(loggedid == null) {
@@ -190,7 +242,7 @@ public class ProjectController {
     
     // DELETE TASK ROUTE    
     @GetMapping("/projects/{projid}/tasks/{id}/delete")
-	public String deleteTask(@PathVariable("projid")Long projid,@PathVariable("id")Long id, HttpSession session) {
+	public String deleteTask(@PathVariable("projid")Long projid, @PathVariable("id")Long id, HttpSession session) {
 		Long loggedid = (Long) session.getAttribute("userId");
 		if(loggedid == null) {
 			return "redirect:/";
@@ -200,8 +252,6 @@ public class ProjectController {
 			return "redirect:/projects/" + projid;
     }
 	
-	
-		
 		
 	// CREATE ROUTES //
 	//             //
@@ -268,5 +318,4 @@ public class ProjectController {
 		projServ.update(project);
 			return "redirect:/projects/" + projid;
 	}
-	
 }
