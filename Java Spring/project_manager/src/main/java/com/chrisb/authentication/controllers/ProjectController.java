@@ -130,7 +130,7 @@ public class ProjectController {
 	}
 	
 	
-	// ADD USER TO PROJECT 
+	// ADD USER TO PROJECT RETURN TO MY PROJECTS
 	@GetMapping("/projects/{projid}/join")
 	public String joinProject(@PathVariable("projid")Long projid, HttpSession session) {
 		Long loggedid = (Long) session.getAttribute("userId");
@@ -145,7 +145,7 @@ public class ProjectController {
 	}
 	
 	
-	// REMOVE USER FROM PROJECT
+	// REMOVE USER FROM PROJECT RETURNT TO MY PROJECTS
     @GetMapping("/projects/{projid}/leave")
     public String leaveProject(@PathVariable("projid")Long projid, HttpSession session) {
 		Long loggedid = (Long) session.getAttribute("userId");
@@ -159,7 +159,7 @@ public class ProjectController {
 			return "redirect:/projects/myprojects";
     }
 	
-	// ADD USER TO PROJECT 
+	// ADD USER TO PROJECT RETURN TO DASH
 	@GetMapping("/projects/{projid}/joindash")
 	public String joinProjectToDash(@PathVariable("projid")Long projid, HttpSession session) {
 		Long loggedid = (Long) session.getAttribute("userId");
@@ -174,7 +174,7 @@ public class ProjectController {
 	}
 	
 	
-	// REMOVE USER FROM PROJECT
+	// REMOVE USER FROM PROJECT RETURN TO DASH
     @GetMapping("/projects/{projid}/leavedash")
     public String leaveProjectToDash(@PathVariable("projid")Long projid, HttpSession session) {
 		Long loggedid = (Long) session.getAttribute("userId");
@@ -186,6 +186,36 @@ public class ProjectController {
     	user.getProjects().remove(project);
     	userServ.update(user);
 			return "redirect:/projects/dashboard";
+    }
+	
+
+	// ADD USER TO PROJECT RETURN TO MY PROJECTS
+	@GetMapping("/projects/{projid}/joinone")
+	public String joinProjectToOneProject(@PathVariable("projid")Long projid, HttpSession session) {
+		Long loggedid = (Long) session.getAttribute("userId");
+		if(loggedid == null) {
+			return "redirect:/";
+		}
+		Project project = projServ.findById(projid);
+		User user = userServ.findById(loggedid);
+		user.getProjects().add(project);
+		userServ.update(user);
+		return "redirect:/projects/" + projid;
+	}
+	
+	
+	// REMOVE USER FROM PROJECT RETURNT TO MY PROJECTS
+    @GetMapping("/projects/{projid}/leaveone")
+    public String leaveProjectToOneProject(@PathVariable("projid")Long projid, HttpSession session) {
+		Long loggedid = (Long) session.getAttribute("userId");
+		if(loggedid == null) {
+			return "redirect:/";
+		}
+		Project project = projServ.findById(projid);
+		User user = userServ.findById(loggedid);
+    	user.getProjects().remove(project);
+    	userServ.update(user);
+			return "redirect:/projects/" + projid;
     }
 	
     
