@@ -16,6 +16,14 @@ a,p {
 	font-weight: 700;
 }
 
+a {
+	position:relative;
+}
+
+a:active {
+	top:3px;
+}
+
 .nav {
 	display:flex;
 	justify-content:space-between;

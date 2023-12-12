@@ -9,12 +9,17 @@ h1, h4, a {
 }
 
 
-h3, h6{
+h3, h6, a:hover{
 	color: #454E9E;
 }
 
 a {
+	position:relative;
 	font-weight: 700;
+}
+
+a:active {
+	top:3px;
 }
 
 .nav {
