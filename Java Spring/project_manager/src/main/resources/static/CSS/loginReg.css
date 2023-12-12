@@ -8,8 +8,7 @@ h1, h4, a {
 	color:#A54657;
 }
 
-
-h2, p {
+h2, p, a:hover {
 	color: #454E9E;
 }
 
