@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <title>View Page</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/CSS/style.css"> <!-- change to match your file/naming structure -->
+    <link rel="stylesheet" href="/CSS/indexStyle.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/JS/app.js"></script><!-- change to match your file/naming structure -->
 </head>
@@ -31,8 +31,8 @@
 	   				<h3>Save a meeting, post it, track it, get it done!</h3>
 	   				<h4>Now, Let's get to work!</h4>
 	   				<div class="flex">
-		   				<h6>Click Here to <a href="/login">Login!</a></h6>
-		   				<h6>Click Here to <a href="/register">Register!</a></h6>
+		   				<h6>Click Here to <a href="/register">Register</a></h6>
+		   				<h6>Click Here to <a href="/login">Login</a></h6>
 	   				</div>
 	   			</div>
  			</div>

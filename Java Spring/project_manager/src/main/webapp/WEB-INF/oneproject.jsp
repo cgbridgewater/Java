@@ -14,19 +14,18 @@
     <title>Project: ${project.title}</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/CSS/oneProject.css"> 
-    <link rel="stylesheet" href="/CSS/menu.css">
+    <link rel="stylesheet" href="/CSS/menuStyle.css">
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/JS/app.js"></script>
     <script src="https://kit.fontawesome.com/83a0001255.js"></script>
 </head>
 <body>
 	<!-- NAV BAR -->
-   	<div class="nav">
-   		<div>
-   			<h1>Project: ${project.title}</h1>
-   			<h5>Project Lead: ${project.lead.userName} </h5>
-   		</div>
-   	</div>
+ 	<div class="nav">
+  		<h3>The Project Board: <span class="blue">View Project</span></h3>
+  		<h3>User: <span class="blue"><c:out value="${user.userName}"/></span></h3>
+      	<a href="javascript:history.back()">Go Back</a>	
+ 	</div>
 	<!-- END NAV BAR -->
 	<!-- MENU POPOUT BUTTON -->	
  	<div>
@@ -46,6 +45,8 @@
           </ul>
       </div>
       <!-- END MENU POPOUT -->
+      
+
 	<!-- FILTER FOR COMPLETED ONLY) -->
 	<c:if test="${project.completed == true}">	
 		<h1 class="completeTitle">PROJECT COMPLETED</h1>
@@ -88,7 +89,7 @@
 		<div class="teamMembers">
 			<h3>Team Members:</h3>
 			<c:forEach var="m" items="${project.users}">
-				<p class="right"> ${m.userName}  </p>
+				<p class="rightSide"> ${m.userName}  </p>
 			</c:forEach>
 		</div>	
 	   	<!-- END TEAM MEMBER CONTAINER -->
@@ -123,7 +124,7 @@
 			<c:forEach var="t" items="${project.tasks}">
 				<div class="flexControl">
 					<a href="/projects/${project.id}/tasks/${t.id}/delete">Delete</a>
-					<div class="right">
+					<div class="rightSide">
 						<p class="taskText"><b> ${t.text} </b> </p>
 						<p class="smaller">Added by ${t.creator} <br>on <fmt:formatDate value="${t.createdAt}" type="both" dateStyle="long"  /></p>
 					</div>

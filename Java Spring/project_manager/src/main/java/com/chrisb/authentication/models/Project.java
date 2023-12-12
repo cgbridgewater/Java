@@ -33,12 +33,11 @@ public class Project {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty (message="User Name is required!")
-	@Size(min=3,max=30, message="Min length 3 charactors")
+	@Size(min=3,max=30,  message="Min 3 charactors")
 	private String title;
 	
-	@NotEmpty (message="Description required!")
-	@Size(min=3, max=500, message="Description must at least contain 3 charactors")
+
+	@Size(min=3, max=500,  message="Min 3 charactors")
 	private String description;
 	
 	
@@ -47,6 +46,7 @@ public class Project {
 	@FutureOrPresent( message = "Date must be in future.")
 	private Date date;
 	
+	 @Column(columnDefinition = "boolean default false")
 	private boolean completed;
 	
 	// Table Joins		
