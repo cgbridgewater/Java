@@ -47,7 +47,7 @@ public class Project {
 	@FutureOrPresent( message = "Date must be in future.")
 	private Date date;
 	
-	private boolean Completed;
+	private boolean completed;
 	
 	// Table Joins		
 	@OneToMany(mappedBy="project", fetch=FetchType.LAZY, cascade=CascadeType.ALL )
@@ -134,11 +134,11 @@ public class Project {
 	}
 
 	public boolean isCompleted() {
-		return Completed;
+		return completed;
 	}
 
 	public void setCompleted(boolean completed) {
-		Completed = completed;
+		this.completed = completed;
 	}
 
 	public Date getCreatedAt() {

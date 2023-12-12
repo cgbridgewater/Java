@@ -25,35 +25,38 @@
     <script src="https://kit.fontawesome.com/83a0001255.js"></script>
 </head>
 <body>
-  		<div class="nav">
+	<!-- NAVBAR -->
+	<div class="nav">
    		<h3> Welcome To The Project Board: <br> <c:out value="${user.userName}"/> </h3>
-  		</div>
-  		
-  		<div>
+ 	</div>
+	<!-- END NAVBAR -->
+	<!-- MENU POPOUT BUTTON -->			
+	<div>
    		<button class="menuTrigger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
 		   		  <i class="fa-solid fa-square-caret-down"></i> &nbsp; MENU
 		</button>
-  		</div>
-  		
-		<!-- MENU POPOUT -->
-		<div class="offcanvas  offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-           <a class="menu_close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-square-xmark fa-2xl"></i></a>
-           <ul class="menu__box">
-               <li><a class="menu__item" href="/projects/new">Create A New Project</a></li>
-               <li><a class="menu__item" href="/#">All Projects</a></li>
-               <li><a class="menu__item" href="/#">My Projects</a></li>
-               <li><a class="menu__item" href="/#">Completed Projects</a></li>
-           </ul>
-       </div>
-       <!-- END MENU POPOUT -->
-  		<!-- Table Title -->	
-  		<div class="flex">
+  	</div>
+	<!-- END MENU POPOUT BUTTON -->
+	<!-- MENU POPOUT -->
+	<div class="offcanvas  offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+         <a class="menu_close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-square-xmark fa-2xl"></i></a>
+         <ul class="menu__box">
+             <li><a class="menu__item" href="/projects/new">Create A New Project</a></li>
+             <li><a class="menu__item" href="/projects/dashboard">All Projects</a></li>
+             <li><a class="menu__item" href="/projects/completed">Completed Projects</a></li>
+             <li><a class="menu__item" href="/logout">Log Out</a></li>
+         </ul>
+     </div>
+    <!-- END MENU POPOUT -->		
+ 	<!-- TABLE TITLE -->	
+ 	<div class="flex">
 		<div>
-   			<h3>My Projects</h3>
+	  		<h3>My Projects</h3>
 	   		<a href="/projects/new">New Project</a>
- 			</div>
-  		</div>
-	<!-- Table Display SECTION -->
+		</div>
+  		<h5 class="blue">Quick View: <a href="/projects/dashboard">Open Projects</a> / <a href="/projects/completed">Completed Projects</a></h5>
+	</div>
+	<!-- TABLE DISPLAY SECTION -->
 	<div class="tableContainer">
 		<table id="myProjects" class="table displayTable .table-hover">
 			<thead>
@@ -67,32 +70,40 @@
 				</tr>
 			</thead>
 			<tbody>
-				<!-- Loop to iterate project list -->
+				<!-- LOOP TO ITERATE PROJECT LIST -->
 				<c:forEach var="p" items="${assignedProj}">
+					<!-- FILTER FOR INCOMPLETE ONLY) -->
 					<c:if test="${p.completed == false}"> 															
 						<tr>
 							<td><a href="/projects/${p.id}">${p.title}</a></td>
 							<td><p>${p.lead.userName}</p></td>
 							<td><p><fmt:formatDate value="${p.date}" type="date" dateStyle="long"  /></p></td>	
-							<c:if test="${p.lead.id == user.id}"> 
-								<p><td><a href="/projects/edit/${p.id}">Edit</a> <br> <a href="/projects/completed/${p.id}">Mark As <br> Complete</a></td>
-							</c:if>
-							<c:if test="${p.lead.id != user.id}"> 
-								<td><p><a href="/projects/${p.id}/leave">Leave Team</a></p></td>
-							</c:if>
+						    <td>
+								<c:choose>
+									<c:when test="${p.lead.id == user.id}">
+										<a href="/projects/edit/${p.id}">Edit</a> <hr> <a href="/projects/completed/${p.id}">Mark Completed</a>
+									</c:when>
+						      		<c:otherwise>
+										<p><a href="/projects/${p.id}/leave">Leave Team</a></p>
+									</c:otherwise>
+								</c:choose>
+						    </td>
+							<!-- END FILTER USER TYPE OPTIONS-->
+							<!-- COUNTER STATS -->
 							<td>
 								<p>${fn:length(p.tasks)}</p>
 							</td>
 							<td>
 								<p>${fn:length(p.users)}</p>
 							</td>	
+							<!-- END COUNTER STATS -->	
 						</tr>
 					</c:if>
 				</c:forEach>
-				<!-- END Loop to iterate project list -->
+				<!-- END LOOP TO ITERATE PROJECT LIST -->
 			</tbody>
 		</table>
-           <!-- END Table Display SECTION -->
 	</div>  
+    <!-- END TABLE DISPLAY SECTION -->
 </body>
 </html>

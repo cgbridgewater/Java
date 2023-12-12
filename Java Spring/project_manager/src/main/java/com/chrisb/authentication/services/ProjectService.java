@@ -60,6 +60,18 @@ public class ProjectService {
     	return projRepo.findByUsersNotContainsOrderByDate(user);
     }
     
+//    public List<Project> getAllProjectsOrderedByDate() {
+//        return projRepo.findAllByOrderByDate();
+//    }
+    
+    public List<Project> getCompletedProjectsOrderedByDate() {
+        return projRepo.findAllByCompletedOrderByDateAsc(true);
+    }
+    
+    public List<Project> getIncompleteProjectsOrderedByDate() {
+        return projRepo.findAllByCompletedOrderByDateAsc(false);
+    }
+
 }
 	
 	

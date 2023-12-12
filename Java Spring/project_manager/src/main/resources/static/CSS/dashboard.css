@@ -12,14 +12,17 @@ body {
 h1, h3, h5, a, p, th {
 	color:#A54657;
 	margin:0;
+	text-transform: capitalize;
 }
 
 h2, h4, .blue {
 	color: #454E9E;
+	text-transform: capitalize;
 }
 
 a,p {
 	font-weight: 700;
+	text-transform: capitalize;
 }
 
 a:hover {
@@ -68,4 +71,8 @@ th {
 	color:#A54657 !important;
 }
 
+hr {
+	 margin:0;
+	 border-top: 1px solid #454E9E;
+}
 

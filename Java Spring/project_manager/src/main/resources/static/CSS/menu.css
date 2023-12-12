@@ -17,9 +17,9 @@
     padding-top: 15px;
     transform: rotate(90deg);
     cursor: pointer;
-    border-left: 4px double  #7FB069;
-    border-right: 4px double  #7FB069;
-    border-bottom: 4px double  #7FB069;
+    border-left: 4px solid  #7FB069;
+    border-right: 4px solid  #7FB069;
+    border-bottom: 4px solid  #7FB069;
     border-radius: 0 0 5px 5px ;
     background-color: #E1E2EF;
     text-decoration: none;
