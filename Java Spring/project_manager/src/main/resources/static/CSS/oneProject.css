@@ -9,22 +9,41 @@ body {
 	background: white;
 }
 
-h1, h3, h5, a {
+h1, h3, h5, a, p{
 	color:#A54657;
+	margin:0;
+	text-transform: capitalize;
 }
 
-h2, h4, p {
-	color: #454E9E;
+h2, h4, th, .blue, .blue2 {
+	color: #454E9E !important;
+	text-transform: capitalize;
+}
+
+.blue2{
+	text-align:end;
+	margin-left:100px
 }
 
 a,p {
 	font-weight: 700;
+	text-transform: capitalize;
 }
 
-a:hover, .completed {
+a:hover {
 	color: #454E9E;
 	}
-	
+
+.nav {
+	display:flex;
+	flex-direction:column;
+	align-content:flex-start;
+	background:#0E0004;
+	border-bottom: 8px double #7FB069;
+	padding:10px 5%;
+	height:120px;
+}
+
 .completeTitle {
 	text-align: center;
 	margin: 20px
@@ -46,7 +65,7 @@ a:hover, .completed {
 	justify-content:space-between;
 }
 
-.right, .small, taskText {
+.rightSide, .small, taskText {
 	text-align:end;
 	margin:0;
 }
@@ -63,17 +82,8 @@ a:hover, .completed {
 	color: #A54657;
 }
 
-.nav {
-	display:flex;
-	justify-content:space-between;
-	align-items:center;
-	background:#0E0004;
-	border-bottom: 8px double #7FB069;
-	padding:1% 5%;
-}
-
 .viewOneContainer {
-	width: 65%;
+	width: 50%;
 	min-width:380px;
 	margin: 20px auto 0;
 	padding:15px;
@@ -83,9 +93,10 @@ a:hover, .completed {
 }
 
 .viewTwoContainer {
-	width: 65%;
+	width: 50%;
+	max-width:1000px;
 	margin: 0 auto 10px;
-	column-gap: 14%;
+	column-gap: 4%;
 	display:flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -94,8 +105,9 @@ a:hover, .completed {
 
 .teamMembers, .tasks {
 	margin-top: 20px;
+	width: 48%;
+	max-width:1000px;
 	min-width: 380px;
-	width: 43%;
 	padding:20px;
 	border: 6px double #7FB069;
 	border-radius: 5px;
@@ -157,14 +169,14 @@ a:hover, .completed {
 	color: #E1E2EF;
 }
 
-.complete {
+.complete, .cancel {
 	width:145px;
 	border-color: #454E9E;
 	background-color: #E1E2EF;
 	color: #454E9E;
 }
 
-.complete:hover {
+.complete:hover, cancel:hover {
 	border-color:  #A54657;
 	background-color: #454E9E;
 	color: #E1E2EF;

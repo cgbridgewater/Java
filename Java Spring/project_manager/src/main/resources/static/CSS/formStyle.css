@@ -1,0 +1,163 @@
+@charset "ISO-8859-1";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: white;
+}
+
+h1, h3, h5, a, p{
+	color:#A54657;
+	margin:0;
+	text-transform: capitalize;
+}
+
+h2, h4, th, .blue, .blue2 {
+	color: #454E9E !important;
+	text-transform: capitalize;
+}
+
+.blue2{
+	text-align:end;
+	margin-left:100px
+}
+
+a,p {
+	font-weight: 700;
+	text-transform: capitalize;
+}
+
+a:hover {
+	color: #454E9E;
+	}
+
+.nav {
+	display:flex;
+	flex-direction:column;
+	align-content:flex-start;
+	background:#0E0004;
+	border-bottom: 8px double #7FB069;
+	padding:10px 5%;
+	height:120px;
+}
+
+.formContainer {
+	width:30%;
+	min-width:300px;
+	margin:4% auto;
+	padding:15px;
+	border: 4px double #3E37F2;
+	border-radius: 5px;
+	background-color: darkgrey;
+}
+
+.formation {
+	display:flex;
+	justify-content:space-between;
+}
+
+.date {
+	text-align:center
+}
+
+.input {
+	background-color:#E1E2EF;
+	border: 3px solid #7FB069;
+	border-radius:5px;
+	color: #454E9E;
+	font-weight:500;
+	min-width:140px;
+	width:250px;
+	caret-color: #454E9E;
+	padding-left:5px;
+}
+
+.input:hover {
+	border-color:#B497D6;
+	transition: 0.2s;		
+}
+
+.input:focus {
+	background-color:rgba(180, 151, 214, .3);
+	border-color: #7FB069;
+	outline: 1px solid #7FB069;
+	transition: 0.2s;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px #E1E2EF inset;
+    -webkit-text-fill-color: #454E9E;
+}
+
+label {
+	display:flex;
+	align-items:center;
+	color:#A54657;
+	min-width:100px;
+	font-weight:800;
+}
+
+.buttonContainer {
+	display:flex;
+	justify-content:space-evenly;
+	align-items:center;
+	width:80%;
+	margin:0 auto;
+	margin-top:10px;
+}
+
+.button {
+	position: relative;
+	width: 120px;
+	border: 2px solid #A54657;
+	border-radius: 5px;
+	font-weight: 700;
+	padding: 3px;
+	height: 40px;	
+}
+
+.button:active {
+	top: 2px;
+}
+
+.cancel {
+	color: #A54657;
+	background-color: rgba(180, 151, 214, .3); 
+	text-decoration:none;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+.cancel:hover {
+	border-color: #454E9E;
+	background-color: #A54657;
+	color: #E1E2EF;
+}
+
+
+.submit {
+	border-color: #454E9E;
+	background-color: #E1E2EF;
+	color: #454E9E;
+}
+
+.submit:hover {
+	border-color:  #A54657;
+	background-color: #454E9E;
+	color: #E1E2EF;
+}
+
+.errors{
+	color:red;
+	font-weight:800;
+}
+
+.errorFlex {
+	display:flex;
+	flex-direction:column;
+	margin-bottom:5px;
+}
