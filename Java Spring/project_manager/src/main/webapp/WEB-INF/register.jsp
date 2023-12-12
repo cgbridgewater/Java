@@ -36,7 +36,7 @@
 			                <div class="formation">
 			                    <form:label path="userName"> User Name:  </form:label>	
 				                <div class="errorFlex">
-				                    <form:input path="userName" class="input"/>
+				                    <form:input path="userName" class="input" autofocus="true"/>
 				                    <form:errors path="userName" class="errors"/>
 				                </div>
 			                </div>
@@ -58,7 +58,7 @@
 			                <div class="formation">
 			                    <form:label path="password"> Password: </form:label>	
 				                <div class="errorFlex">
-				                    <form:input path="password" type="password" class="input" />
+				                    <form:input path="password" type="password" class="input"/>
 				                    <form:errors path="password" class="errors"/>
 				                </div>
 			                </div>
@@ -69,7 +69,7 @@
 			                <div class="formation">
 			                    <form:label path="confirmPass"> Confirm Password: </form:label>	
 				                <div class="errorFlex">
-			                    	<form:input path="confirmPass" type="password" class="input" />
+			                    	<form:input path="confirmPass" type="password" class="input"/>
 			                    	<form:errors path="confirmPass" class="errors"/>
 			                	</div>
 			                </div>
