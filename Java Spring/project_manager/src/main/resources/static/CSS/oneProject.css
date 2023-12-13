@@ -64,7 +64,7 @@ hr {
 	font-weight: 800;
 	font-style: italic;
 	color: #A54657;
- }
+}
  
 .flexControl {
 	display:flex;
@@ -130,7 +130,6 @@ hr {
 	justify-content: center;
 	align-items: center
 }
-
 
 .button {
 	position: relative;
@@ -201,6 +200,10 @@ hr {
 	color: #454E9E;
 }
 
+.sectionOne {
+	margin: 5px 0;
+}
+
 .input {
 	background-color:#E1E2EF;
 	border: 3px solid #7FB069;
@@ -210,6 +213,7 @@ hr {
 	width:300px;
 	caret-color: #454E9E;
 	padding-left:5px;
+	margin-right: 5px;
 }
 
 .input:hover {
