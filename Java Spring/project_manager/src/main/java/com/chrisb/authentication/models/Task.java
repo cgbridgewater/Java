@@ -26,7 +26,6 @@ public class Task {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-
 	private String creator;
 	
 //	@NotEmpty (message="Description required!")
@@ -36,20 +35,16 @@ public class Task {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="project_id")
 	private Project project;
-	
 
 	public Task() {}
-
 	
 	public Project getProject() {
 		return project;
 	}
 
-
 	public void setProject(Project project) {
 		this.project = project;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -91,16 +86,13 @@ public class Task {
 		this.updatedAt = updatedAt;
 	}
 
-
-
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
 
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
-	
-	
+		
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
@@ -110,5 +102,4 @@ public class Task {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-
 }

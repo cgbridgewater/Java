@@ -35,11 +35,9 @@ public class Project {
 	
 	@Size(min=3,max=30,  message="Min 3 charactors")
 	private String title;
-	
 
 	@Size(min=3, max=500,  message="Min 3 charactors")
 	private String description;
-	
 	
 	@NotNull (message="Date required!")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -58,7 +56,6 @@ public class Project {
 	@JoinColumn(name = "project_id")
 	private User lead;
 	
-	
 	@ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "users_projects", 
@@ -75,16 +72,13 @@ public class Project {
 		return lead;
 	}
 
-
 	public void setLead(User lead) {
 		this.lead = lead;
 	}
 
-
 	public List<User> getUsers() {
 		return users;
 	}
-
 
 	public void setUsers(List<User> users) {
 		this.users = users;
@@ -93,7 +87,6 @@ public class Project {
 	public List<Task> getTasks() {
 		return tasks;
 	}
-
 
 	public void setTasks(List<Task> tasks) {
 		this.tasks = tasks;
@@ -123,11 +116,9 @@ public class Project {
 		this.description = description;
 	}
 	
-
 	public Date getDate() {
 		return date;
 	}
-
 
 	public void setDate(Date date) {
 		this.date = date;
@@ -164,7 +155,6 @@ public class Project {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
-	
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
@@ -174,5 +164,4 @@ public class Project {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-
 }

@@ -64,8 +64,6 @@ public class User {
         inverseJoinColumns = @JoinColumn(name = "project_id") // column from OTHER class
     )
     private List<Project> projects;   //collect stuff from OTHER class
-	
-    
     
 	public User() {}
 
@@ -150,5 +148,4 @@ public class User {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-
 }
