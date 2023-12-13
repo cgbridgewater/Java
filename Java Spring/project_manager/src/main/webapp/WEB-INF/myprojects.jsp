@@ -16,7 +16,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>View Page</title>
+    <title>My Projects</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/CSS/resultTables.css"> 
     <link rel="stylesheet" href="/CSS/menuStyle.css"> 

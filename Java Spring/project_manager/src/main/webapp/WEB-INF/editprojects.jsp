@@ -1,17 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!-- c:out ; c:forEach etc. --> 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<!-- Formatting (dates) --> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
-<!-- form:form -->
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!-- for rendering errors on PUT routes -->
 <%@ page isErrorPage="true" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>View Page</title>
+    <title>Edit ${project.title}</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/CSS/formStyle.css">
     <link rel="stylesheet" href="/CSS/menuStyle.css"> 
@@ -20,7 +16,6 @@
     <script src="https://kit.fontawesome.com/83a0001255.js"></script>
 </head>
 <body>
-
 	<!-- NAVBAR -->
 	<div class="nav">
   		<h3>The Project Board: <span class="blue">Edit ${project.title}</span></h3>
@@ -46,32 +41,35 @@
     	</ul>
 	</div>
     <!-- END MENU POPOUT -->  	
-    <!-- FORM SECTION -->
+    <!-- FORM CONTAINER -->
     <div class="formContainer">
+    	<!-- FORM SECTION -->
         <form:form action="/projects/edit/${project.id}" method="POST" modelAttribute="project">
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="id" value="${project.id}">
-    		<!-- FORM INPUT -->
+    		<!-- FORM INPUT 1 -->
             <div>
                 <div class="formation">
                     <form:label path="title"> Project Title:  </form:label>	
 	                <div class="errorFlex">
-	                    <form:input path="title" type="text" class="input" />
+	                    <form:input path="title" type="text" class="input text-center" />
 	                    <form:errors path="title" class="errors"/>
 	                </div>
                 </div>
             </div>
-        	<!-- FORM INPUT -->
+            <!-- END FORM INPUT 1 -->
+        	<!-- FORM INPUT 2 -->
             <div>
                 <div class="formation">
                     <form:label path="description"> Project Description:  </form:label>	
 	                <div class="errorFlex">
-	                    <form:textarea path="description" type="text" class="input" />
+	                    <form:textarea path="description" type="text" class="input text-center" />
 	                    <form:errors path="description" class="errors"/>
 	                </div>
                 </div>
             </div>
-        	<!-- FORM INPUT -->
+            <!-- END FORM INPUT 2 -->
+        	<!-- FORM INPUT 3 -->
             <div>
                 <div class="formation">
                     <form:label path="date"> Due Date: </form:label>	
@@ -81,17 +79,16 @@
 	                </div>
                 </div>
             </div>
+            <!-- END FORM INPUT 3 -->
         	<!-- FORM BUTTONS -->
             <div class="buttonContainer">	
                 <button class="button submit" type="submit">Submit</button>
             	<a class="button cancel" href="javascript:history.back()">Cancel</a> 		
             </div>
-        
+        	<!-- END FORM BUTTONS -->
         </form:form>
+	    <!-- END FORM INPUT SECTION -->
 	</div>
-    <!-- END FORM INPUT SECTION -->
-
-
-   
+	<!-- END FORM CONTAINER -->
 </body>
 </html>

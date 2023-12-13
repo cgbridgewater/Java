@@ -1,17 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!-- c:out ; c:forEach etc. --> 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<!-- Formatting (dates) --> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
-<!-- form:form -->
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!-- for rendering errors on PUT routes -->
-<%@ page isErrorPage="true" %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>View Page</title>
+    <title>Create A New Project</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/CSS/formStyle.css">
     <link rel="stylesheet" href="/CSS/menuStyle.css"> 
@@ -20,10 +16,9 @@
     <script src="https://kit.fontawesome.com/83a0001255.js"></script>
 </head>
 <body>
-   
 	<!-- NAVBAR -->
  	<div class="nav">
-  		<h3>The Project Board: <span class="blue">New Project</span></h3>
+  		<h3>The Project Board: <span class="blue">Create A New Project</span></h3>
   		<h3>User: <span class="blue"><c:out value="${user.userName}"/></span></h3>
       	<a href="javascript:history.back()">Go Back</a>	
  	</div>
@@ -31,7 +26,7 @@
 	<!-- MENU POPOUT BUTTON -->	
  	<div>
    		<button class="menuTrigger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-		   		  <i class="fa-solid fa-square-caret-down"></i> &nbsp; MENU
+			<i class="fa-solid fa-square-caret-down"></i> &nbsp; MENU
 		</button>
   	</div>
 	<!-- END MENU POPOUT BUTTON -->		
@@ -46,12 +41,13 @@
     	</ul>
 	</div>
     <!-- END MENU POPOUT -->  	
+    <!-- FORM CONTAINER -->
     <div class="formContainer">
         <!-- FORM INPUT SECTION -->
         <form:form action="/projects/new" method="POST" modelAttribute="project">
 			<form:input type="hidden" path="lead" value="${loggedId}"/>
 			<form:errors path="lead" class="errors"/>
-            <!-- FORM INPUT -->
+            <!-- FORM INPUT 1 -->
            <div>
                 <div class="formation">
                     <form:label path="title"> Project Title:  </form:label>	
@@ -61,7 +57,8 @@
 	                </div>
                 </div>
             </div>
-        	<!-- FORM INPUT -->
+            <!-- END FORM INPUT 1 -->
+        	<!-- FORM INPUT 2 -->
             <div>
                 <div class="formation">
                     <form:label path="description"> Project Description:  </form:label>	
@@ -71,7 +68,8 @@
 	                </div>
                 </div>
             </div>
-        	<!-- FORM INPUT -->
+            <!-- END FORM INPUT 2 -->
+        	<!-- FORM INPUT 3 -->
             <div>
                 <div class="formation">
                     <form:label path="date"> Due Date: </form:label>	
@@ -81,17 +79,16 @@
 	                </div>
                 </div>
             </div>
+            <!-- END FORM INPUT 3 -->
             <!-- FORM BUTTONS -->
             <div class="buttonContainer">	
                 <button class="button submit" type="submit">Submit</button>
             	<a class="button cancel" href="javascript:history.back()">Cancel</a> 		
             </div>
+            <!-- END FORM BUTTONS -->
         	<!-- END FORM INPUT SECTION -->
         </form:form>
-        <!-- END FORM SECTION -->
+        <!-- END FORM CONTAINER -->
     </div>
-
-
-   
 </body>
 </html>
