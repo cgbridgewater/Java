@@ -12,7 +12,6 @@ import com.chrisb.authentication.models.LoginUser;
 import com.chrisb.authentication.models.User;
 import com.chrisb.authentication.repositories.UserRepository;
 
-
 @Service
 public class UserService {
 
@@ -36,7 +35,6 @@ public class UserService {
 		return userRepo.save(u);
 	}
 	
-	
 	//LOGIN
 	public User login(LoginUser l, BindingResult result) {
 		Optional<User> optUser = userRepo.findByEmail(l.getEmail());
@@ -56,7 +54,6 @@ public class UserService {
 		return user;
 	}
 	
-	
 	//Find By ID
 	public User findById(Long id) {
 		Optional<User> optUser = userRepo.findById(id);
@@ -66,7 +63,6 @@ public class UserService {
 			return optUser.get();
 	}
 	
-	
 	//GETALL 
 	public List<User> getAll(){
 		return userRepo.findAll();
@@ -75,6 +71,4 @@ public class UserService {
 	public User update(User b) {
 		return userRepo.save(b);
 	}
-	
 }
-

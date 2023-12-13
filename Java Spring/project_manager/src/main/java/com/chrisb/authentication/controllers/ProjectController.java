@@ -32,7 +32,6 @@ public class ProjectController {
 	@Autowired
 	TaskService taskServ;	
 	
-	
 	// Get Routes / VIEWS //
 	//	                  //
 	// PROJECTS DASHBOARD - ALL INCOMPETE PROJECTS
@@ -47,10 +46,9 @@ public class ProjectController {
 		List<Project> allProj = projServ.getIncompleteProjectsOrderedByDate();
 		model.addAttribute("user", user);
 		model.addAttribute("allProj", allProj);
-		return "dashboard.jsp";
+			return "dashboard.jsp";
 			}
 	}
-	
 	
 	// LOGGED USERS PROJECTS 
 	@GetMapping("/projects/myprojects")
@@ -64,10 +62,9 @@ public class ProjectController {
 		List<Project> assignedProj = projServ.getAssignedProjects(user);
 		model.addAttribute("user", user);
 		model.addAttribute("assignedProj",assignedProj);
-		return "myprojects.jsp";
+			return "myprojects.jsp";
 			}
 	}
-	
 	
 	// COMPLETED PROJECTS 
 	@GetMapping("/projects/completed")
@@ -81,10 +78,9 @@ public class ProjectController {
 		model.addAttribute("user", user);
 		List<Project> allProj = projServ.getCompletedProjectsOrderedByDate();
 		model.addAttribute("allProj", allProj);
-		return "completedprojects.jsp";
+			return "completedprojects.jsp";
 			}
 	}
-	
 	
 	// CREATE PROJECT FORM
 	@GetMapping("/projects/new")
@@ -98,7 +94,6 @@ public class ProjectController {
 		model.addAttribute("loggedId",id);
 			return "newprojects.jsp";
 	}
-	
 	
 	// UPDATE PROJECT FORM
 	@GetMapping("/projects/edit/{projid}")
@@ -114,7 +109,6 @@ public class ProjectController {
 			return "editprojects.jsp";
 	}
 	
-	
 	// VIEW ONE PROJECT 
 	@GetMapping("/projects/{id}")
 	public String oneProject(@PathVariable("id") Long id, Model model,@ModelAttribute("task") Task task, HttpSession session) {
@@ -129,7 +123,6 @@ public class ProjectController {
 			return "oneproject.jsp";
 	}
 	
-	
 	// ADD USER TO PROJECT RETURN TO MY PROJECTS
 	@GetMapping("/projects/{projid}/join")
 	public String joinProject(@PathVariable("projid")Long projid, HttpSession session) {
@@ -143,7 +136,6 @@ public class ProjectController {
 		userServ.update(user);
 			return "redirect:/projects/myprojects";
 	}
-	
 	
 	// REMOVE USER FROM PROJECT RETURNT TO MY PROJECTS
     @GetMapping("/projects/{projid}/leave")
@@ -173,7 +165,6 @@ public class ProjectController {
 			return "redirect:/projects/dashboard";
 	}
 	
-	
 	// REMOVE USER FROM PROJECT RETURN TO DASH
     @GetMapping("/projects/{projid}/leavedash")
     public String leaveProjectToDash(@PathVariable("projid")Long projid, HttpSession session) {
@@ -187,7 +178,6 @@ public class ProjectController {
     	userServ.update(user);
 			return "redirect:/projects/dashboard";
     }
-	
 
 	// ADD USER TO PROJECT RETURN TO MY PROJECTS
 	@GetMapping("/projects/{projid}/joinone")
@@ -200,9 +190,8 @@ public class ProjectController {
 		User user = userServ.findById(loggedid);
 		user.getProjects().add(project);
 		userServ.update(user);
-		return "redirect:/projects/" + projid;
+			return "redirect:/projects/" + projid;
 	}
-	
 	
 	// REMOVE USER FROM PROJECT RETURNT TO MY PROJECTS
     @GetMapping("/projects/{projid}/leaveone")
@@ -218,7 +207,6 @@ public class ProjectController {
 			return "redirect:/projects/" + projid;
     }
 	
-    
     // MARK PROJECT COMPLETED //
 	@GetMapping("/projects/completed/{projid}")
 	public String completedProject(@PathVariable("projid")Long projid, HttpSession session) {
@@ -236,7 +224,6 @@ public class ProjectController {
 			return "redirect:/projects/" + projid;
 	}
     
-	
     // MARK PROJECT COMPLETED //
 	@GetMapping("/projects/incomplete/{projid}")
 	public String incompleteProject(@PathVariable("projid")Long projid, HttpSession session) {
@@ -253,7 +240,6 @@ public class ProjectController {
 		projServ.update(projectupdate);
 			return "redirect:/projects/" + projid;
 	}
-    
 	
     // DELETE ROUTES //
 	//               //
@@ -269,7 +255,6 @@ public class ProjectController {
 			return "redirect:/projects/dashboard";
     }
     
-    
     // DELETE TASK ROUTE    
     @GetMapping("/projects/{projid}/tasks/{id}/delete")
 	public String deleteTask(@PathVariable("projid")Long projid, @PathVariable("id")Long id, HttpSession session) {
@@ -282,7 +267,6 @@ public class ProjectController {
 			return "redirect:/projects/" + projid;
     }
 	
-		
 	// CREATE ROUTES //
 	//             //
 	// CREATE NEW PROJECT ACTION
@@ -301,7 +285,6 @@ public class ProjectController {
 		userServ.update(user);
 			return "redirect:/projects/dashboard";
 	}
-	
 	
 	//	CREATE NEW TASK ACTION
 	@PostMapping("/projects/{projid}/tasks")
@@ -324,7 +307,6 @@ public class ProjectController {
 		projServ.update(oneProject);
 			return "redirect:/projects/" + projid;
 	}
-	
 	
 	// UPDATE ROUTES  //
 	//                //

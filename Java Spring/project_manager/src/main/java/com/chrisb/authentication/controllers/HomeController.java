@@ -19,7 +19,6 @@ import com.chrisb.authentication.models.User;
 import com.chrisb.authentication.services.ProjectService;
 import com.chrisb.authentication.services.UserService;
 
-
 @Controller
 public class HomeController {
 
@@ -28,7 +27,7 @@ public class HomeController {
 	@Autowired
 	private ProjectService projServ;
 	
-	//	
+	// INDEX PAGE
 	@GetMapping("")
 	public String index() {
 		return "index.jsp";
@@ -48,14 +47,12 @@ public class HomeController {
 		return "login.jsp";
 	}
 	
-	
 	// LOG USER OUT
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.setAttribute("userId", null);
 		return "redirect:/";
 	}
-	
 	
 	// REGISTER ACTION
 	@PostMapping("/register")
@@ -68,9 +65,8 @@ public class HomeController {
 		}
 		// log user in
 		session.setAttribute("userId", newUser.getId());
-		return "redirect:/projects/dashboard";
+			return "redirect:/projects/dashboard";
 	}
-	
 	
 	// LOGIN ACTION
 	@PostMapping("/login")
@@ -82,7 +78,6 @@ public class HomeController {
 			return "login.jsp";
 		}
 		session.setAttribute("userId", user.getId());
-		return "redirect:/projects/dashboard";
+			return "redirect:/projects/dashboard";
 	}
-
 }

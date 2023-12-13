@@ -10,7 +10,6 @@ import com.chrisb.authentication.models.Task;
 @Repository
 public interface TaskRepository extends CrudRepository<Task, Long> {
 
-	
 	@Override
 	List<Task> findAll();
 }

@@ -11,7 +11,6 @@ import com.chrisb.authentication.models.User;
 @Repository
 public interface ProjectRepository extends CrudRepository<Project, Long> {
 
-	
 	@Override
 	List<Project> findAll();
 
@@ -21,8 +20,5 @@ public interface ProjectRepository extends CrudRepository<Project, Long> {
 	
 	List<Project> findByUsersNotContainsOrderByDate(User user);
 	
-//	List<Project> findAllByOrderByDate();
-
-    List<Project> findAllByCompletedOrderByDateAsc(boolean completed);
-	 
+    List<Project> findAllByCompletedOrderByDateAsc(boolean completed); 
 }

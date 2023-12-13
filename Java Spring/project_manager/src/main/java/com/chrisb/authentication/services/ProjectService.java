@@ -15,8 +15,6 @@ public class ProjectService {
 
 	@Autowired
 	private ProjectRepository projRepo;
-	
-
 
 		// GETALL 
 	public List<Project> getAll(){
@@ -43,36 +41,33 @@ public class ProjectService {
 		}
 	}
 	
-    // DELETE 
+    // DELETE BY ID
     public void delete(Long id) {
     	projRepo.deleteById(id);
     }
 
+    // DELETE BY PROJECT OBJECT
     public void deleteProject(Project p) {
     	projRepo.delete(p);
     }
     
+    //GET PROJECTS ASSIGNED TO USER ORDERED BY DATE
     public List<Project> getAssignedProjects(User user){
     	return projRepo.findAllByUsersOrderByDate(user);
     }
-    
+
+    //GET PROJECTS UNASSIGNED TO USER ORDERED BY DATE
     public List<Project> getUnassignedProjects(User user){
     	return projRepo.findByUsersNotContainsOrderByDate(user);
     }
-    
-//    public List<Project> getAllProjectsOrderedByDate() {
-//        return projRepo.findAllByOrderByDate();
-//    }
-    
+
+    //GET COMPLETED PROJECTS ORDERED BY DATE
     public List<Project> getCompletedProjectsOrderedByDate() {
         return projRepo.findAllByCompletedOrderByDateAsc(true);
     }
     
+    //GET INCOMPLETE PROJECTS ORDERED BY DATE
     public List<Project> getIncompleteProjectsOrderedByDate() {
         return projRepo.findAllByCompletedOrderByDateAsc(false);
     }
-
 }
-	
-	
-
