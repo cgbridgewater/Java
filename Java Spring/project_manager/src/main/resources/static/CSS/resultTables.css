@@ -42,16 +42,6 @@ a:active {
 	top:3px
 }
 
-.nav {
-	display:flex;
-	flex-direction:column;
-	align-content:flex-start;
-	background:#0E0004;
-	border-bottom: 8px double #7FB069;
-	padding:10px 5%;
-	height:120px;
-}
-
 .flex{
 	display:flex;
 	justify-content:space-between;

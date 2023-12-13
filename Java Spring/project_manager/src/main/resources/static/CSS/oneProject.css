@@ -40,16 +40,6 @@ hr {
 	 width:85%;
 }
 
-.nav {
-	display:flex;
-	flex-direction:column;
-	align-content:flex-start;
-	background:#0E0004;
-	border-bottom: 8px double #7FB069;
-	padding:10px 5%;
-	height:120px;
-}
-
 .completeTitle {
 	text-align: center;
 	margin: 20px
@@ -168,6 +158,12 @@ hr {
 	border-color: #454E9E;
 	background-color: red;
 	color: #E1E2EF;
+}
+
+.join, .complete, .cancel {
+	border-color: #454E9E;
+	background-color: #E1E2EF;
+	color: #454E9E;
 }
 
 .complete, .cancel {

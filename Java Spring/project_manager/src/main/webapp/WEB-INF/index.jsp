@@ -21,13 +21,13 @@
 	</div>   
 	<!-- PAGE CONTAINER -->
   		<div class="container">
-  			<h1>A task board created to keep <br> development on track!</h1>
-  			<div>
+  			<h1 class="center">A task board created to keep <br> development on track!</h1>
+  			<div class="content">
   				<h3>Save a meeting, post it, track it, get it done!</h3>
-  				<h4>Now, Let's get to work!</h4>
+  				<h4 class="center">Now, Let's get to work!</h4>
   				<div class="flex">
-   				<h6>Click to <a href="/register">Register</a></h6>
-   				<h6>Click to <a href="/login">Login</a></h6>
+	   				<h6>Click to <a href="/register">Register</a></h6>
+	   				<h6>Click to <a href="/login">Login</a></h6>
   				</div>
   			</div>
 		</div>

@@ -22,11 +22,12 @@ a {
 
 .nav {
 	display:flex;
-	justify-content:space-between;
-	align-items:center;
+	flex-direction:column;
+	align-content:flex-start;
 	background:#0E0004;
 	border-bottom: 8px double #7FB069;
-	padding:1% 5%;
+	padding:10px 5%;
+	height:120px;
 }
 
 .container {

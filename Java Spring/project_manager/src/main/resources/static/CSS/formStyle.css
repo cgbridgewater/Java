@@ -34,16 +34,6 @@ a:hover {
 	color: #454E9E;
 }
 
-.nav {
-	display:flex;
-	flex-direction:column;
-	align-content:flex-start;
-	background:#0E0004;
-	border-bottom: 8px double #7FB069;
-	padding:10px 5%;
-	height:120px;
-}
-
 .formContainer {
 	width:30%;
 	min-width:300px;

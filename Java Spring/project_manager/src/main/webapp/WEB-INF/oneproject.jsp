@@ -95,7 +95,7 @@
 					<a class="link" href="/projects/${project.id}/leaveone"><button class="button edit">Leave</button></a>
 				</c:if>
 				<c:if test="${user.id != project.lead.id and !project.users.contains(user)}">
-					<a class="link" href="/projects/${project.id}/joinone"><button class="button complete">Join</button></a>				
+					<a class="link" href="/projects/${project.id}/joinone"><button class="button join">Join</button></a>				
 				</c:if>
 			</div>
 			<c:forEach var="m" items="${project.users}">

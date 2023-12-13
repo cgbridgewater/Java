@@ -1,3 +1,5 @@
+/* MENU AND NAV STYLING FOR ALL PAGES */
+
 @charset "ISO-8859-1";
 
 *{
@@ -5,6 +7,18 @@
     padding: 0;
 }
 
+/* NAV STYLING */
+.nav {
+	display:flex;
+	flex-direction:column;
+	align-content:flex-start;
+	background:#0E0004;
+	border-bottom: 8px double #7FB069;
+	padding:10px 5%;
+	height:120px;
+}
+
+/* MENU STYLING */
 .menuTrigger {
     display: flex;
     justify-content: center;
@@ -107,4 +121,23 @@
     -o-transition: all 0.2s ease-in;
     -webkit-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
+}
+
+
+/* SCROLL BAR */
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: #E1E2EF; 
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #7FB069; 
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 128, 0, 0.85) ;
 }
