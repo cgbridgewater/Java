@@ -32,7 +32,7 @@ a,p {
 
 a:hover {
 	color: #454E9E;
-	}
+}
 
 .nav {
 	display:flex;
@@ -137,7 +137,6 @@ label {
 	background-color: #A54657;
 	color: #E1E2EF;
 }
-
 
 .submit {
 	border-color: #454E9E;

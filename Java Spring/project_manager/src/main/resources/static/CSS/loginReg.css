@@ -20,10 +20,6 @@ a {
 	position:relative;
 }
 
-a:active {
-	top:3px;
-}
-
 .nav {
 	display:flex;
 	justify-content:space-between;
@@ -112,7 +108,7 @@ label {
 	color: #E1E2EF;
 }
 
-.button:active {
+.button:active,a:active {
 	top: 2px;
 }
 

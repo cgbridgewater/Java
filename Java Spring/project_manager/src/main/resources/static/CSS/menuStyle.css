@@ -40,7 +40,6 @@
     transition: all 0.2s ease-in;
 }
 
-
 .menu_close{
     position: relative;
 	top:8px;
@@ -64,7 +63,6 @@
     transition: all 0.1s ease-in;
 }
 
-
 .offcanvas, #offcanvasExample.offcanvas-end.show {
     margin-top: 5px;
     height: 255px;
@@ -83,7 +81,6 @@
     -webkit-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
 }
-
 
 .menu__box {
     padding: 10px;
