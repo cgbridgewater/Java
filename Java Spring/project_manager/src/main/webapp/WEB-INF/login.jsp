@@ -31,7 +31,7 @@
 	                <div class="formation">
 	                    <form:label path="email"> Email: </form:label>				                    
 		                <div class="errorFlex">
-		                    <form:input path="email" class="input" autofocus="true"/>
+		                    <form:input path="email" class="input"/>
 		                    <form:errors path="email" class="errors"/>			                   	 	
 		                </div>
 	                </div>

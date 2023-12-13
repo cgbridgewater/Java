@@ -52,7 +52,7 @@
                 <div class="formation">
                     <form:label path="title"> Project Title:  </form:label>	
 	                <div class="errorFlex">
-	                    <form:input path="title" type="text" class="input" autofocus="true"/>
+	                    <form:input path="title" type="text" class="input"/>
 	                    <form:errors path="title" class="errors"/>
 	                </div>
                 </div>

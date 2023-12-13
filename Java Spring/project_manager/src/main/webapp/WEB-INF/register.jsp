@@ -31,7 +31,7 @@
 	                <div class="formation">
 	                    <form:label path="userName"> User Name:  </form:label>	
 		                <div class="errorFlex">
-		                    <form:input path="userName" class="input" autofocus="true"/>
+		                    <form:input path="userName" class="input"/>
 		                    <form:errors path="userName" class="errors"/>
 		                </div>
 	                </div>

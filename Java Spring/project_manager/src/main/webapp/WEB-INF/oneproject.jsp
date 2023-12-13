@@ -116,7 +116,7 @@
 			            <div class="sectionOne">
 			                <div id="addTask" class="ticketFlex">
 			                    <form:label path="text">  </form:label>	
-			                    <form:textarea path="text" rows="1" cols="40" class="input" autofocus="true"/>
+			                    <form:textarea path="text" rows="1" cols="40" class="input"/>
 				                <button class="button submit" type="submit">Submit</button>
 			                </div>
 			                <div class="errors">
