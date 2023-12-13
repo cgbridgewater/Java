@@ -78,13 +78,14 @@
 					    <td>
 						    <!-- FILTER USER TYPE OPTIONS (Creator or User) -->
 							<c:choose>
-								  <c:when test="${p.lead.id == user.id}">
-									   <p><a href="/projects/incomplete/${p.id}">Mark Incomplete</a></p>
-								  </c:when>
-								  <c:otherwise>
-		
-								  </c:otherwise>
+									<c:when test="${p.lead.id == user.id}">
+										<p><a href="/projects/incomplete/${p.id}">Mark Incomplete</a></p>
+									</c:when>
+								<c:otherwise>
+									&nbsp;
+								</c:otherwise>
 							</c:choose>
+							<!-- END FILTER USER TYPE OPTIONS -->
 					    </td>
 						<!-- END FILTER USER TYPE OPTIONS-->
 						<!-- COUNTER STATS -->

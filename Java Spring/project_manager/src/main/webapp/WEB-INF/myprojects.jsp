@@ -2,16 +2,10 @@
     pageEncoding="ISO-8859-1" import="java.util.Date" import = "javax.servlet.*,java.text.*"%>
 <%@ page import = "java.util.Date" %>
 <%@ page import = "java.text.SimpleDateFormat" %>
-<!-- c:out ; c:forEach etc. --> 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<!-- Formatting (dates) --> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
-<!-- form:form -->
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!-- jstl functions -->
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<!-- for rendering errors on PUT routes -->
-<%@ page isErrorPage="true" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +29,7 @@
 	<!-- MENU POPOUT BUTTON -->			
 	<div>
    		<button class="menuTrigger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-		   		  <i class="fa-solid fa-square-caret-down"></i> &nbsp; MENU
+			<i class="fa-solid fa-square-caret-down"></i> &nbsp; MENU
 		</button>
   	</div>
 	<!-- END MENU POPOUT BUTTON -->
@@ -55,6 +49,7 @@
 	   	<h5><a href="/projects/new">Create New Project</a></h5>
 	   	<h5 class="blue2">Quick View:  <a href="/projects/dashboard">Open Projects</a> / <a href="/projects/completed">Completed Projects</a></h5>
   	</div>
+  	<!-- END TABLE TITLE -->	
 	<!-- TABLE DISPLAY SECTION -->
 	<div class="tableContainer">
 		<table id="myProjects" class="table displayTable .table-hover">
@@ -71,13 +66,14 @@
 			<tbody>
 				<!-- LOOP TO ITERATE PROJECT LIST -->
 				<c:forEach var="p" items="${assignedProj}">
-					<!-- FILTER FOR INCOMPLETE ONLY) -->
+					<!-- FILTER FOR INCOMPLETE PROJECTS ONLY -->
 					<c:if test="${p.completed == false}"> 															
 						<tr>
 							<td><a href="/projects/${p.id}">${p.title}</a></td>
 							<td><p>${p.lead.userName}</p></td>
 							<td><p><fmt:formatDate value="${p.date}" type="date" dateStyle="long"  /></p></td>	
 						    <td>
+						    	<!-- FILTER FOR CREATOR -->
 								<c:choose>
 									<c:when test="${p.lead.id == user.id}">
 										<a href="/projects/edit/${p.id}">Edit</a> / <a href="/projects/${p.id}/delete">Delete</a>  <hr> <a href="/projects/completed/${p.id}">Mark Completed</a>
@@ -98,6 +94,7 @@
 							<!-- END COUNTER STATS -->	
 						</tr>
 					</c:if>
+					<!-- FILTER FOR INCOMPLETE PROJECTS ONLY -->
 				</c:forEach>
 				<!-- END LOOP TO ITERATE PROJECT LIST -->
 			</tbody>

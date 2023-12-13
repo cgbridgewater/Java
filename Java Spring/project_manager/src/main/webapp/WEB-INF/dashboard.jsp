@@ -1,17 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.Date" import = "javax.servlet.*,java.text.*"%>
 <%@ page import = "java.util.Date" %>
-<%@ page import = "java.text.SimpleDateFormat" %>
-<!-- c:out ; c:forEach etc. --> 
+<%@ page import = "java.text.SimpleDateFormat" %> 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<!-- Formatting (dates) --> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
-<!-- form:form -->
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!-- jstl functions -->
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<!-- for rendering errors on PUT routes -->
-<%@ page isErrorPage="true" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,6 +49,7 @@
 	   	<h5><a href="/projects/new">Create New Project</a></h5>
 	   	<h5 class="blue2">Quick View:  <a href="/projects/myprojects">My Projects</a> / <a href="/projects/completed">Completed Projects</a></h5>
   	</div>
+  	<!-- END TABLE TITLE -->
 	<!-- TABLE DISPLAY SECTION -->
 	<div class="tableContainer">
 		<table id="allProjects" class="table displayTable .table-hover">
@@ -73,7 +68,7 @@
 				<c:forEach var="p" items="${allProj}">
 						<tr>
 							<!-- FILTER USER TYPE OPTIONS (Creator or User) -->
-							<!-- C:If Joined Or Not Joined -->					
+							<!-- FILTER CREATOR -->					
 		                	<c:choose>
 								<c:when test="${p.lead.id == user.id}">
 									<td><a href="/projects/${p.id}">${p.title}</a> </td>
@@ -81,12 +76,10 @@
 									<td><p><fmt:formatDate value="${p.date}" type="date" dateStyle="long"/></p></td>
 									<td><a href="/projects/edit/${p.id}">Edit</a> / <a href="/projects/${p.id}/delete">Delete</a> <hr> <a href="/projects/completed/${p.id}">Mark Completed</a></td>
 								</c:when>								
-
 		                      	<c:otherwise>
 									<td><a href="/projects/${p.id}">${p.title}</a> </td>
 									<td><p><c:out value="${p.lead.userName}"/></p></td>
 									<td><p><fmt:formatDate value="${p.date}" type="date" dateStyle="long"/></p></td>	
-	
 									<td>
 										<c:if test="${p.users.contains(user)}">
 											<a href="/projects/${p.id}/leavedash">Leave Team</a>
