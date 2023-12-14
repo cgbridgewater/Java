@@ -67,10 +67,12 @@
 
 .menu_close:hover {
     color: red;
+    transform: rotate(90deg);
     -moz-transition: all 0.2s ease-in;
     -o-transition: all 0.2s ease-in;
     -webkit-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
+    
 }
 
 .menu_close:active {
