@@ -25,7 +25,7 @@
 <img width="75%" src="https://live.staticflickr.com/65535/53397307390_878e099a50_z.jpg" alt="Open Projects Page">
 <br/>
 <p>Three specific views of the projects can be viewed, All Open Projects, All Closed Projects and All Projects that the user has created or joined. This filters are all done on the server side, along with ordering the projects by date</p>
-<img width="75%" src="https://live.staticflickr.com/65535/53005080481_a9f964fee0_z.jpg" alt="Add data table views">
+<img width="75%" src="https://live.staticflickr.com/65535/53397187059_305a6a9b47_z.jpg" alt="All data table views">
 <br/>
 <p>New project and updating projects all utilize custom validations. Preventing bad data from entering the database. All due dates must also be in the future</p>
 <img width="75%" src="https://live.staticflickr.com/65535/53397187049_a8810d61e6_c.jpg" alt="NewProject">
