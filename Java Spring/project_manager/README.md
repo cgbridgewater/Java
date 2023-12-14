@@ -5,6 +5,14 @@
 <br/>
 <br/>
 
+
+### This project is not currently deployed, but I have a few that are. You can view them from my personal portfolio site
+View it here at <a href="http://www.chrisbridgewater.com/">chrisbridgewater.com</a>
+
+
+<br/>
+<br/>
+
 # 💻 Built With The Following Technologies
 
 <img height="20" alt="HTML" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"><img height="20" alt="CSS" src="https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3"><img height="20" alt="JS" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"><img height="20" alt="Java" src="https://img.shields.io/badge/java-%23E34A86.svg?style=for-the-badge&logo=openjdk&logoColor=white"><img height="20" alt="Spring" src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white"><img height="20" alt="SpringBoot" src="https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot"><img height="20" alt="MySQL" src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"><img height="20" alt="tomcat" src="https://img.shields.io/badge/apache%20tomcat-%23F8DC75.svg?style=for-the-badge&logo=apache-tomcat&logoColor=black"><img height="20" alt="ApacheMaven" src="https://img.shields.io/badge/apache_maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white"><img height="20" alt="Eclipse" src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=eclipse&logoColor=white"><img height="20" alt="Boostrap" src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"><img height="20" alt="VSCode" src="https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white"><img height="20" alt="GitHub" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"><img height="20" alt="Git" src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white"><img height="20" alt="HTML" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
