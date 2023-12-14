@@ -6,7 +6,7 @@
 <br/>
 
 
-### This project is not currently deployed, but I have a few that are. You can view them from my personal portfolio site
+This project is not currently deployed, but I have a few that are. You can view them from my personal portfolio site
 View it here at <a href="http://www.chrisbridgewater.com/">chrisbridgewater.com</a>
 
 
