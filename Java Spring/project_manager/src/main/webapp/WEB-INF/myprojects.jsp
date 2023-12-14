@@ -38,7 +38,7 @@
          <a class="menu_close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-square-xmark fa-2xl"></i></a>
          <ul class="menu__box">
              <li><a class="menu__item" href="/projects/new">Create A New Project</a></li>
-             <li><a class="menu__item" href="/projects/dashboard">All Projects</a></li>
+             <li><a class="menu__item" href="/projects/dashboard">Open Projects</a></li>
              <li><a class="menu__item" href="/projects/completed">Completed Projects</a></li>
              <li><a class="menu__item" href="/logout">Log Out</a></li>
          </ul>
